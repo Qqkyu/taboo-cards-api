@@ -3,20 +3,16 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-async function main() {
+export async function getTabooCards() {
   const client = new MongoClient(process.env.ATLAS_URI);
 
   try {
-    const database = client.db("sample_mflix");
-    const movies = database.collection("movies");
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { title: "Back to the Future" };
-    const movie = await movies.findOne(query);
-    console.log(movie);
+    const database = client.db("taboo_cards");
+    const cards = await database.collection("cards").find({}).toArray();
+    return cards;
   } finally {
-    // Ensures that the client will close when you finish/error
+    // Ensures that the client will close on finish/error
     await client.close();
+    return [];
   }
 }
-
-main().catch(console.error);
