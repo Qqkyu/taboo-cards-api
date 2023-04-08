@@ -1,6 +1,7 @@
 import express from "express";
 import config from "./config/index.js";
 import cardRouter from "./resources/card/card.router.js";
+import { rateLimiter } from "./middlewares/rateLimiter.js";
 import cors from "cors";
 
 const app = express();
@@ -9,8 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(rateLimiter);
+
 app.use("/", (req, res, next) => next());
-app.use("/api/card", cardRouter);
+app.use("/api/cards", cardRouter);
 
 export const start = async () => {
   try {
