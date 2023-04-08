@@ -1,17 +1,27 @@
 import { database } from "../../db.js";
+import { getRandomInt } from "../../utils/random.js";
 
 let TABOO_CARDS_CACHE = undefined;
 
 const getMany = async (req, res) => {
   try {
-    if (TABOO_CARDS_CACHE) {
-      res.status(200).json({ data: TABOO_CARDS_CACHE });
+    if (!TABOO_CARDS_CACHE) {
+      TABOO_CARDS_CACHE = await database.collection("cards").find({}).toArray();
     }
+    res.status(200).json({ data: TABOO_CARDS_CACHE });
+  } catch (e) {
+    console.error(e);
+    res.status(400).end();
+  }
+};
 
-    const cards = await database.collection("cards").find({}).toArray();
-    TABOO_CARDS_CACHE = cards;
-
-    res.status(200).json({ data: cards });
+const getRandom = async (req, res) => {
+  try {
+    if (!TABOO_CARDS_CACHE) {
+      TABOO_CARDS_CACHE = await database.collection("cards").find({}).toArray();
+    }
+    const randomTabooCardIdx = getRandomInt(0, TABOO_CARDS_CACHE.length);
+    res.status(200).json({ data: TABOO_CARDS_CACHE[randomTabooCardIdx] });
   } catch (e) {
     console.error(e);
     res.status(400).end();
@@ -20,4 +30,5 @@ const getMany = async (req, res) => {
 
 export const cardControllers = {
   getMany,
+  getRandom,
 };
