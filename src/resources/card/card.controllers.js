@@ -1,14 +1,19 @@
+import { CARDS_COLLECTION_NAME } from "../../constants/db.constants.js";
 import { database } from "../../db.js";
+import { cache } from "../../utils/cache.js";
 import { getRandomInt } from "../../utils/random.js";
-
-let TABOO_CARDS_CACHE = undefined;
 
 const getMany = async (req, res) => {
   try {
-    if (!TABOO_CARDS_CACHE) {
-      TABOO_CARDS_CACHE = await database.collection("cards").find({}).toArray();
+    if (!cache.has(CARDS_COLLECTION_NAME)) {
+      const cards = await database
+        .collection(CARDS_COLLECTION_NAME)
+        .find({})
+        .toArray();
+      cache.set(CARDS_COLLECTION_NAME, cards);
     }
-    res.status(200).json({ data: TABOO_CARDS_CACHE });
+    const cards = cache.get(CARDS_COLLECTION_NAME);
+    res.status(200).json({ data: cards });
   } catch (e) {
     console.error(e);
     res.status(400).end();
@@ -17,11 +22,16 @@ const getMany = async (req, res) => {
 
 const getRandom = async (req, res) => {
   try {
-    if (!TABOO_CARDS_CACHE) {
-      TABOO_CARDS_CACHE = await database.collection("cards").find({}).toArray();
+    if (!cache.has(CARDS_COLLECTION_NAME)) {
+      const cards = await database
+        .collection(CARDS_COLLECTION_NAME)
+        .find({})
+        .toArray();
+      cache.set(CARDS_COLLECTION_NAME, cards);
     }
-    const randomTabooCardIdx = getRandomInt(0, TABOO_CARDS_CACHE.length);
-    res.status(200).json({ data: TABOO_CARDS_CACHE[randomTabooCardIdx] });
+    const cards = cache.get(CARDS_COLLECTION_NAME);
+    const randomTabooCardIdx = getRandomInt(0, cards.length);
+    res.status(200).json({ data: cards[randomTabooCardIdx] });
   } catch (e) {
     console.error(e);
     res.status(400).end();
