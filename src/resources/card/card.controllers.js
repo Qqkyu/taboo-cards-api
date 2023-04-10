@@ -8,7 +8,7 @@ const getMany = async (req, res) => {
     if (!cache.has(CARDS_COLLECTION_NAME)) {
       const cards = await database
         .collection(CARDS_COLLECTION_NAME)
-        .find({})
+        .find({}, { projection: { _id: 0 } })
         .toArray();
       cache.set(CARDS_COLLECTION_NAME, cards);
     }
@@ -25,7 +25,7 @@ const getRandom = async (req, res) => {
     if (!cache.has(CARDS_COLLECTION_NAME)) {
       const cards = await database
         .collection(CARDS_COLLECTION_NAME)
-        .find({})
+        .find({}, { projection: { _id: 0 } })
         .toArray();
       cache.set(CARDS_COLLECTION_NAME, cards);
     }
