@@ -6,6 +6,14 @@
   "author": "Qqkyu <m.kulinskik@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "imports": {
+    "#config/*": "./src/config/*",
+    "#constants/*": "./src/constants/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#resources/*": "./src/resources/*",
+    "#utils/*": "./src/utils/*",
+    "#database/*": "./src/database/*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch index"

@@ -1,7 +1,7 @@
-import { cache } from "../utils/cache.utils.js";
-import { CARDS_COLLECTION_NAME } from "../constants/db.constants.js";
-import { database } from "../db.js";
-import { getCardWithOneLanguage } from "../utils/card-language.utils.js";
+import { cache } from "#utils/cache.utils.js";
+import { CARDS_COLLECTION_NAME } from "#constants/db.constants.js";
+import { database } from "#database/db.js";
+import { getCardWithOneLanguage } from "#utils/card-language.utils.js";
 
 export const cacheCheck = async (req, res, next) => {
   if (!cache.has(CARDS_COLLECTION_NAME)) {
