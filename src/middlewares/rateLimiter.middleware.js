@@ -1,7 +1,7 @@
 import rateLimit from "express-rate-limit";
 import { DAY_IN_MILLISECONDS } from "#constants/time.constants.js";
 
-const MAX_REQUESTS = 10000;
+const MAX_REQUESTS = 1000;
 
 export const rateLimiter = rateLimit({
   windowMs: DAY_IN_MILLISECONDS,
