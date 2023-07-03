@@ -7,10 +7,10 @@ Server that communicates with a database of around ~2000 taboo cards, each in tw
 Card:
 
 | Attribute      |   Type   | Description                               |
-| -------------- | :------: | ----------------------------------------- | ------ | --------------------- |
-| title          |  string  | Word to explain                           |
+| -------------- |:-------: | ----------------------------------------- |
+| title          | string   | Word to explain                           |
 | forbiddenWords | string[] | Words that can't be used to explain title |
-| difficulty     |  "easy"  | "medium"                                  | "hard" | Subjective difficulty |
+| difficulty     | string   | "easy", "medium", or "hard" |
 
 ## Example cards
 
