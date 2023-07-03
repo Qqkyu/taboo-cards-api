@@ -2,19 +2,23 @@
 
 Server that communicates with a database of around ~2000 taboo cards, each in two languages - English and Polish.
 
+## Models
+
+Card:
+
+| Attribute      |   Type   | Description                               |
+| -------------- | :------: | ----------------------------------------- | ------ | --------------------- |
+| title          |  string  | Word to explain                           |
+| forbiddenWords | string[] | Words that can't be used to explain title |
+| difficulty     |  "easy"  | "medium"                                  | "hard" | Subjective difficulty |
+
 ## Example cards
 
 English:
 
 ```json
 {
-  "forbiddenWords": [
-    "New York",
-    "torch",
-    "crown",
-    "sculpture",
-    "island"
-  ],
+  "forbiddenWords": ["New York", "torch", "crown", "sculpture", "island"],
   "title": "Statue of Liberty",
   "difficulty": "medium"
 }
