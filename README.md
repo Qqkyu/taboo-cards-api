@@ -6,11 +6,11 @@ Server that communicates with a database of around ~2000 taboo cards, each in tw
 
 Card:
 
-| Attribute      |   Type   | Description                               |
-| -------------- |:-------: | ----------------------------------------- |
-| title          | string   | Word to explain                           |
-| forbiddenWords | string[] | Words that can't be used to explain title |
-| difficulty     | string   | "easy", "medium", or "hard" |
+| Attribute      |   Type   | Description                                    |
+| -------------- |:-------: | ---------------------------------------------- |
+| title          | string   | Word to explain                                |
+| forbiddenWords | string[] | Five words that can't be used to explain title |
+| difficulty     | string   | "easy", "medium", or "hard"                    |
 
 ## Example cards
 
@@ -18,13 +18,19 @@ English:
 
 ```json
 {
-  "forbiddenWords": ["New York", "torch", "crown", "sculpture", "island"],
+  "forbiddenWords": [
+    "New York",
+    "torch",
+    "crown",
+    "sculpture",
+    "island"
+  ],
   "title": "Statue of Liberty",
   "difficulty": "medium"
 }
 ```
 
-Corresponding Polish card:
+Corresponding card in Polish:
 
 ```json
 {
