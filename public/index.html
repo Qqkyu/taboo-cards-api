@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Taboo cards API</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <main>
+      <h1 id="taboo-cards-api">Taboo cards API</h1>
+      <p>
+        Server that communicates with a database of around ~2000 taboo cards,
+        each in two languages - English and Polish.
+      </p>
+      <h2 id="base-url">Base URL</h2>
+      <p>
+        <a href="https://www.taboocardsapi.com/api/"
+          >https://www.taboocardsapi.com/api/</a
+        >
+      </p>
+      <h2 id="models">Models</h2>
+      <p>Card:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th style="text-align: center">Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>title</td>
+            <td style="text-align: center">string</td>
+            <td>Word to explain</td>
+          </tr>
+          <tr>
+            <td>forbiddenWords</td>
+            <td style="text-align: center">string[]</td>
+            <td>Five words that can&#39;t be used to explain title</td>
+          </tr>
+          <tr>
+            <td>difficulty</td>
+            <td style="text-align: center">string</td>
+            <td>&quot;easy&quot;, &quot;medium&quot;, or &quot;hard&quot;</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="example-cards">Example cards</h2>
+      <p>English:</p>
+      <pre><code class="lang-json">{
+  <span class="hljs-attr">"forbiddenWords"</span>: [
+    <span class="hljs-string">"New York"</span>,
+    <span class="hljs-string">"torch"</span>,
+    <span class="hljs-string">"crown"</span>,
+    <span class="hljs-string">"sculpture"</span>,
+    <span class="hljs-string">"island"</span>
+  ],
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Statue of Liberty"</span>,
+  <span class="hljs-attr">"difficulty"</span>: <span class="hljs-string">"medium"</span>
+}
+</code></pre>
+      <p>Corresponding card in Polish:</p>
+      <pre><code class="lang-json">{
+  <span class="hljs-attr">"forbiddenWords"</span>: [
+    <span class="hljs-string">"Nowy Jork"</span>,
+    <span class="hljs-string">"Stany Zjednoczone"</span>,
+    <span class="hljs-string">"prezent"</span>,
+    <span class="hljs-string">"wyspa"</span>,
+    <span class="hljs-string">"pochodnia"</span>
+  ],
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Statua Wolności"</span>,
+  <span class="hljs-attr">"difficulty"</span>: <span class="hljs-string">"medium"</span>
+}
+</code></pre>
+      <h2 id="endpoints">Endpoints</h2>
+      <p>
+        There are currently two endpoints, both with the language query
+        parameter. Parameter options are &quot;pl&quot; and &quot;en&quot;.
+        However, it is optional and will default to &quot;en&quot;.
+      </p>
+      <p>First endpoint returns all of the cards stored in the database.</p>
+      <pre><code><span class="hljs-regexp">/api/</span>cards
+<span class="hljs-regexp">/api/</span>cards?language=en
+<span class="hljs-regexp">/api/</span>cards?language=pl
+</code></pre>
+      <p>
+        In the above example, first two paths will return the same response.
+      </p>
+      <p>Second one randomly chooses one card and returns it:</p>
+      <pre><code>/api/cards/<span class="hljs-built_in">random</span>
+/api/cards/<span class="hljs-built_in">random</span>?<span class="hljs-built_in">language</span>=en
+/api/cards/<span class="hljs-built_in">random</span>?<span class="hljs-built_in">language</span>=pl
+</code></pre>
+      <p>
+        Same as in the first example, first two paths will give the same
+        response.
+      </p>
+    </main>
+  </body>
+</html>
