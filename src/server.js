@@ -26,6 +26,10 @@ app.use(languageCheck);
 app.use("/", (req, res, next) => next());
 app.use("/api/cards", cardRouter);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
 export const start = async () => {
   try {
     app.listen(config.port, () => {
