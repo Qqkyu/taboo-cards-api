@@ -2,6 +2,10 @@
 
 Server that communicates with a database of around ~2000 taboo cards, each in two languages - English and Polish.
 
+## Base URL
+
+`https://www.taboocardsapi.com/api/`
+
 ## Models
 
 Card:
