@@ -4,7 +4,7 @@ Server that communicates with a database of around ~2000 taboo cards, each in tw
 
 ## Base URL
 
-`https://www.taboocardsapi.com/api/`
+https://www.taboocardsapi.com/api/
 
 ## Models
 
