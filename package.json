@@ -7,12 +7,12 @@
   "license": "MIT",
   "type": "module",
   "imports": {
-    "#config/*": "./src/config/*",
-    "#constants/*": "./src/constants/*",
-    "#middlewares/*": "./src/middlewares/*",
-    "#resources/*": "./src/resources/*",
-    "#utils/*": "./src/utils/*",
-    "#database/*": "./src/database/*"
+    "#config/*": "./server/config/*",
+    "#constants/*": "./server/constants/*",
+    "#middlewares/*": "./server/middlewares/*",
+    "#resources/*": "./server/resources/*",
+    "#utils/*": "./server/utils/*",
+    "#database/*": "./server/database/*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
