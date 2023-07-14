@@ -33,9 +33,7 @@ app.get("*", (req, res) => {
 export const start = async () => {
   try {
     app.listen(config.port, () => {
-      console.log(
-        `⚡️[server]: Server is running at http://localhost:${config.port}`
-      );
+      console.log(`⚡️[server]: Server is running at http://localhost:${config.port}`);
     });
   } catch (e) {
     console.error(e);
