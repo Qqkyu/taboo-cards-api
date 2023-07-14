@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,21 +11,18 @@
     <main>
       <h1 id="taboo-cards-api">Taboo cards API</h1>
       <p>
-        Server that communicates with a database of around ~2000 taboo cards,
-        each in two languages - English and Polish.
+        Server that communicates with a database of around ~2000 taboo cards, each in two languages - English and
+        Polish.
       </p>
       <h2 id="base-url">Base URL</h2>
       <p>
-        <a href="https://www.taboocardsapi.com/api/"
-          >https://www.taboocardsapi.com/api/</a
-        >
+        <a href="https://www.taboocardsapi.com/api/">https://www.taboocardsapi.com/api/</a>
       </p>
       <h2 id="rate-limit">Rate limit</h2>
       <p>
-        There is a 100 requests per day API limit to prevent any malicious
-        action. If you were to make more requests than this, you will get error
-        response with 429 status response (Too Many Requests). This will likely
-        be increased in the near future.
+        There is a 100 requests per day API limit to prevent any malicious action. If you were to make more requests
+        than this, you will get error response with 429 status response (Too Many Requests). This will likely be
+        increased in the near future.
       </p>
       <h2 id="models">Models</h2>
       <p>Card:</p>
@@ -84,27 +81,21 @@
 </code></pre>
       <h2 id="endpoints">Endpoints</h2>
       <p>
-        There are currently two endpoints, both with the language query
-        parameter. Parameter options are &quot;pl&quot; and &quot;en&quot;.
-        However, it is optional and will default to &quot;en&quot;.
+        There are currently two endpoints, both with the language query parameter. Parameter options are &quot;pl&quot;
+        and &quot;en&quot;. However, it is optional and will default to &quot;en&quot;.
       </p>
       <p>First endpoint returns all of the cards stored in the database.</p>
       <pre><code><span class="hljs-regexp">/api/</span>cards
 <span class="hljs-regexp">/api/</span>cards?language=en
 <span class="hljs-regexp">/api/</span>cards?language=pl
 </code></pre>
-      <p>
-        In the above example, first two paths will return the same response.
-      </p>
+      <p>In the above example, first two paths will return the same response.</p>
       <p>Second one randomly chooses one card and returns it:</p>
       <pre><code>/api/cards/<span class="hljs-built_in">random</span>
 /api/cards/<span class="hljs-built_in">random</span>?<span class="hljs-built_in">language</span>=en
 /api/cards/<span class="hljs-built_in">random</span>?<span class="hljs-built_in">language</span>=pl
 </code></pre>
-      <p>
-        Same as in the first example, first two paths will give the same
-        response.
-      </p>
+      <p>Same as in the first example, first two paths will give the same response.</p>
     </main>
   </body>
 </html>

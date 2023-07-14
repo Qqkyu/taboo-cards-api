@@ -15,10 +15,10 @@ There is a 100 requests per day API limit to prevent any malicious action. If yo
 Card:
 
 | Attribute      |   Type   | Description                                    |
-| -------------- |:-------: | ---------------------------------------------- |
-| title          | string   | Word to explain                                |
+| -------------- | :------: | ---------------------------------------------- |
+| title          |  string  | Word to explain                                |
 | forbiddenWords | string[] | Five words that can't be used to explain title |
-| difficulty     | string   | "easy", "medium", or "hard"                    |
+| difficulty     |  string  | "easy", "medium", or "hard"                    |
 
 ## Example cards
 
@@ -26,13 +26,7 @@ English:
 
 ```json
 {
-  "forbiddenWords": [
-    "New York",
-    "torch",
-    "crown",
-    "sculpture",
-    "island"
-  ],
+  "forbiddenWords": ["New York", "torch", "crown", "sculpture", "island"],
   "title": "Statue of Liberty",
   "difficulty": "medium"
 }
@@ -42,13 +36,7 @@ Corresponding card in Polish:
 
 ```json
 {
-  "forbiddenWords": [
-    "Nowy Jork",
-    "Stany Zjednoczone",
-    "prezent",
-    "wyspa",
-    "pochodnia"
-  ],
+  "forbiddenWords": ["Nowy Jork", "Stany Zjednoczone", "prezent", "wyspa", "pochodnia"],
   "title": "Statua Wolności",
   "difficulty": "medium"
 }
