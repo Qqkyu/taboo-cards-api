@@ -1,0 +1,12 @@
+{
+  "extends": ["eslint:recommended", "eslint-config-prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["eslint-plugin-prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  },
+  "root": true
+}
