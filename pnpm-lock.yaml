@@ -8,6 +8,7 @@ specifiers:
   express-rate-limit: 6.7.0
   mongodb: 5.1.0
   node-cache: 5.1.2
+  prettier: 3.0.0
   prettier-plugin-astro: 0.11.0
 
 dependencies:
@@ -20,6 +21,7 @@ dependencies:
   node-cache: 5.1.2
 
 devDependencies:
+  prettier: 3.0.0
   prettier-plugin-astro: 0.11.0
 
 packages:
