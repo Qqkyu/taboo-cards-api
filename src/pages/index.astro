@@ -1,4 +1,5 @@
 ---
+import { Header } from "../components/header/header.component";
 // Welcome to Astro! Everything between these triple-dash code fences
 // is your "component frontmatter". It never runs in the browser.
 console.log("This runs in your terminal, not the browser!");
@@ -7,10 +8,12 @@ console.log("This runs in your terminal, not the browser!");
 <!-- Below is your "component template." It's just HTML, but with
      some magic sprinkled in to help you build great templates. -->
 <html>
+  <Header />
   <body><h1>Hello, World!</h1></body>
+
+  <style>
+    h1 {
+      color: orange;
+    }
+  </style>
 </html>
-<style>
-  h1 {
-    color: orange;
-  }
-</style>

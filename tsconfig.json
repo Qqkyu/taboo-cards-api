@@ -1,3 +1,12 @@
 {
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true
+  },
   "extends": "astro/tsconfigs/base"
 }
