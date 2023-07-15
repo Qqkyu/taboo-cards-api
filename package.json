@@ -15,7 +15,7 @@
     "#database/*": "./server/database/*"
   },
   "scripts": {
-    "verify": "prettier --check . && eslint --max-warnings 0 .",
+    "verify": "prettier --check './server' './src' && eslint --max-warnings 0 './server' './src'",
     "dev:backend": "node --watch server/index.js",
     "dev:frontend": "astro dev",
     "start:frontend": "astro dev",
