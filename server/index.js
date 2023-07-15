@@ -30,12 +30,10 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-export const start = async () => {
-  try {
-    app.listen(config.port, () => {
-      console.log(`⚡️[server]: Server is running at http://localhost:${config.port}`);
-    });
-  } catch (e) {
-    console.error(e);
-  }
-};
+try {
+  app.listen(config.port, () => {
+    console.log(`⚡️[server]: Server is running at http://localhost:${config.port}`);
+  });
+} catch (e) {
+  console.error(e);
+}
