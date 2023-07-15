@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:tailwindcss/recommended", "plugin:jsx-a11y/recommended"],
+  "extends": ["plugin:tailwindcss/recommended", "plugin:jsx-a11y/recommended", "plugin:astro/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["tailwindcss", "jsx-a11y", "no-relative-import-paths"],
   "rules": {
@@ -7,6 +7,16 @@
     "no-console": "warn",
     "no-relative-import-paths/no-relative-import-paths": ["warn", { "allowSameFolder": true }]
   },
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      }
+    }
+  ],
   "env": {
     "browser": true
   }
