@@ -32,7 +32,7 @@ app.get("*", (req, res) => {
 
 try {
   app.listen(config.port, () => {
-    console.log(`⚡️[server]: Server is running at http://localhost:${config.port}`);
+    console.log(`Server is running at port: ${config.port}`);
   });
 } catch (e) {
   console.error(e);

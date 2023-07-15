@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
 
 export const Header: FunctionComponent = () => {
-  return <div>Header</div>;
+  return <div className="bg-purple-500">Header</div>;
 };
