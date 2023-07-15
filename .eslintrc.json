@@ -8,8 +8,5 @@
   "rules": {
     "prettier/prettier": ["error"]
   },
-  "root": true,
-  "env": {
-    "node": true
-  }
+  "root": true
 }

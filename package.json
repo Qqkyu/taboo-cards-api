@@ -15,7 +15,7 @@
     "#database/*": "./server/database/*"
   },
   "scripts": {
-    "verify": "prettier --check './server' './src' && eslint --max-warnings 0 './server' './src'",
+    "verify": "prettier --check './server/**' './src/**' && eslint --max-warnings 0 './server/**' './src/**'",
     "dev:backend": "node --watch server/index.js",
     "dev:frontend": "astro dev",
     "start:frontend": "astro dev",
@@ -39,11 +39,17 @@
   "devDependencies": {
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "@typescript-eslint/eslint-plugin": "6.0.0",
+    "@typescript-eslint/parser": "6.0.0",
     "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-no-relative-import-paths": "1.5.2",
     "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-tailwindcss": "3.13.0",
     "prettier": "3.0.0",
     "prettier-plugin-astro": "0.11.0",
+    "prettier-plugin-tailwindcss": "0.4.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   }

@@ -1,0 +1,13 @@
+{
+  "extends": ["plugin:tailwindcss/recommended", "plugin:jsx-a11y/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["tailwindcss", "jsx-a11y", "no-relative-import-paths"],
+  "rules": {
+    "tailwindcss/classnames-order": "off",
+    "no-console": "warn",
+    "no-relative-import-paths/no-relative-import-paths": ["warn", { "allowSameFolder": true }]
+  },
+  "env": {
+    "browser": true
+  }
+}
