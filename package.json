@@ -2,17 +2,11 @@
   "name": "taboo-cards-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "author": "Qqkyu <m.kulinskik@gmail.com>",
   "license": "MIT",
   "type": "module",
   "imports": {
-    "#config/*": "./server/config/*",
-    "#constants/*": "./server/constants/*",
-    "#middlewares/*": "./server/middlewares/*",
-    "#resources/*": "./server/resources/*",
-    "#utils/*": "./server/utils/*",
-    "#database/*": "./server/database/*"
+    "#server/*": "./server/*"
   },
   "scripts": {
     "verify": "prettier --check './server/**' './src/**' && eslint --max-warnings 0 './server/**' './src/**'",

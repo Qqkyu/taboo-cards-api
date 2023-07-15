@@ -1,7 +1,7 @@
-import { CARDS_COLLECTION_NAME } from "#constants/db.constants.js";
-import { DEFAULT_CARD_LANGUAGE } from "#utils/card-language.utils.js";
-import { getRandomInt } from "#utils/random.utils.js";
-import { cache } from "#utils/cache.utils.js";
+import { CARDS_COLLECTION_NAME } from "#server/constants/db.constants.js";
+import { DEFAULT_CARD_LANGUAGE } from "#server/utils/card-language.utils.js";
+import { getRandomInt } from "#server/utils/random.utils.js";
+import { cache } from "#server/utils/cache.utils.js";
 
 const getMany = async (req, res) => {
   try {
