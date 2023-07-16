@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "verify": "prettier --check './server/**' './src/**' && eslint --max-warnings 0 './server/**' './src/**'"
+    "verify": "prettier --check './server/**' './frontend/**' && eslint --max-warnings 0 './server/**' './frontend/**'"
   },
   "devDependencies": {
     "eslint": "8.45.0",
