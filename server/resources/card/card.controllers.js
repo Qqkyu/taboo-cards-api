@@ -5,7 +5,8 @@ import { cache } from "#server/utils/cache.utils.js";
 
 const getMany = async (req, res) => {
   try {
-    const cards = cache.get(CARDS_COLLECTION_NAME)[req.query.language ?? DEFAULT_CARD_LANGUAGE];
+    const cards =
+      cache.get(CARDS_COLLECTION_NAME)[req.query.language ?? DEFAULT_CARD_LANGUAGE][req.query.difficulty ?? "all"];
     res.status(200).json({ data: cards });
   } catch (e) {
     console.error(e);
@@ -15,7 +16,8 @@ const getMany = async (req, res) => {
 
 const getRandom = async (req, res) => {
   try {
-    const cards = cache.get(CARDS_COLLECTION_NAME)[req.query.language ?? DEFAULT_CARD_LANGUAGE];
+    const cards =
+      cache.get(CARDS_COLLECTION_NAME)[req.query.language ?? DEFAULT_CARD_LANGUAGE][req.query.difficulty ?? "all"];
     const randomTabooCardIdx = getRandomInt(0, cards.length);
     const randomTabooCard = cards[randomTabooCardIdx];
 
