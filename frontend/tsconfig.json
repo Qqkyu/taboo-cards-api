@@ -2,15 +2,17 @@
   "compilerOptions": {
     "target": "ES2015",
     "module": "ESNext",
-    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "skipLibCheck": true,
     "jsx": "preserve",
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "#server/*": ["./server/*"],
-      "#src/*": ["./src/*"]
+      "@/components/*": ["src/components/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/pages/*": ["src/pages/*"]
     },
     "baseUrl": "."
   },

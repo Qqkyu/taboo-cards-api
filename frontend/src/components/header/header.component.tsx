@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Icon } from "#src/components/icon/icon.component.jsx";
+import { Icon } from "@/components/icon/icon.component";
 
 export const Header: FunctionComponent = () => {
   return (
