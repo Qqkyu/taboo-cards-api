@@ -44,24 +44,58 @@ Corresponding card in Polish:
 
 ## Endpoints
 
-There are currently two endpoints, both with the language query parameter. Parameter options are "pl" and "en". However, it is optional and will default to "en".
-
-First endpoint returns all of the cards stored in the database.
+There are currently two endpoints. First endpoint returns all of the cards stored in the database. The response is the array of card objects.
 
 ```
 /api/cards
+```
+
+Second one randomly chooses one card and returns it. The response is a single card object:
+
+```
+/api/cards/random
+```
+
+## Query parameters
+
+In both of the above endpoints, you can attach following `language` and `difficulty` query parameters.
+
+### Optional `language` query parameter
+
+Attach `language` query parameter to get cards only in the provider language (either `en` or `pl`):
+
+```
 /api/cards?language=en
 /api/cards?language=pl
 ```
 
-In the above example, first two paths will return the same response.
-
-Second one randomly chooses one card and returns it:
+Not providing `language` query parameter is equal to providing `language=en`, so following endpoints are equal:
 
 ```
-/api/cards/random
-/api/cards/random?language=en
-/api/cards/random?language=pl
+/api/cards                      --> Array of cards in English
+/api/cards?language=en          --> Array of cards in English
 ```
 
-Same as in the first example, first two paths will give the same response.
+Same applies to `/random` endpoint:
+
+```
+/api/cards/random               --> Random card in English
+/api/cards/random?language=en   --> Random card in English
+```
+
+### Optional `difficulty` query parameter
+
+Attach `difficulty` query parameter to get cards only with the provider difficulty (`easy`, `medium`, or `hard`):
+
+```
+/api/cards?difficulty=easy
+/api/cards?difficulty=medium
+/api/cards?difficulty=hard
+```
+
+Not providing `difficulty` query parameter will result in:
+
+```
+/api/cards          --> Return all cards with mixed difficulties
+/api/cards/random   --> Return one card with any difficulty
+```
