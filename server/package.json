@@ -3,7 +3,12 @@
   "main": "index.js",
   "type": "module",
   "imports": {
-    "#server/*": "./*"
+    "#config/*": "./src/config/*",
+    "#constants/*": "./src/constants/*",
+    "#database/*": "./src/database/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#resources/*": "./src/resources/*",
+    "#utils/*": "./src/utils/*"
   },
   "scripts": {
     "dev": "node --watch index.js"

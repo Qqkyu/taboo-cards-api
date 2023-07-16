@@ -6,7 +6,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "verify": "prettier --check './server/**' './frontend/**' && eslint --max-warnings 0 './server/**' './frontend/**'"
+    "ci": "pnpm install --frozen-lockfile",
+    "verify": "prettier --check './server/src/**' './frontend/src/**' && eslint --max-warnings 0 './server/src/**' './frontend/src/**'"
   },
   "devDependencies": {
     "eslint": "8.45.0",

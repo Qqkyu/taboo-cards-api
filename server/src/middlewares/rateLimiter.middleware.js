@@ -1,5 +1,5 @@
 import rateLimit from "express-rate-limit";
-import { DAY_IN_MILLISECONDS } from "#server/constants/time.constants.js";
+import { DAY_IN_MILLISECONDS } from "#constants/time.constants.js";
 
 const MAX_REQUESTS = 100;
 

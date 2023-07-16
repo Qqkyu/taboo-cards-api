@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "#config/*": ["./src/config/*"],
+      "#constants/*": ["./src/constants/*"],
+      "#database/*": ["./src/database/*"],
+      "#middlewares/*": ["./src/middlewares/*"],
+      "#resources/*": ["./src/resources/*"],
+      "#utils/*": ["./src/utils/*"]
+    }
+  }
+}

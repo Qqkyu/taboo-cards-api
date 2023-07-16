@@ -1,9 +1,9 @@
 import express from "express";
-import config from "#server/config/index.js";
-import cardRouter from "#server/resources/card/card.router.js";
-import { rateLimiter } from "#server/middlewares/rateLimiter.middleware.js";
-import { cacheCheck } from "#server/middlewares/cache.middleware.js";
-import { languageCheck } from "#server/middlewares/language.middleware.js";
+import config from "#config/index.js";
+import cardRouter from "#resources/card/card.router.js";
+import { rateLimiter } from "#middlewares/rateLimiter.middleware.js";
+import { cacheCheck } from "#middlewares/cache.middleware.js";
+import { languageCheck } from "#middlewares/language.middleware.js";
 import { fileURLToPath } from "url";
 import path from "path";
 import cors from "cors";
