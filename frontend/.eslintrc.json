@@ -17,6 +17,11 @@
       }
     }
   ],
+  "settings": {
+    "tailwindcss": {
+      "config": "frontend/tailwind.config.js"
+    }
+  },
   "env": {
     "browser": true
   }
