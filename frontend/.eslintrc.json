@@ -15,14 +15,17 @@
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"]
       }
+    },
+    {
+      "files": ["*.config.js"],
+      "env": {
+        "node": true
+      }
     }
   ],
   "settings": {
     "tailwindcss": {
       "config": "frontend/tailwind.config.js"
     }
-  },
-  "env": {
-    "browser": true
   }
 }
