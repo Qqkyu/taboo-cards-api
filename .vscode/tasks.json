@@ -6,7 +6,7 @@
     {
       "label": "Start frontend",
       "type": "shell",
-      "command": "pnpm run dev:frontend",
+      "command": "pnpm run --prefix frontend dev",
       "presentation": {
         "group": "Development"
       }
@@ -14,7 +14,7 @@
     {
       "label": "Start backend",
       "type": "shell",
-      "command": "pnpm run dev:backend",
+      "command": "pnpm run --prefix server dev",
       "presentation": {
         "group": "Development"
       }
