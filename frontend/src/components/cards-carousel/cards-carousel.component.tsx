@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { Card } from "src/types/card.types";
 
-const CARDS_IN_CAROUSEL = 10;
+const CARDS_IN_CAROUSEL = 1000;
 
 const response = await fetch("http://localhost:7777/api/cards");
 const data = await response.json();
