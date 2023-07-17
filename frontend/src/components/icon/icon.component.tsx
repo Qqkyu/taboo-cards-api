@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { BurgerMenuIcon } from "./icons/burger-menu.icon.jsx";
-import { IconComponentProps } from "./icons/icon-props.js";
+import { BurgerMenuIcon } from "./icons/burger-menu.icon";
+import { IconComponentProps } from "./icons/icon-props";
 
 export type IconType = "burger-menu";
 

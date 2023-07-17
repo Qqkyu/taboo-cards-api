@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { IconComponentProps } from "./icon-props.js";
+import { IconComponentProps } from "./icon-props";
 
 export const BurgerMenuIcon: FunctionComponent<IconComponentProps> = ({ color, className }) => {
   return (
