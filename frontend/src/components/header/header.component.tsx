@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { ThemeToggle } from "./_components/theme-toggle/theme-toggle.component";
 
 export const Header: FunctionComponent = () => {
   return (
@@ -12,6 +13,7 @@ export const Header: FunctionComponent = () => {
         <a href="#card-model" className="btn-ghost btn-outline btn text-xl normal-case text-primary-content">
           <span>Card model</span>
         </a>
+        <ThemeToggle />
       </div>
     </div>
   );

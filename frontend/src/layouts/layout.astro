@@ -8,5 +8,19 @@ import { Header } from "@/components/header/header.component";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body><Header /><slot /></body>
+  <body><Header client:load /><slot /></body>
+  <script is:inline>
+    const theme = (() => {
+      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        return localStorage.getItem("theme");
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "pastel";
+    })();
+
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem("theme", theme);
+  </script>
 </html>
