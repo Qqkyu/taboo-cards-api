@@ -7,7 +7,7 @@ type Props = PropsWithChildren<{
 
 export const Section: FunctionComponent<Props> = ({ id, header, children }) => {
   return (
-    <section id={id} className="flex flex-col gap-5 p-5">
+    <section id={id} className="flex flex-col gap-5">
       <h2 className="prose prose-2xl">{header}</h2>
       {children}
     </section>
