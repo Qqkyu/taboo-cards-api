@@ -3,7 +3,7 @@ import { ThemeToggle } from "./_components/theme-toggle/theme-toggle.component";
 
 export const Header: FunctionComponent = () => {
   return (
-    <div className="navbar bg-base-100 p-4">
+    <div className="navbar bg-base-300 p-4">
       <div className="navbar-start">
         <a href="/" className="btn-ghost btn text-xl normal-case text-primary-content">
           Taboo cards API
