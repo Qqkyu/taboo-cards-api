@@ -1,5 +1,10 @@
 {
-  "extends": ["plugin:tailwindcss/recommended", "plugin:jsx-a11y/recommended", "plugin:astro/recommended"],
+  "extends": [
+    "plugin:tailwindcss/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:astro/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["tailwindcss", "jsx-a11y", "no-relative-import-paths"],
   "rules": {

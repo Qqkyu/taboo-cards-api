@@ -4,6 +4,7 @@ import { Icon } from "@/components/icon/icon.component";
 export const ThemeToggle: FunctionComponent = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const initialTheme = useMemo(() => theme, []);
 
   const handleClick = () => {

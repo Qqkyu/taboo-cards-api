@@ -28,6 +28,7 @@ importers:
       eslint-plugin-astro: 0.27.2
       eslint-plugin-jsx-a11y: 6.7.1
       eslint-plugin-no-relative-import-paths: 1.5.2
+      eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-tailwindcss: 3.13.0
       prettier-plugin-astro: 0.11.0
       prettier-plugin-tailwindcss: 0.4.1
@@ -51,6 +52,7 @@ importers:
       eslint-plugin-astro: 0.27.2
       eslint-plugin-jsx-a11y: 6.7.1
       eslint-plugin-no-relative-import-paths: 1.5.2
+      eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-tailwindcss: 3.13.0_tailwindcss@3.3.3
       prettier-plugin-astro: 0.11.0
       prettier-plugin-tailwindcss: 0.4.1_pfbfepy3hsykwh6gxaaozauwam
@@ -2296,6 +2298,13 @@ packages:
       prettier: 3.0.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
+    dev: true
+
+  /eslint-plugin-react-hooks/4.6.0:
+    resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
     dev: true
 
   /eslint-plugin-tailwindcss/3.13.0_tailwindcss@3.3.3:
