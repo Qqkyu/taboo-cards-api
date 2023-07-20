@@ -1,6 +1,12 @@
 ---
 import { CardsCarousel } from "@/components/cards-carousel/cards-carousel.component";
+import { CardModel } from "@/components/card-model/card-model.component";
+import { Section } from "@/components/section/section.component";
 import Layout from "@/layouts/layout.astro";
 ---
 
-<Layout><div class="flex justify-center"><CardsCarousel /></div></Layout>
+<Layout>
+  <div class="flex flex-col items-center gap-20 justify-center">
+    <CardsCarousel /><Section header="Card model"><CardModel /></Section>
+  </div>
+</Layout>
