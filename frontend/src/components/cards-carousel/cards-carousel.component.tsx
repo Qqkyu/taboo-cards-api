@@ -27,7 +27,7 @@ export const CardsCarousel: FunctionComponent = () => {
                 </h2>
                 <div className="flex flex-col items-center gap-4">
                   {forbiddenWords.map((word) => (
-                    <p>{word}</p>
+                    <p key={word}>{word}</p>
                   ))}
                 </div>
               </div>
