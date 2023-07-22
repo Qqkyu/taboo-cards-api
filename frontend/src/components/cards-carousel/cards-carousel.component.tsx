@@ -27,7 +27,7 @@ export const Cards: FunctionComponent = () => {
                   </h2>
                   <div className="flex flex-col items-center gap-3">
                     {forbiddenWords.map((word) => (
-                      <p key={word} className="prose">
+                      <p key={word} className="prose prose-lg">
                         {word}
                       </p>
                     ))}

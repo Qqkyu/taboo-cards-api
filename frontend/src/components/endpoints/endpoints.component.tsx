@@ -23,7 +23,7 @@ export const Endpoints: FunctionComponent = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="prose prose-xl">Query parameters</h3>
+        <h3 className="prose prose-xl font-medium">Query parameters</h3>
         <p className="prose">
           In both of the above endpoints, you can attach following language and difficulty query parameters.
         </p>
