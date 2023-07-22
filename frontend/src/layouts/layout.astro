@@ -1,5 +1,6 @@
 ---
 import { Header } from "@/components/header/header.component";
+import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
 ---
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@ import { Header } from "@/components/header/header.component";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
-  <body><Header client:load /><slot /></body>
+  <body><Header client:load /><slot /><ScrollToTopButton client:load /></body>
   <script is:inline>
     const theme = (() => {
       if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {

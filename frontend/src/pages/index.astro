@@ -1,24 +1,13 @@
 ---
-import { Cards } from "@/components/cards-carousel/cards-carousel.component";
-import { CardModel } from "@/components/card-model/card-model.component";
-import { Section } from "@/components/section/section.component";
+import { Cards } from "@/components/cards/cards.component";
+import { Docs } from "@/components/docs/docs.component";
 import Layout from "@/layouts/layout.astro";
-import { Endpoints } from "@/components/endpoints/endpoints.component";
-import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
-import { RateLimit } from "@/components/rate-limit/rate-limit.component";
 ---
 
 <Layout>
   <div class="flex p-20 flex-col items-center gap-20 justify-center">
-    <div id="cards">
-      <Cards />
-    </div>
+    <Cards />
     <div class="divider"></div>
-    <div id="docs" class="flex flex-col gap-14">
-      <Section header="Card model"><CardModel /></Section>
-      <Section header="Endpoints"><Endpoints /></Section>
-      <Section header="Rate limit"><RateLimit /></Section>
-    </div>
+    <Docs />
   </div>
-  <ScrollToTopButton client:load />
 </Layout>
