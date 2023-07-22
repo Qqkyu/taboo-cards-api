@@ -4,7 +4,7 @@ import { Icon } from "@/components/icon/icon.component";
 
 export const Header: FunctionComponent = () => {
   return (
-    <div className="navbar z-10 fixed bg-base-300 p-4">
+    <div className="navbar bg-base-300 p-4">
       <div className="navbar-start">
         <a href="/" className="btn-ghost btn text-xl normal-case text-primary-content">
           Taboo cards API
