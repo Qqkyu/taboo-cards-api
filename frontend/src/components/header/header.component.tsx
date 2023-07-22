@@ -6,15 +6,15 @@ export const Header: FunctionComponent = () => {
   return (
     <div className="navbar bg-base-300 p-4">
       <div className="navbar-start">
-        <a href="/" className="btn-ghost btn text-xl normal-case text-primary-content">
+        <a href="/" className="btn-ghost btn text-primary-content text-xl normal-case">
           Taboo cards API
         </a>
       </div>
       <div className="navbar-end flex gap-4">
-        <a href="#cards" className="btn-ghost btn-outline btn text-lg normal-case text-primary-content">
+        <a href="#cards" className="btn-ghost btn-outline btn text-primary-content text-lg normal-case">
           <span>Cards</span>
         </a>
-        <a href="#docs" className="btn-ghost btn-outline btn text-lg normal-case text-primary-content">
+        <a href="#docs" className="btn-ghost btn-outline btn text-primary-content text-lg normal-case">
           <span>Docs</span>
         </a>
         <a href="https://github.com/Qqkyu/taboo-cards-api" className="btn btn-circle btn-sm normal-case">

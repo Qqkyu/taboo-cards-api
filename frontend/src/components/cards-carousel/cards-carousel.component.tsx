@@ -19,8 +19,8 @@ export const Cards: FunctionComponent = () => {
       <div className="carousel w-80">
         {cards.slice(0, CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
-            <div key={title} id={`slide${i}`} className="carousel-item relative w-80 m-5">
-              <div className="card w-80 shadow-xl bg-primary">
+            <div key={title} id={`slide${i}`} className="carousel-item relative m-5 w-80">
+              <div className="card bg-primary w-80 shadow-xl">
                 <div className="card-body flex flex-col items-center gap-8">
                   <h2 className="card-title">
                     <p className="prose prose-2xl">{title}</p>
@@ -35,7 +35,7 @@ export const Cards: FunctionComponent = () => {
                   <div className={`badge h-5 ${BADGE_COLOR[difficulty]}`}>{difficulty}</div>
                 </div>
               </div>
-              <div className="absolute flex justify-between -translate-y-1/2 inset-x-2 top-1/2">
+              <div className="absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-between">
                 <a href={`#slide${i === 0 ? CARDS_IN_CAROUSEL - 1 : i - 1}`} className="btn btn-outline btn-circle">
                   ❮
                 </a>
