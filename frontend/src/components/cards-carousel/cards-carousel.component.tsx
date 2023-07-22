@@ -13,36 +13,41 @@ const BADGE_COLOR = {
   hard: "badge-error",
 } as const;
 
-export const CardsCarousel: FunctionComponent = () => {
+export const Cards: FunctionComponent = () => {
   return (
-    <div className="carousel w-80">
-      {cards.slice(0, CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
-        return (
-          <div key={title} id={`slide${i}`} className="carousel-item relative w-80 m-5">
-            <div className="card w-80 shadow-xl bg-primary">
-              <div className="card-body flex flex-col items-center gap-5">
-                <h2 className="card-title flex justify-between">
-                  {title}
-                  <div className={`badge ${BADGE_COLOR[difficulty]}`}>{difficulty}</div>
-                </h2>
-                <div className="flex flex-col items-center gap-4">
-                  {forbiddenWords.map((word) => (
-                    <p key={word}>{word}</p>
-                  ))}
+    <div className="flex flex-col items-center">
+      <div className="carousel w-80">
+        {cards.slice(0, CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
+          return (
+            <div key={title} id={`slide${i}`} className="carousel-item relative w-80 m-5">
+              <div className="card w-80 shadow-xl bg-primary">
+                <div className="card-body flex flex-col items-center gap-8">
+                  <h2 className="card-title">
+                    <p className="prose prose-2xl">{title}</p>
+                  </h2>
+                  <div className="flex flex-col items-center gap-3">
+                    {forbiddenWords.map((word) => (
+                      <p key={word} className="prose">
+                        {word}
+                      </p>
+                    ))}
+                  </div>
+                  <div className={`badge h-5 ${BADGE_COLOR[difficulty]}`}>{difficulty}</div>
                 </div>
               </div>
+              <div className="absolute flex justify-between -translate-y-1/2 inset-x-2 top-1/2">
+                <a href={`#slide${i === 0 ? CARDS_IN_CAROUSEL - 1 : i - 1}`} className="btn btn-outline btn-circle">
+                  ❮
+                </a>
+                <a href={`#slide${i === CARDS_IN_CAROUSEL - 1 ? 0 : i + 1}`} className="btn btn-outline btn-circle">
+                  ❯
+                </a>
+              </div>
             </div>
-            <div className="absolute flex justify-between -translate-y-1/2 inset-x-2 top-1/2">
-              <a href={`#slide${i === 0 ? CARDS_IN_CAROUSEL - 1 : i - 1}`} className="btn btn-outline btn-circle">
-                ❮
-              </a>
-              <a href={`#slide${i === CARDS_IN_CAROUSEL - 1 ? 0 : i + 1}`} className="btn btn-outline btn-circle">
-                ❯
-              </a>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      <p className="prose prose-lg">Cards: {cards.length}</p>
     </div>
   );
 };
