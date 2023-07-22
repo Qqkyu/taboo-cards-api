@@ -3,10 +3,15 @@ import { CardsCarousel } from "@/components/cards-carousel/cards-carousel.compon
 import { CardModel } from "@/components/card-model/card-model.component";
 import { Section } from "@/components/section/section.component";
 import Layout from "@/layouts/layout.astro";
+import { Endpoints } from "@/components/endpoints/endpoints.component";
 ---
 
 <Layout>
   <div class="flex p-20 flex-col items-center gap-20 justify-center">
-    <CardsCarousel /><div class="divider"></div><Section id="card-model" header="Card model"><CardModel /></Section>
+    <CardsCarousel /><div class="divider"></div>
+    <div id="docs" class="flex flex-col gap-14">
+      <Section header="Card model"><CardModel /></Section>
+      <Section header="Endpoints"><Endpoints /></Section>
+    </div>
   </div>
 </Layout>

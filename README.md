@@ -62,7 +62,7 @@ In both of the above endpoints, you can attach following `language` and `difficu
 
 ### Optional `language` query parameter
 
-Attach `language` query parameter to get cards only in the provider language (either `en` or `pl`):
+Attach `language` query parameter to get cards only in the provided language (either `en` or `pl`):
 
 ```
 /api/cards?language=en
@@ -85,7 +85,7 @@ Same applies to `/random` endpoint:
 
 ### Optional `difficulty` query parameter
 
-Attach `difficulty` query parameter to get cards only with the provider difficulty (`easy`, `medium`, or `hard`):
+Attach `difficulty` query parameter to get cards only with the provided difficulty (`easy`, `medium`, or `hard`):
 
 ```
 /api/cards?difficulty=easy

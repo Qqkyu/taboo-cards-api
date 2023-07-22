@@ -10,9 +10,9 @@ export const Header: FunctionComponent = () => {
           Taboo cards API
         </a>
       </div>
-      <div className="navbar-end hidden md:flex gap-4">
-        <a href="#card-model" className="btn-ghost btn-outline btn text-lg normal-case text-primary-content">
-          <span>Card model</span>
+      <div className="navbar-end flex gap-4">
+        <a href="#docs" className="btn-ghost btn-outline btn text-lg normal-case text-primary-content">
+          <span>Docs</span>
         </a>
         <a href="https://github.com/Qqkyu/taboo-cards-api" className="btn btn-circle btn-sm normal-case">
           <Icon type="github" color="hsl(var(--pc))" />
