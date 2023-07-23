@@ -33,9 +33,14 @@ export const Playground: FunctionComponent = () => {
           onChange={(e) => setValue(e.target.value)}
           onKeyUp={handleKeyUp}
           value={value}
-          className="input join-item input-bordered"
+          className="input join-item input-bordered border-l-0 focus:outline-none"
+          style={{ borderColor: "hsl(var(--b3))" }}
         />
-        <button onClick={handleClick} className="btn bg-base-300 join-item">
+        <button
+          onClick={handleClick}
+          className="btn bg-base-300 join-item border"
+          style={{ borderColor: "hsl(var(--b3))" }}
+        >
           Request
         </button>
       </div>
