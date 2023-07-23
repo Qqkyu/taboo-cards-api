@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "ci": "pnpm install --frozen-lockfile",
-    "verify": "prettier --check './server/src/**' './frontend/src/**' && eslint --max-warnings 0 './server/src/**' './frontend/src/**'"
+    "verify": "prettier --check './server/src/**' './frontend/src/**' && eslint --max-warnings 0 './server/src/**' './frontend/src/**'",
+    "build:frontend": "pnpm --prefix frontend build"
   },
   "devDependencies": {
     "eslint": "8.45.0",

@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../dist")));
 
 app.use(rateLimiter);
 app.use(cacheCheck);
@@ -27,7 +27,7 @@ app.use("/", (req, res, next) => next());
 app.use("/api/cards", cardRouter);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 try {
