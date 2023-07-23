@@ -1,26 +1,27 @@
 import { FunctionComponent, useCallback, useState } from "react";
+import ReactJson from "react-json-view";
 
 // const API_URL_PREFIX = `${window.location}api/`;
 const API_URL_PREFIX = `http://localhost:7777/api/`;
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards");
-  const [response, setResponse] = useState<string | undefined>(undefined);
+  const [response, setResponse] = useState(undefined);
 
   const handleClick = useCallback(async () => {
     try {
       const response = await fetch(`${API_URL_PREFIX}${value}`);
       const json = await response.json();
-      const stringJson = JSON.stringify(json);
-      setResponse(stringJson);
+      setResponse(json);
     } catch (e) {
       setResponse(undefined);
     }
   }, [value]);
 
   return (
-    <div id="playground">
-      <div className="join">
+    <div id="playground" className="flex flex-col gap-8">
+      <h2 className="prose prose-2xl">Playground</h2>
+      <div className="join mb-5">
         <span className="bg-base-300 join-item flex h-12 items-center px-4">{API_URL_PREFIX}</span>
         <input
           type="text"
@@ -32,7 +33,7 @@ export const Playground: FunctionComponent = () => {
           Request
         </button>
       </div>
-      {response ? <div>{response}</div> : null}
+      {response ? <ReactJson src={response} theme="ocean" style={{ padding: "16px" }} /> : null}
     </div>
   );
 };
