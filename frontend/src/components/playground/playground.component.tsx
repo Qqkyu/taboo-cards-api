@@ -26,19 +26,28 @@ export const Playground: FunctionComponent = () => {
   return (
     <div id="playground" className="flex flex-col gap-8">
       <h2 className="prose prose-2xl">Playground</h2>
-      <div className="join mb-5">
-        <span className="bg-base-300 join-item flex h-12 items-center px-4">{API_URL_PREFIX}</span>
-        <input
-          type="text"
-          onChange={(e) => setValue(e.target.value)}
-          onKeyUp={handleKeyUp}
-          value={value}
-          className="input join-item input-bordered border-l-0 focus:outline-none"
-          style={{ borderColor: "hsl(var(--b3))" }}
-        />
+      <div className="flex flex-col items-center gap-4">
+        <div className="join">
+          <span className="bg-base-300 join-item flex h-12 items-center px-4">{API_URL_PREFIX}</span>
+          <input
+            type="text"
+            onChange={(e) => setValue(e.target.value)}
+            onKeyUp={handleKeyUp}
+            value={value}
+            className="input join-item input-bordered !rounded-r-lg focus:outline-none md:!rounded-r-none"
+            style={{ borderColor: "hsl(var(--b3))" }}
+          />
+          <button
+            onClick={handleClick}
+            className="btn bg-base-300 join-item hidden border md:block"
+            style={{ borderColor: "hsl(var(--b3))" }}
+          >
+            Request
+          </button>
+        </div>
         <button
           onClick={handleClick}
-          className="btn bg-base-300 join-item border"
+          className="btn bg-base-300 join-item block border md:hidden"
           style={{ borderColor: "hsl(var(--b3))" }}
         >
           Request
