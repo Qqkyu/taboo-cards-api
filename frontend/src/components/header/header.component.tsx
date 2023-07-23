@@ -20,7 +20,11 @@ export const Header: FunctionComponent = () => {
         <a href="#playground" className="btn-ghost btn-outline btn text-primary-content text-lg normal-case">
           <span>Playground</span>
         </a>
-        <a href="https://github.com/Qqkyu/taboo-cards-api" className="btn btn-circle btn-sm normal-case">
+        <a
+          href="https://github.com/Qqkyu/taboo-cards-api"
+          target="_blank"
+          className="btn btn-circle btn-sm normal-case"
+        >
           <Icon type="github" color="hsl(var(--pc))" />
         </a>
         <ThemeToggle />
