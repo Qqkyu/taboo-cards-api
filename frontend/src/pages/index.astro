@@ -1,6 +1,7 @@
 ---
 import { Cards } from "@/components/cards/cards.component";
 import { Docs } from "@/components/docs/docs.component";
+import { Playground } from "@/components/playground/playground.component";
 import Layout from "@/layouts/layout.astro";
 ---
 
@@ -9,5 +10,7 @@ import Layout from "@/layouts/layout.astro";
     <Cards />
     <div class="divider"></div>
     <Docs />
+    <div class="divider"></div>
+    <Playground client:only />
   </div>
 </Layout>
