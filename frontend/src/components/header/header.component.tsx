@@ -4,7 +4,7 @@ import { Icon } from "@/components/icon/icon.component";
 
 export const Header: FunctionComponent = () => {
   return (
-    <div className="navbar bg-base-300 p-4">
+    <div className="navbar bg-base-300 h-20 p-4">
       <div className="navbar-start gap-3">
         <div className="dropdown">
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
@@ -51,18 +51,44 @@ export const Header: FunctionComponent = () => {
         </a>
       </div>
       <div className="navbar-end flex gap-4">
-        <a href="#cards" className="btn-ghost btn-outline btn text-primary-content hidden text-lg normal-case lg:flex">
-          <span>Cards</span>
-        </a>
-        <a href="#docs" className="btn-ghost btn-outline btn text-primary-content hidden text-lg normal-case lg:flex">
-          <span>Docs</span>
-        </a>
-        <a
-          href="#playground"
-          className="btn-ghost btn-outline btn text-primary-content hidden text-lg normal-case lg:flex"
-        >
-          <span>Playground</span>
-        </a>
+        <ul className="menu menu-horizontal hidden gap-3 px-5 lg:flex">
+          <li>
+            <a href="#cards" className="prose prose-xl font-medium">
+              <span>Cards</span>
+            </a>
+          </li>
+          <li>
+            <details className="z-10">
+              <summary>
+                <a href="#docs" className="prose prose-xl font-medium">
+                  Docs
+                </a>
+              </summary>
+              <ul className="p-2">
+                <li>
+                  <a href="#card-model" className="prose">
+                    Card model
+                  </a>
+                </li>
+                <li>
+                  <a href="#endpoints" className="prose">
+                    Endpoints
+                  </a>
+                </li>
+                <li>
+                  <a href="#rate-limit" className="prose">
+                    Rate limit
+                  </a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a href="#playground" className="prose prose-xl font-medium">
+              <span>Playground</span>
+            </a>
+          </li>
+        </ul>
         <a
           href="https://github.com/Qqkyu/taboo-cards-api"
           target="_blank"
