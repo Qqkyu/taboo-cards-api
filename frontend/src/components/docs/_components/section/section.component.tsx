@@ -1,12 +1,13 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
+  id: string;
   header: string;
 }>;
 
-export const Section: FunctionComponent<Props> = ({ header, children }) => {
+export const Section: FunctionComponent<Props> = ({ id, header, children }) => {
   return (
-    <section className="flex flex-col gap-5">
+    <section id={id} className="flex flex-col gap-5">
       <h2 className="prose prose-2xl font-semibold">{header}</h2>
       {children}
     </section>

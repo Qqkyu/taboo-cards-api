@@ -4,8 +4,9 @@ import { IconComponentProps } from "./icons/icon-props";
 import { SunIcon } from "./icons/sun.icon";
 import { GithubIcon } from "./icons/github.icon";
 import { ArrowUpIcon } from "./icons/arrow-up.icon";
+import { BurgerMenuIcon } from "./icons/burger-menu.icon";
 
-export type IconType = "moon" | "sun" | "github" | "arrow-up";
+export type IconType = "moon" | "sun" | "github" | "arrow-up" | "burger-menu";
 
 type IconProps = IconComponentProps & {
   type: IconType;
@@ -16,6 +17,7 @@ const Icons: Record<IconType, FunctionComponent<IconComponentProps>> = {
   sun: SunIcon,
   github: GithubIcon,
   "arrow-up": ArrowUpIcon,
+  "burger-menu": BurgerMenuIcon,
 };
 
 export const Icon: FunctionComponent<IconProps> = ({ type, ...rest }) => {

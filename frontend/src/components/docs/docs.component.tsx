@@ -7,13 +7,13 @@ import { Section } from "./_components/section/section.component";
 export const Docs: FunctionComponent = () => {
   return (
     <div id="docs" className="flex flex-col gap-14">
-      <Section header="Card model">
+      <Section id="card-model" header="Card model">
         <CardModel />
       </Section>
-      <Section header="Endpoints">
+      <Section id="endpoints" header="Endpoints">
         <Endpoints />
       </Section>
-      <Section header="Rate limit">
+      <Section id="rate-limit" header="Rate limit">
         <RateLimit />
       </Section>
     </div>
