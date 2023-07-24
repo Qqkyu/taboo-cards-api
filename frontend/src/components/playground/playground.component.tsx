@@ -1,7 +1,7 @@
 import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import ReactJson from "react-json-view";
 
-const API_URL_PREFIX = `${window.location}api/`;
+const API_URL_PREFIX = `https://${window.location.hostname}/api/`;
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards");
@@ -25,7 +25,7 @@ export const Playground: FunctionComponent = () => {
 
   return (
     <div id="playground" className="flex flex-col gap-8">
-      <h2 className="prose prose-2xl">Playground</h2>
+      <h2 className="prose prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="join">
           <span className="bg-base-300 join-item flex h-12 items-center px-4">{API_URL_PREFIX}</span>
