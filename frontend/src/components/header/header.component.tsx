@@ -91,6 +91,7 @@ export const Header: FunctionComponent = () => {
         </ul>
         <a
           href="https://github.com/Qqkyu/taboo-cards-api"
+          aria-label="API GitHub repository"
           target="_blank"
           className="btn btn-circle btn-sm normal-case"
         >

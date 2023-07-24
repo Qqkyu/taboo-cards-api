@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { Card } from "src/types/card.types";
 
-const CARDS_IN_CAROUSEL = 1000;
+const CARDS_IN_CAROUSEL = 10;
 
 const response = await fetch("http://localhost:7777/api/cards");
 const data = await response.json();
@@ -17,7 +17,7 @@ export const Cards: FunctionComponent = () => {
   return (
     <div id="cards" className="flex flex-col items-center">
       <div className="carousel w-80">
-        {cards.slice(0, CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
+        {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
             <div key={title} id={`slide${i}`} className="carousel-item relative m-5 w-80">
               <div className="card bg-primary w-80 shadow-xl">
