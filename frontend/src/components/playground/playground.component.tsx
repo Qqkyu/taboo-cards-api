@@ -1,13 +1,17 @@
 import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
+import { Card } from "@/types/card.types";
+import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
 
-const API_URL_PREFIX = `https://${window.location.hostname}/api/`;
+const response = await fetch(CARDS_PATHS.random);
+const data = await response.json();
+const randomCard: Card = data.data;
 
 export const Playground: FunctionComponent = () => {
-  const [value, setValue] = useState("cards");
+  const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<undefined | Record<string, unknown> | "error">(undefined);
+  const [response, setResponse] = useState<Card | Record<string, Card> | "error">(randomCard);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
