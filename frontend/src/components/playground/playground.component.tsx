@@ -1,11 +1,12 @@
 import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import ReactJson from "react-json-view";
+import { Icon } from "@/components/icon/icon.component";
 
 const API_URL_PREFIX = `https://${window.location.hostname}/api/`;
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards");
-  const [response, setResponse] = useState(undefined);
+  const [response, setResponse] = useState<undefined | Record<string, unknown> | "error">(undefined);
 
   const handleClick = useCallback(async () => {
     try {
@@ -13,7 +14,7 @@ export const Playground: FunctionComponent = () => {
       const json = await response.json();
       setResponse(json);
     } catch (e) {
-      setResponse(undefined);
+      setResponse("error");
     }
   }, [value]);
 
@@ -53,7 +54,15 @@ export const Playground: FunctionComponent = () => {
           Request
         </button>
       </div>
-      {response ? <ReactJson src={response} theme="ocean" style={{ padding: "16px" }} /> : null}
+      {response &&
+        (response === "error" ? (
+          <div className="alert alert-error">
+            <Icon type="error" className="h-6 w-6 shrink-0" color="hsl(var(--b3))" />
+            <span>Error! Invalid URL.</span>
+          </div>
+        ) : (
+          <ReactJson src={response} theme="ocean" style={{ padding: "16px" }} />
+        ))}
     </div>
   );
 };
