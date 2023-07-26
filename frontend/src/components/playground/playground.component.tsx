@@ -6,9 +6,11 @@ const API_URL_PREFIX = `https://${window.location.hostname}/api/`;
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards");
+  const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState<undefined | Record<string, unknown> | "error">(undefined);
 
   const handleClick = useCallback(async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(`${API_URL_PREFIX}${value}`);
       const json = await response.json();
@@ -16,6 +18,7 @@ export const Playground: FunctionComponent = () => {
     } catch (e) {
       setResponse("error");
     }
+    setIsLoading(false);
   }, [value]);
 
   const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -40,10 +43,10 @@ export const Playground: FunctionComponent = () => {
           />
           <button
             onClick={handleClick}
-            className="btn bg-base-300 join-item hidden border md:block"
+            className="btn bg-base-300 join-item hidden w-24 border md:block"
             style={{ borderColor: "hsl(var(--b3))" }}
           >
-            Request
+            {isLoading ? <span className="loading loading-spinner" /> : "Request"}
           </button>
         </div>
         <button
