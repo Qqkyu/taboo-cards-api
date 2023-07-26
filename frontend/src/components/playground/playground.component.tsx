@@ -36,13 +36,15 @@ export const Playground: FunctionComponent = () => {
       <h2 className="prose prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="join">
-          <span className="bg-base-300 join-item flex h-12 items-center px-4">{API_URL_PREFIX}</span>
+          <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm md:px-4 md:text-base">
+            {API_URL_PREFIX}
+          </span>
           <input
             type="text"
             onChange={(e) => setValue(e.target.value)}
             onKeyUp={handleKeyUp}
             value={value}
-            className="input join-item input-bordered !rounded-r-lg focus:outline-none md:!rounded-r-none"
+            className="input join-item input-bordered !rounded-r-lg px-2 text-sm focus:outline-none md:!rounded-r-none md:px-4 md:text-base"
             style={{ borderColor: "hsl(var(--b3))" }}
           />
           <button
