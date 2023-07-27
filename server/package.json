@@ -11,7 +11,8 @@
     "#utils/*": "./src/utils/*"
   },
   "scripts": {
-    "start": "node --watch index.js"
+    "start": "NODE_ENV=production node --watch index.js",
+    "start:dev": "node --watch index.js"
   },
   "keywords": [],
   "dependencies": {
