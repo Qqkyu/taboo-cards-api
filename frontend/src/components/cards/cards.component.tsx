@@ -2,9 +2,9 @@ import { CARDS_PATHS } from "@/paths/api.paths";
 import { FunctionComponent } from "react";
 import { Card } from "src/types/card.types";
 
-const CARDS_IN_CAROUSEL = 1;
+const CARDS_IN_CAROUSEL = 10;
 
-const response = await fetch(CARDS_PATHS.random);
+const response = await fetch(CARDS_PATHS.cards);
 const data = await response.json();
 const cards: Array<Card> = data.data;
 
