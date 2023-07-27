@@ -11,27 +11,27 @@ import cors from "cors";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
+export const api = express();
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+api.use(cors());
+api.use(express.json());
+api.use(express.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, "../dist")));
+api.use(express.static(path.join(__dirname, "../dist")));
 
-app.use(rateLimiter);
-app.use(cacheCheck);
-app.use(languageCheck);
+api.use(rateLimiter);
+api.use(cacheCheck);
+api.use(languageCheck);
 
-app.use("/", (req, res, next) => next());
-app.use("/api/cards", cardRouter);
+api.use("/", (req, res, next) => next());
+api.use("/api/cards", cardRouter);
 
-app.get("*", (req, res) => {
+api.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 try {
-  app.listen(config.port, () => {
+  api.listen(config.port, () => {
     console.log(`Server is running at port: ${config.port}`);
   });
 } catch (e) {
