@@ -10,7 +10,7 @@
     "verify": "prettier --check './server/src/**' './frontend/src/**' && eslint --max-warnings 0 './server/src/**' './frontend/src/**'",
     "server": "pnpm --prefix server start",
     "build:frontend": "pnpm --prefix frontend build",
-    "build": "pnpm run server & sleep 15 & pnpm build:frontend"
+    "build": "pnpm run server & sleep 15 && pnpm build:frontend"
   },
   "devDependencies": {
     "eslint": "8.45.0",
