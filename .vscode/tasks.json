@@ -14,7 +14,7 @@
     {
       "label": "Start backend",
       "type": "shell",
-      "command": "pnpm run --prefix server start:dev",
+      "command": "pnpm run --prefix server start",
       "presentation": {
         "group": "Development"
       }
