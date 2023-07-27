@@ -11,7 +11,7 @@
     "#utils/*": "./src/utils/*"
   },
   "scripts": {
-    "dev": "node --watch index.js"
+    "start": "node --watch index.js"
   },
   "keywords": [],
   "dependencies": {
