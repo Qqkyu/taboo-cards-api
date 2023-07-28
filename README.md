@@ -1,6 +1,6 @@
 # Taboo cards API
 
-Server that exposes data of around ~2000 taboo cards, each in two languages - English and Polish.
+Server that communicates with a database of around ~2000 taboo cards, each in two languages - English and Polish.
 
 ## Base URL
 

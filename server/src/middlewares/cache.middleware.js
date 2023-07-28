@@ -1,10 +1,15 @@
-import { CARDS_CACHE_KEY } from "#constants/cache.constants.js";
 import { cache } from "#utils/cache.utils.js";
+import { CARDS_COLLECTION_NAME } from "#constants/db.constants.js";
+import { database } from "#database/db.js";
 import { getCardWithOneLanguage } from "#utils/card-language.utils.js";
-import cards from "../../../data/cards.json" assert { type: "json" };
 
 export const cacheCheck = async (req, res, next) => {
-  if (!cache.has(CARDS_CACHE_KEY)) {
+  if (!cache.has(CARDS_COLLECTION_NAME)) {
+    const cards = await database
+      .collection(CARDS_COLLECTION_NAME)
+      .find({}, { projection: { _id: 0 } })
+      .toArray();
+
     const { enCards, plCards } = cards.reduce(
       (acc, card) => {
         acc.enCards.push(getCardWithOneLanguage(card, "en"));
@@ -14,7 +19,7 @@ export const cacheCheck = async (req, res, next) => {
       { enCards: [], plCards: [] },
     );
 
-    cache.set(CARDS_CACHE_KEY, {
+    cache.set(CARDS_COLLECTION_NAME, {
       en: {
         easy: enCards.filter((card) => card.difficulty === "easy"),
         medium: enCards.filter((card) => card.difficulty === "medium"),

@@ -2,15 +2,11 @@ import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
 import { Card } from "@/types/card.types";
-import { API_URL_PREFIX } from "@/paths/api.paths";
-import Cards from "src/../../data/cards.json";
+import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
 
-const EnCards = Cards.map((card) => ({
-  title: card.title.en,
-  forbiddenWords: card.forbiddenWords.en,
-  difficulty: card.difficulty,
-})) as Array<Card>;
-const randomCard: Card = EnCards[Math.floor(Math.random() * EnCards.length)];
+const response = await fetch(CARDS_PATHS.random);
+const data = await response.json();
+const randomCard: Card = data.data;
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
