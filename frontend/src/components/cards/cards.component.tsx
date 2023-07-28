@@ -1,12 +1,8 @@
-import { CARDS_PATHS } from "@/paths/api.paths";
 import { FunctionComponent } from "react";
-import { Card } from "src/types/card.types";
+import { getCardsByLanguage } from "src/cards/cards";
 
+const CARDS = getCardsByLanguage("en");
 const CARDS_IN_CAROUSEL = 10;
-
-const response = await fetch(CARDS_PATHS.cards);
-const data = await response.json();
-const cards: Array<Card> = data.data;
 
 const BADGE_COLOR = {
   easy: "badge-success",
@@ -19,7 +15,7 @@ export const Cards: FunctionComponent = () => {
     <div id="cards" className="flex flex-col items-center">
       <h2 className="prose prose-2xl font-semibold">Recently added</h2>
       <div className="carousel w-80">
-        {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
+        {CARDS.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
             <div key={title} id={`slide${i}`} className="carousel-item relative m-5 w-80">
               <div className="card bg-primary w-80 shadow-xl">
@@ -49,7 +45,7 @@ export const Cards: FunctionComponent = () => {
           );
         })}
       </div>
-      <p className="prose prose-lg">Cards: {cards.length}</p>
+      <p className="prose prose-lg">Cards: {CARDS.length}</p>
     </div>
   );
 };
