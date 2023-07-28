@@ -1,7 +1,11 @@
 import { FunctionComponent } from "react";
-import { getCardsByLanguage } from "src/cards/cards";
+import CardsData from "src/../../data/cards.json";
 
-const CARDS = getCardsByLanguage("en");
+const EnCardsData = CardsData.map((card) => ({
+  title: card.title.en,
+  forbiddenWords: card.forbiddenWords.en,
+  difficulty: card.difficulty,
+}));
 const CARDS_IN_CAROUSEL = 10;
 
 const BADGE_COLOR = {
@@ -15,7 +19,7 @@ export const Cards: FunctionComponent = () => {
     <div id="cards" className="flex flex-col items-center">
       <h2 className="prose prose-2xl font-semibold">Recently added</h2>
       <div className="carousel w-80">
-        {CARDS.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
+        {EnCardsData?.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
             <div key={title} id={`slide${i}`} className="carousel-item relative m-5 w-80">
               <div className="card bg-primary w-80 shadow-xl">
@@ -45,7 +49,7 @@ export const Cards: FunctionComponent = () => {
           );
         })}
       </div>
-      <p className="prose prose-lg">Cards: {CARDS.length}</p>
+      <p className="prose prose-lg">Cards: {EnCardsData?.length}</p>
     </div>
   );
 };
