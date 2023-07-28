@@ -37,7 +37,7 @@ export const Playground: FunctionComponent = () => {
       <div className="flex flex-col items-center gap-4">
         <div className="join">
           <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm md:px-4 md:text-base">
-            {API_URL_PREFIX}
+            https://taboocardsapi.com/api/
           </span>
           <input
             type="text"

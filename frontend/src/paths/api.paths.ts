@@ -1,5 +1,3 @@
-import process from "process";
-
 export const API_URL_PREFIX = "http://localhost:10000/api/";
 
 export const CARDS_PATHS = {
