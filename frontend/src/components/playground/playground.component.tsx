@@ -20,12 +20,12 @@ export const Playground: FunctionComponent = () => {
   }, []);
 
   useEffect(() => {
-    getResponse(CARDS_PATHS.random);
+    getResponse(`${API_URL_PREFIX}${CARDS_PATHS.random}`);
   }, [getResponse]);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
-    getResponse(`${API_URL_PREFIX}${value}`);
+    await getResponse(`${API_URL_PREFIX}${value}`);
     setIsLoading(false);
   }, [getResponse, value]);
 

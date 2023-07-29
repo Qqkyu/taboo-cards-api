@@ -1,10 +1,10 @@
-import { CARDS_PATHS } from "@/paths/api.paths";
+import { CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
 import { Card } from "@/types/card.types";
 import { FunctionComponent } from "react";
 
 const CARDS_IN_CAROUSEL = 10;
 
-const response = await fetch(CARDS_PATHS.cards);
+const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.cards}`);
 const data = await response.json();
 const cards: Array<Card> = data.data;
 
