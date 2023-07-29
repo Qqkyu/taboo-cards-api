@@ -8,7 +8,7 @@ https://www.taboocardsapi.com/api/
 
 ## Rate limit
 
-There is a 100 requests per day API limit to prevent any malicious action. If you were to make more requests than this, you will get error response with 429 status response (Too Many Requests). This will likely be increased in the near future.
+There is a 10000 requests per day API limit to prevent any malicious action. If you were to make more requests than this, you will get error response with 429 status response (Too Many Requests). This will likely be increased in the near future.
 
 ## Models
 
