@@ -1,29 +1,33 @@
-import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
+import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } from "react";
 import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
 import { Card } from "@/types/card.types";
 import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
 
-const response = await fetch(CARDS_PATHS.random);
-const data = await response.json();
-const randomCard: Card = data.data;
-
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<Card | Record<string, Card> | "error">(randomCard);
+  const [response, setResponse] = useState<Card | Array<Card> | "error">(undefined);
 
-  const handleClick = useCallback(async () => {
-    setIsLoading(true);
+  const getResponse = useCallback(async (path: string) => {
     try {
-      const response = await fetch(`${API_URL_PREFIX}${value}`);
-      const json = await response.json();
-      setResponse(json);
+      const response = await fetch(path);
+      const data = await response.json();
+      setResponse(data.data);
     } catch (e) {
       setResponse("error");
     }
+  }, []);
+
+  useEffect(() => {
+    getResponse(CARDS_PATHS.random);
+  }, [getResponse]);
+
+  const handleClick = useCallback(async () => {
+    setIsLoading(true);
+    getResponse(`${API_URL_PREFIX}${value}`);
     setIsLoading(false);
-  }, [value]);
+  }, [getResponse, value]);
 
   const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
