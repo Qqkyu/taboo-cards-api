@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 
 const CARDS_IN_CAROUSEL = 10;
 
-const response = await fetch(CARDS_PATHS.cards);
+const response = await fetch(CARDS_PATHS.localhost.cards);
 const data = await response.json();
 const cards: Array<Card> = data.data;
 
