@@ -20,12 +20,16 @@ export const ThemeToggle: FunctionComponent = () => {
     <label className="btn btn-circle btn-ghost swap swap-rotate">
       <input type="checkbox" onClick={handleClick} />
 
-      <Icon color="hsl(var(--pc))" type="sun" className={`w-6 ${initialTheme === "pastel" ? "swap-on" : "swap-off"}`} />
+      <Icon
+        color="hsl(var(--pc))"
+        type="sun"
+        className={`w-6 lg:w-8 ${initialTheme === "pastel" ? "swap-on" : "swap-off"}`}
+      />
 
       <Icon
         color="hsl(var(--pc))"
         type="moon"
-        className={`w-6 ${initialTheme === "pastel" ? "swap-off" : "swap-on"}`}
+        className={`w-6 lg:w-8 ${initialTheme === "pastel" ? "swap-off" : "swap-on"}`}
       />
     </label>
   );
