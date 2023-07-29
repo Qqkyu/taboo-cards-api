@@ -13,7 +13,14 @@ const __dirname = path.dirname(__filename);
 
 export const api = express();
 
-api.use(cors());
+api.use(
+  cors({
+    origin: "https://taboocardsapi.com",
+    methods: ["GET"],
+    allowedHeaders: ["Content-Type"],
+    maxAge: 600,
+  }),
+);
 api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
 
