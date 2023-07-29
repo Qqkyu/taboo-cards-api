@@ -2,7 +2,7 @@ import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } fr
 import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
 import { Card } from "@/types/card.types";
-import { WEB_API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
+import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
@@ -20,12 +20,12 @@ export const Playground: FunctionComponent = () => {
   }, []);
 
   useEffect(() => {
-    getResponse(CARDS_PATHS.web.random);
+    getResponse(CARDS_PATHS.random);
   }, [getResponse]);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
-    getResponse(`${WEB_API_URL_PREFIX}${value}`);
+    getResponse(`${API_URL_PREFIX}${value}`);
     setIsLoading(false);
   }, [getResponse, value]);
 
@@ -41,7 +41,7 @@ export const Playground: FunctionComponent = () => {
       <div className="flex flex-col items-center gap-4">
         <div className="join">
           <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm md:px-4 md:text-base">
-            {WEB_API_URL_PREFIX}
+            https://taboocardsapi.com/api/
           </span>
           <input
             type="text"
