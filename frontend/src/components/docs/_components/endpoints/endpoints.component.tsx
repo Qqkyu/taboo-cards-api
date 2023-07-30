@@ -2,8 +2,8 @@ import { FunctionComponent } from "react";
 
 export const Endpoints: FunctionComponent = () => {
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6">
         <p className="prose prose-sm lg:prose-base">
           There are currently two endpoints. First endpoint returns all of the cards stored in the database. The
           response is the array of card objects.
@@ -22,12 +22,12 @@ export const Endpoints: FunctionComponent = () => {
           </pre>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         <h3 className="prose prose-lg lg:prose-xl font-medium">Query parameters</h3>
         <p className="prose prose-sm lg:prose-base">
           In both of the above endpoints, you can attach following language and difficulty query parameters.
         </p>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <h4 className="prose prose-base lg:prose-lg">
             <code>language</code> query parameter
           </h4>
@@ -60,7 +60,7 @@ export const Endpoints: FunctionComponent = () => {
             In both of above cases array of cards in English will be returned.
           </p>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <h4 className="prose prose-base lg:prose-lg">
             <code>difficulty </code> query parameter
           </h4>
