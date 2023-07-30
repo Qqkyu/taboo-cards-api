@@ -48,7 +48,7 @@ export const Playground: FunctionComponent = () => {
                 <h3 className="mb-2">
                   <code>/api/cards</code> endpoint:
                 </h3>
-                <dl className="pl-4">
+                <dl className="pl-2 sm:pl-4">
                   <ExampleApiPath path="cards" description="All cards." />
                   <ExampleApiPath path="cards?language=pl" description="All cards in Polish language." />
                   <ExampleApiPath path="cards?difficulty=hard" description="All cards with hard difficulty." />
@@ -58,7 +58,7 @@ export const Playground: FunctionComponent = () => {
                 <h3 className="mb-2">
                   <code>/api/cards/random</code> endpoint:
                 </h3>
-                <dl className="pl-4">
+                <dl className="pl-2 sm:pl-4">
                   <ExampleApiPath path="cards/random" description="Random card." />
                   <ExampleApiPath path="cards/random?language=pl" description="Random card in Polish language." />
                   <ExampleApiPath path="cards/random?difficulty=easy" description="Random card in easy difficulty." />
@@ -125,16 +125,16 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
   return (
     <>
       <dt className="flex items-center">
-        <code>{path}</code>
+        <code className="text-sm sm:text-base">{path}</code>
         <button
           className={`btn btn-xs border-none !bg-transparent ${wasCopied ? "btn-disabled" : ""}`}
           title="Copy to clipboard"
           onClick={handleCopy}
         >
-          <Icon type={wasCopied ? "checkmark" : "copy"} className="h-full w-4" color="hsl(var(--bc))" />
+          <Icon type={wasCopied ? "checkmark" : "copy"} className="h-full w-3 sm:w-4" color="hsl(var(--bc))" />
         </button>
       </dt>
-      <dd className="prose prose-sm lg:prose-base mb-1 pl-4">{description}</dd>
+      <dd className="prose prose-sm lg:prose-base mb-1 pl-2 sm:pl-4">{description}</dd>
     </>
   );
 };
