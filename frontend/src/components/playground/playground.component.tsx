@@ -49,18 +49,9 @@ export const Playground: FunctionComponent = () => {
                   <code>/api/cards</code> endpoint:
                 </h3>
                 <dl className="pl-4">
-                  <dt>
-                    <code>cards</code>
-                  </dt>
-                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">All cards.</dd>
-                  <dt>
-                    <code>cards?language=pl</code>
-                  </dt>
-                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">All cards in Polish language.</dd>
-                  <dt>
-                    <code>cards?difficulty=hard</code>
-                  </dt>
-                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">All cards with hard difficulty.</dd>
+                  <ExampleApiPath path="cards" description="All cards." />
+                  <ExampleApiPath path="cards?language=pl" description="All cards in Polish language." />
+                  <ExampleApiPath path="cards?difficulty=hard" description="All cards with hard difficulty." />
                 </dl>
               </li>
               <li className="mb-4">
@@ -68,18 +59,9 @@ export const Playground: FunctionComponent = () => {
                   <code>/api/cards/random</code> endpoint:
                 </h3>
                 <dl className="pl-4">
-                  <dt>
-                    <code>cards/random</code>
-                  </dt>
-                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">Random card.</dd>
-                  <dt>
-                    <code>cards/random?language=pl</code>
-                  </dt>
-                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">Random card in Polish language.</dd>
-                  <dt>
-                    <code>cards/random?difficulty=easy</code>
-                  </dt>
-                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">Random card in easy difficulty.</dd>
+                  <ExampleApiPath path="cards/random" description="Random card." />
+                  <ExampleApiPath path="cards/random?language=pl" description="Random card in Polish language." />
+                  <ExampleApiPath path="cards/random?difficulty=easy" description="Random card in easy difficulty." />
                 </dl>
               </li>
             </ul>
@@ -123,5 +105,36 @@ export const Playground: FunctionComponent = () => {
           <ReactJson src={response} theme="ocean" style={{ padding: "16px" }} />
         ))}
     </div>
+  );
+};
+
+type ExampleApiPathProps = {
+  path: string;
+  description: string;
+};
+
+const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, description }) => {
+  const [wasCopied, setWasCopied] = useState(false);
+
+  const handleCopy = useCallback(async () => {
+    setWasCopied(true);
+    await navigator.clipboard.writeText(path);
+    setTimeout(() => setWasCopied(false), 2000);
+  }, [path]);
+
+  return (
+    <>
+      <dt className="flex items-center">
+        <code>{path}</code>
+        <button
+          className={`btn btn-xs border-none !bg-transparent ${wasCopied ? "btn-disabled" : ""}`}
+          title="Copy to clipboard"
+          onClick={handleCopy}
+        >
+          <Icon type={wasCopied ? "checkmark" : "copy"} className="h-full w-4" color="hsl(var(--bc))" />
+        </button>
+      </dt>
+      <dd className="prose prose-sm lg:prose-base mb-1 pl-4">{description}</dd>
+    </>
   );
 };
