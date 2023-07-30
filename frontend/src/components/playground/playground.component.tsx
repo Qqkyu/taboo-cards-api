@@ -39,6 +39,52 @@ export const Playground: FunctionComponent = () => {
     <div id="playground" className="flex flex-col gap-8">
       <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
+        <div className="bg-base-200 collapse">
+          <input type="checkbox" />
+          <div className="collapse-title prose prose-lg lg:prose-xl font-medium">Examples</div>
+          <div className="collapse-content">
+            <ul>
+              <li className="mb-4">
+                <h3 className="mb-2">
+                  <code>/api/cards</code> endpoint:
+                </h3>
+                <dl className="pl-4">
+                  <dt>
+                    <code>cards</code>
+                  </dt>
+                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">All cards.</dd>
+                  <dt>
+                    <code>cards?language=pl</code>
+                  </dt>
+                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">All cards in Polish language.</dd>
+                  <dt>
+                    <code>cards?difficulty=hard</code>
+                  </dt>
+                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">All cards with hard difficulty.</dd>
+                </dl>
+              </li>
+              <li className="mb-4">
+                <h3 className="mb-2">
+                  <code>/api/cards/random</code> endpoint:
+                </h3>
+                <dl className="pl-4">
+                  <dt>
+                    <code>cards/random</code>
+                  </dt>
+                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">Random card.</dd>
+                  <dt>
+                    <code>cards/random?language=pl</code>
+                  </dt>
+                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">Random card in Polish language.</dd>
+                  <dt>
+                    <code>cards/random?difficulty=easy</code>
+                  </dt>
+                  <dd className="prose prose-sm lg:prose-base mb-1 pl-4">Random card in easy difficulty.</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div className="join">
           <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm lg:px-4 lg:text-base">
             https://taboocardsapi.com/api/
