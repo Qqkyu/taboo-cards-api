@@ -39,7 +39,7 @@ export const Playground: FunctionComponent = () => {
     <div id="playground" className="flex flex-col gap-8">
       <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
-        <div className="bg-base-300 collapse">
+        <div className="bg-base-300 collapse-arrow collapse">
           <input type="checkbox" />
           <div className="collapse-title prose prose-lg lg:prose-xl font-medium">Examples</div>
           <div className="collapse-content">
@@ -76,7 +76,7 @@ export const Playground: FunctionComponent = () => {
             onChange={(e) => setValue(e.target.value)}
             onKeyUp={handleKeyUp}
             value={value}
-            className="input join-item input-bordered !rounded-r-lg px-2 text-sm focus:outline-none lg:!rounded-r-none lg:px-4 lg:text-base"
+            className="input join-item input-bordered w-24 !rounded-r-lg px-2 text-sm focus:outline-none sm:w-auto lg:!rounded-r-none lg:px-4 lg:text-base"
             style={{ borderColor: "hsl(var(--b3))" }}
           />
           <button

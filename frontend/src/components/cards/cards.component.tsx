@@ -17,19 +17,19 @@ const BADGE_COLOR = {
 export const Cards: FunctionComponent = () => {
   return (
     <div id="cards" className="flex flex-col items-center">
-      <h2 className="prose prose-2xl font-semibold">Recently added</h2>
-      <div className="carousel w-80">
+      <h2 className="prose prose-xl sm:prose-2xl font-semibold">Recently added</h2>
+      <div className="carousel w-64 sm:w-72 lg:w-80">
         {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
-            <div key={title} id={`slide${i}`} className="carousel-item relative m-5 w-80">
+            <div key={title} id={`slide${i}`} className="carousel-item relative m-3 w-64 sm:w-72 lg:m-5 lg:w-80">
               <div className="card bg-primary w-80 shadow-xl">
-                <div className="card-body flex flex-col items-center gap-8">
+                <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
                   <h2 className="card-title">
-                    <p className="prose prose-2xl">{title}</p>
+                    <p className="prose prose-xl lg:prose-2xl">{title}</p>
                   </h2>
                   <div className="flex flex-col items-center gap-3">
                     {forbiddenWords.map((word) => (
-                      <p key={word} className="prose prose-lg">
+                      <p key={word} className="prose prose-base lg:prose-lg">
                         {word}
                       </p>
                     ))}
@@ -49,7 +49,7 @@ export const Cards: FunctionComponent = () => {
           );
         })}
       </div>
-      <p className="prose prose-lg">Cards: {cards.length}</p>
+      <p className="prose prose-base sm:prose-lg">Cards: {cards.length}</p>
     </div>
   );
 };

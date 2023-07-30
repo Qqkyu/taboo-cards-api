@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 export const CardModel: FunctionComponent = () => {
   return (
-    <table className="table-lg table">
+    <table className="table-sm sm:table-md lg:table-lg table">
       <thead>
         <tr>
           <th className="prose prose-base lg:prose-lg">Attribute</th>
