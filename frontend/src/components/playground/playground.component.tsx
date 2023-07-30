@@ -37,10 +37,10 @@ export const Playground: FunctionComponent = () => {
 
   return (
     <div id="playground" className="flex flex-col gap-8">
-      <h2 className="prose prose-2xl font-semibold">Playground</h2>
+      <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="join">
-          <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm md:px-4 md:text-base">
+          <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm lg:px-4 lg:text-base">
             https://taboocardsapi.com/api/
           </span>
           <input
@@ -48,12 +48,12 @@ export const Playground: FunctionComponent = () => {
             onChange={(e) => setValue(e.target.value)}
             onKeyUp={handleKeyUp}
             value={value}
-            className="input join-item input-bordered !rounded-r-lg px-2 text-sm focus:outline-none md:!rounded-r-none md:px-4 md:text-base"
+            className="input join-item input-bordered !rounded-r-lg px-2 text-sm focus:outline-none lg:!rounded-r-none lg:px-4 lg:text-base"
             style={{ borderColor: "hsl(var(--b3))" }}
           />
           <button
             onClick={handleClick}
-            className="btn bg-base-300 join-item hidden w-24 border md:block"
+            className="btn bg-base-300 join-item hidden w-24 border lg:block"
             style={{ borderColor: "hsl(var(--b3))" }}
           >
             {isLoading ? <span className="loading loading-spinner" /> : "Request"}
@@ -61,7 +61,7 @@ export const Playground: FunctionComponent = () => {
         </div>
         <button
           onClick={handleClick}
-          className="btn bg-base-300 join-item block border md:hidden"
+          className="btn bg-base-300 join-item block border lg:hidden"
           style={{ borderColor: "hsl(var(--b3))" }}
         >
           Request

@@ -4,7 +4,7 @@ export const Endpoints: FunctionComponent = () => {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
-        <p className="prose">
+        <p className="prose prose-sm lg:prose-base">
           There are currently two endpoints. First endpoint returns all of the cards stored in the database. The
           response is the array of card objects.
         </p>
@@ -13,7 +13,7 @@ export const Endpoints: FunctionComponent = () => {
             <code>/api/cards</code>
           </pre>
         </div>
-        <p className="prose">
+        <p className="prose prose-sm lg:prose-base">
           Second one randomly chooses one card and returns it. The response is a single card object:
         </p>
         <div className="mockup-code">
@@ -23,15 +23,15 @@ export const Endpoints: FunctionComponent = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="prose prose-xl font-medium">Query parameters</h3>
-        <p className="prose">
+        <h3 className="prose prose-lg lg:prose-xl font-medium">Query parameters</h3>
+        <p className="prose prose-sm lg:prose-base">
           In both of the above endpoints, you can attach following language and difficulty query parameters.
         </p>
         <div className="flex flex-col gap-2">
-          <h4 className="prose prose-lg">
+          <h4 className="prose prose-base lg:prose-lg">
             <code>language</code> query parameter
           </h4>
-          <p className="prose">
+          <p className="prose prose-sm lg:prose-base">
             Attach <code>language</code> query parameter to get cards only in the provided language (either{" "}
             <code>en</code>
             or <code>pl</code>):
@@ -44,7 +44,7 @@ export const Endpoints: FunctionComponent = () => {
               <code>/api/cards?language=pl</code>
             </pre>
           </div>
-          <p className="prose">
+          <p className="prose prose-sm lg:prose-base">
             Not providing <code>language</code>
             query parameter is equal to providing <code>language=en</code>, so following endpoints are equal:
           </p>
@@ -56,13 +56,15 @@ export const Endpoints: FunctionComponent = () => {
               <code>/api/cards?language=en</code>
             </pre>
           </div>
-          <p className="prose">In both of above cases array of cards in English will be returned.</p>
+          <p className="prose prose-sm lg:prose-base">
+            In both of above cases array of cards in English will be returned.
+          </p>
         </div>
         <div className="flex flex-col gap-2">
-          <h4 className="prose prose-lg">
+          <h4 className="prose prose-base lg:prose-lg">
             <code>difficulty </code> query parameter
           </h4>
-          <p className="prose">
+          <p className="prose prose-sm lg:prose-base">
             Attach <code>difficulty </code> query parameter to get cards only with the provided difficulty (
             <code>easy</code>, <code>medium</code>, or <code>hard</code>):
           </p>
@@ -77,18 +79,18 @@ export const Endpoints: FunctionComponent = () => {
               <code>/api/cards?difficulty=hard</code>
             </pre>
           </div>
-          <p className="prose">
+          <p className="prose prose-sm lg:prose-base">
             When <code>difficulty</code> query parameter is not provided, the response will be:
           </p>
           <dl>
             <dt>
               <code>/api/cards</code>
             </dt>
-            <dd className="prose pl-4">All cards with mixed difficulties.</dd>
+            <dd className="prose prose-sm lg:prose-base pl-4">All cards with mixed difficulties.</dd>
             <dt>
               <code>/api/cards/random</code>
             </dt>
-            <dd className="prose pl-4">One card with any difficulty.</dd>
+            <dd className="prose prose-sm lg:prose-base pl-4">One card with any difficulty.</dd>
           </dl>
         </div>
       </div>

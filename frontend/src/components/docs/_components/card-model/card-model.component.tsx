@@ -5,26 +5,26 @@ export const CardModel: FunctionComponent = () => {
     <table className="table-lg table">
       <thead>
         <tr>
-          <th>Attribute</th>
-          <th className="text-center">Type</th>
-          <th>Description</th>
+          <th className="prose prose-base lg:prose-lg">Attribute</th>
+          <th className="prose prose-base lg:prose-lg text-center">Type</th>
+          <th className="prose prose-base lg:prose-lg">Description</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>title</td>
-          <td className="text-center">string</td>
-          <td>Word to explain</td>
+          <td className="prose prose-sm lg:prose-base">title</td>
+          <td className="prose prose-sm lg:prose-base text-center">string</td>
+          <td className="prose prose-sm lg:prose-base">Word to explain</td>
         </tr>
         <tr>
-          <td>forbiddenWords</td>
-          <td className="text-center">string[]</td>
-          <td>Five words that can&#39;t be used to explain title</td>
+          <td className="prose prose-sm lg:prose-base">forbiddenWords</td>
+          <td className="prose prose-sm lg:prose-base text-center">string[]</td>
+          <td className="prose prose-sm lg:prose-base">Five words that can&#39;t be used to explain title</td>
         </tr>
         <tr>
-          <td>difficulty</td>
-          <td className="text-center">string</td>
-          <td>&quot;easy&quot;, &quot;medium&quot;, or &quot;hard&quot;</td>
+          <td className="prose prose-sm lg:prose-base">difficulty</td>
+          <td className="prose prose-sm lg:prose-base text-center">string</td>
+          <td className="prose prose-sm lg:prose-base">&quot;easy&quot;, &quot;medium&quot;, or &quot;hard&quot;</td>
         </tr>
       </tbody>
     </table>
