@@ -4,11 +4,11 @@ import { Icon } from "@/components/icon/icon.component";
 
 export const Header: FunctionComponent = () => {
   return (
-    <div className="navbar bg-base-300 h-16 p-4 lg:h-20">
-      <div className="navbar-start gap-2 lg:gap-3">
+    <div className="navbar bg-base-300 h-16 p-2 sm:p-4 lg:h-20">
+      <div className="navbar-start gap-2 sm:gap-3">
         <div className="dropdown">
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-          <div tabIndex={0} className="btn btn-sm lg:btn-md btn-ghost lg:hidden">
+          <div tabIndex={0} className="btn btn-xs sm:btn-sm btn-ghost lg:hidden">
             <Icon color="hsl(var(--pc))" type="burger-menu" className="h-5 w-5" />
           </div>
           <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
@@ -46,11 +46,14 @@ export const Header: FunctionComponent = () => {
             </li>
           </ul>
         </div>
-        <a href="/" className="btn-ghost btn btn-sm lg:btn-md text-primary-content text-lg normal-case lg:text-xl">
+        <a
+          href="/"
+          className="btn-ghost btn btn-xs sm:btn-sm lg:btn-md text-primary-content text-sm normal-case sm:text-lg lg:text-xl"
+        >
           Taboo cards API
         </a>
       </div>
-      <div className="navbar-end flex gap-4">
+      <div className="navbar-end flex gap-2 sm:gap-3">
         <ul className="menu menu-horizontal hidden gap-3 px-5 lg:flex">
           <li>
             <a href="#cards" className="prose prose-xl font-medium">
