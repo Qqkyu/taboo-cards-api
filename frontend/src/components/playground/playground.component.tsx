@@ -39,7 +39,7 @@ export const Playground: FunctionComponent = () => {
     <div id="playground" className="flex flex-col gap-8">
       <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
-        <div className="bg-base-200 collapse">
+        <div className="bg-base-300 collapse">
           <input type="checkbox" />
           <div className="collapse-title prose prose-lg lg:prose-xl font-medium">Examples</div>
           <div className="collapse-content">
