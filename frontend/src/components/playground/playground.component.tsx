@@ -127,11 +127,18 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
       <dt className="flex items-center">
         <code className="text-sm sm:text-base">{path}</code>
         <button
-          className={`btn btn-xs border-none !bg-transparent ${wasCopied ? "btn-disabled" : ""}`}
+          className={`btn btn-xs border-none !bg-transparent ${
+            wasCopied ? "btn-disabled tooltip tooltip-top sm:tooltip-right tooltip-open" : ""
+          }`}
           title="Copy to clipboard"
           onClick={handleCopy}
+          data-tip="Copied"
         >
-          <Icon type={wasCopied ? "checkmark" : "copy"} className="h-full w-3 sm:w-4" color="hsl(var(--bc))" />
+          <Icon
+            type={wasCopied ? "checkmark" : "copy"}
+            className="h-full w-3 sm:w-4"
+            color={`hsl(var(--${wasCopied ? "su" : "bc"}))`}
+          />
         </button>
       </dt>
       <dd className="prose prose-sm lg:prose-base mb-1 pl-2 sm:pl-4">{description}</dd>
