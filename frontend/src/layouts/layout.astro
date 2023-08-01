@@ -12,7 +12,13 @@ import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-t
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Taboo cards API</title>
   </head>
-  <body><Header client:load /><slot /><ScrollToTopButton client:load /></body>
+  <body>
+    <Header client:load />
+    <div class="flex p-2 sm:p-10 lg:p-20 flex-col w-full items-center gap-5 sm:gap-10 lg:gap-20 justify-center">
+      <slot />
+    </div>
+    <ScrollToTopButton client:load />
+  </body>
   <script is:inline>
     const theme = (() => {
       if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {

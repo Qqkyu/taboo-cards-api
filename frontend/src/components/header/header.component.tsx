@@ -13,34 +13,34 @@ export const Header: FunctionComponent = () => {
           </div>
           <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li>
-              <a href="#cards" className="prose">
+              <a href="/" className="prose">
                 Cards
               </a>
             </li>
             <li>
-              <a href="#docs" className="prose">
+              <a href="/docs" className="prose">
                 Docs
               </a>
               <ul className="p-2">
                 <li>
-                  <a href="#card-model" className="prose">
+                  <a href="/docs/#card-model" className="prose">
                     Card model
                   </a>
                 </li>
                 <li>
-                  <a href="#endpoints" className="prose">
+                  <a href="/docs/#endpoints" className="prose">
                     Endpoints
                   </a>
                 </li>
                 <li>
-                  <a href="#rate-limit" className="prose">
+                  <a href="/docs/#rate-limit" className="prose">
                     Rate limit
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="#playground" className="prose">
+              <a href="/playground" className="prose">
                 Playground
               </a>
             </li>
@@ -56,30 +56,30 @@ export const Header: FunctionComponent = () => {
       <div className="navbar-end flex gap-2 sm:gap-3">
         <ul className="menu menu-horizontal hidden gap-3 px-5 lg:flex">
           <li>
-            <a href="#cards" className="prose prose-xl font-medium">
+            <a href="/" className="prose prose-xl font-medium">
               <span>Cards</span>
             </a>
           </li>
           <li>
             <details className="z-10">
               <summary>
-                <a href="#docs" className="prose prose-xl font-medium">
+                <a href="/docs" className="prose prose-xl font-medium">
                   Docs
                 </a>
               </summary>
               <ul className="p-2">
                 <li>
-                  <a href="#card-model" className="prose">
+                  <a href="/docs/#card-model" className="prose">
                     Card model
                   </a>
                 </li>
                 <li>
-                  <a href="#endpoints" className="prose">
+                  <a href="/docs/#endpoints" className="prose">
                     Endpoints
                   </a>
                 </li>
                 <li>
-                  <a href="#rate-limit" className="prose">
+                  <a href="/docs/#rate-limit" className="prose">
                     Rate limit
                   </a>
                 </li>
@@ -87,7 +87,7 @@ export const Header: FunctionComponent = () => {
             </details>
           </li>
           <li>
-            <a href="#playground" className="prose prose-xl font-medium">
+            <a href="/playground" className="prose prose-xl font-medium">
               <span>Playground</span>
             </a>
           </li>
