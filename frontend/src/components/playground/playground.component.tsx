@@ -68,7 +68,7 @@ export const Playground: FunctionComponent = () => {
           </div>
         </div>
         <div className="join">
-          <span className="bg-base-300 join-item flex h-12 items-center px-2 text-sm lg:px-4 lg:text-base">
+          <span className="bg-base-300 join-item flex h-12 items-center rounded-l-lg px-2 text-sm lg:px-4 lg:text-base">
             https://taboocardsapi.com/api/
           </span>
           <input
@@ -81,7 +81,7 @@ export const Playground: FunctionComponent = () => {
           />
           <button
             onClick={handleClick}
-            className="btn bg-base-300 join-item hidden w-24 border lg:block"
+            className="btn bg-base-300 join-item hidden w-24 rounded-r-lg border lg:block"
             style={{ borderColor: "hsl(var(--b3))" }}
           >
             {isLoading ? <span className="loading loading-spinner" /> : "Request"}
