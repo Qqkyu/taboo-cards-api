@@ -11,7 +11,8 @@ export const Header: FunctionComponent = () => {
           <div tabIndex={0} className="btn btn-xs sm:btn-sm btn-ghost lg:hidden">
             <Icon color="hsl(var(--pc))" type="burger-menu" className="h-5 w-5" />
           </div>
-          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+          <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li>
               <a href="/" className="prose">
                 Cards
