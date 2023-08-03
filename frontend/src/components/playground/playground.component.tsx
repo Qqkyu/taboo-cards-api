@@ -1,13 +1,17 @@
-import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } from "react";
+import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
 import { Card } from "@/types/card.types";
-import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
+import { API_URL_PREFIX, CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
+
+const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.random}`);
+const data = await response.json();
+const randomCard: Card = data.data;
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<Card | Array<Card> | "error">(undefined);
+  const [response, setResponse] = useState<Card | Array<Card> | "error">(randomCard);
 
   const getResponse = useCallback(async (path: string) => {
     try {
@@ -18,10 +22,6 @@ export const Playground: FunctionComponent = () => {
       setResponse("error");
     }
   }, []);
-
-  useEffect(() => {
-    getResponse(`${API_URL_PREFIX}${CARDS_PATHS.random}`);
-  }, [getResponse]);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
@@ -36,10 +36,9 @@ export const Playground: FunctionComponent = () => {
   };
 
   return (
-    <div id="playground" className="flex flex-col gap-8">
-      <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
+    <>
       <div className="flex flex-col items-center gap-4">
-        <div className="bg-base-300 collapse-arrow collapse">
+        <div className="bg-base-300 collapse-arrow collapse rounded-lg">
           <input type="checkbox" />
           <div className="collapse-title prose prose-lg lg:prose-xl font-medium">Examples</div>
           <div className="collapse-content">
@@ -102,9 +101,9 @@ export const Playground: FunctionComponent = () => {
             <span>Error! Invalid URL.</span>
           </div>
         ) : (
-          <ReactJson src={response} theme="ocean" style={{ padding: "16px" }} />
+          <ReactJson src={response} theme="ocean" style={{ padding: "16px", borderRadius: "8px" }} />
         ))}
-    </div>
+    </>
   );
 };
 

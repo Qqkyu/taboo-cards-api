@@ -1,8 +1,13 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import { Playground } from "@/components/playground/playground.component";
+import { PlaygroundPageLoader } from "@/components/playground/components/page-loader/page-loader.component";
 ---
 
 <Layout>
-  <Playground client:only="react" />
+  <div id="playground" class="flex flex-col gap-8">
+    <h2 class="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
+    <PlaygroundPageLoader client:load />
+    <Playground client:only="react" />
+  </div>
 </Layout>
