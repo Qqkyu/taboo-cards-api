@@ -4,7 +4,7 @@ import { Icon } from "@/components/icon/icon.component";
 
 export const Header: FunctionComponent = () => {
   return (
-    <div className="navbar bg-base-300 h-16 p-2 sm:p-4 lg:h-20">
+    <div className="navbar bg-base-300 h-16 p-2 sm:h-20 sm:p-4">
       <div className="navbar-start gap-2 sm:gap-3">
         <div className="dropdown">
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
@@ -97,9 +97,9 @@ export const Header: FunctionComponent = () => {
           href="https://github.com/Qqkyu/taboo-cards-api"
           aria-label="API GitHub repository"
           target="_blank"
-          className="btn btn-circle btn-xs lg:btn-sm normal-case"
+          className="btn btn-circle btn-xs sm:btn-sm normal-case"
         >
-          <Icon type="github" color="hsl(var(--pc))" />
+          <Icon type="github" color="hsl(var(--pc))" className="w-6 sm:w-8" />
         </a>
         <ThemeToggle />
       </div>

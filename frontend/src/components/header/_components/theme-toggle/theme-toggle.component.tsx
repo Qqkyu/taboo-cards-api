@@ -23,13 +23,13 @@ export const ThemeToggle: FunctionComponent = () => {
       <Icon
         color="hsl(var(--pc))"
         type="sun"
-        className={`w-6 lg:w-8 ${initialTheme === "pastel" ? "swap-on" : "swap-off"}`}
+        className={`w-6 sm:w-8 ${initialTheme === "pastel" ? "swap-on" : "swap-off"}`}
       />
 
       <Icon
         color="hsl(var(--pc))"
         type="moon"
-        className={`w-6 lg:w-8 ${initialTheme === "pastel" ? "swap-off" : "swap-on"}`}
+        className={`w-6 sm:w-8 ${initialTheme === "pastel" ? "swap-off" : "swap-on"}`}
       />
     </label>
   );
