@@ -1,17 +1,14 @@
-import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
+import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } from "react";
 import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
 import { Card } from "@/types/card.types";
-import { API_URL_PREFIX, CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
-
-const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.random}`);
-const data = await response.json();
-const randomCard: Card = data.data;
+import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
+import { JsonPreviewLoader } from "./components/json-preview-loader/json-preview-loader.component";
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<Card | Array<Card> | "error">(randomCard);
+  const [response, setResponse] = useState<Card | Array<Card> | "error">(undefined);
 
   const getResponse = useCallback(async (path: string) => {
     try {
@@ -22,6 +19,10 @@ export const Playground: FunctionComponent = () => {
       setResponse("error");
     }
   }, []);
+
+  useEffect(() => {
+    getResponse(`${API_URL_PREFIX}${CARDS_PATHS.random}`);
+  }, [getResponse]);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
@@ -94,15 +95,18 @@ export const Playground: FunctionComponent = () => {
           Request
         </button>
       </div>
-      {response &&
-        (response === "error" ? (
+      {response ? (
+        response === "error" ? (
           <div className="alert alert-error">
             <Icon type="error" className="h-6 w-6 shrink-0" color="hsl(var(--b3))" />
             <span>Error! Invalid URL.</span>
           </div>
         ) : (
           <ReactJson src={response} theme="ocean" style={{ padding: "16px", borderRadius: "8px" }} />
-        ))}
+        )
+      ) : (
+        <JsonPreviewLoader />
+      )}
     </>
   );
 };

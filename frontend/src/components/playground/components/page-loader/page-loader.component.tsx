@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { JsonPreviewLoader } from "@/components/playground/components/json-preview-loader/json-preview-loader.component";
 
 export const PlaygroundPageLoader: FunctionComponent = () => {
   const [hydrated, setHydrated] = useState(false);
@@ -35,13 +36,7 @@ export const PlaygroundPageLoader: FunctionComponent = () => {
           />
         </div>
       </div>
-      <Skeleton
-        baseColor="hsl(var(--b3))"
-        highlightColor="hsl(var(--b2))"
-        borderRadius="8px"
-        height="294.5px"
-        duration={3}
-      />
+      <JsonPreviewLoader />
     </div>
   );
 };
