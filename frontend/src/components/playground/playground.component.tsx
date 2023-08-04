@@ -36,7 +36,7 @@ export const Playground: FunctionComponent = () => {
   };
 
   return (
-    <div id="playground" className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[700px]">
+    <div className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[700px]">
       <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">

@@ -16,7 +16,7 @@ const BADGE_COLOR = {
 
 export const Cards: FunctionComponent = () => {
   return (
-    <div id="cards" className="flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <h2 className="prose prose-xl sm:prose-2xl font-semibold">Recently added</h2>
       <div className="carousel w-64 sm:w-72 lg:w-80">
         {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
