@@ -1,20 +1,19 @@
 import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } from "react";
-import ReactJson from "react-json-view";
 import { Icon } from "@/components/icon/icon.component";
-import { Card } from "@/types/card.types";
 import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
-import { JsonPreviewLoader } from "./components/json-preview-loader/json-preview-loader.component";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<Card | Array<Card> | "error">(undefined);
+  const [response, setResponse] = useState<string>(undefined);
 
   const getResponse = useCallback(async (path: string) => {
     try {
       const response = await fetch(path);
-      const data = await response.json();
-      setResponse(data.data);
+      const json = await response.json();
+      setResponse(JSON.stringify(json, null, 4));
     } catch (e) {
       setResponse("error");
     }
@@ -37,7 +36,8 @@ export const Playground: FunctionComponent = () => {
   };
 
   return (
-    <>
+    <div id="playground" className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[700px]">
+      <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">
           <input type="checkbox" />
@@ -67,7 +67,7 @@ export const Playground: FunctionComponent = () => {
             </ul>
           </div>
         </div>
-        <div className="join">
+        <div className="join w-full">
           <span className="bg-base-300 join-item flex h-12 items-center rounded-l-lg px-2 text-sm lg:px-4 lg:text-base">
             https://taboocardsapi.com/api/
           </span>
@@ -76,7 +76,7 @@ export const Playground: FunctionComponent = () => {
             onChange={(e) => setValue(e.target.value)}
             onKeyUp={handleKeyUp}
             value={value}
-            className="input join-item input-bordered w-24 !rounded-r-lg px-2 text-sm focus:outline-none sm:w-auto lg:!rounded-r-none lg:px-4 lg:text-base"
+            className="input join-item input-bordered w-24 grow !rounded-r-lg px-2 text-sm focus:outline-none sm:w-auto lg:!rounded-r-none lg:px-4 lg:text-base"
             style={{ borderColor: "hsl(var(--b3))" }}
           />
           <button
@@ -102,12 +102,24 @@ export const Playground: FunctionComponent = () => {
             <span>Error! Invalid URL.</span>
           </div>
         ) : (
-          <ReactJson src={response} theme="ocean" style={{ padding: "16px", borderRadius: "8px" }} />
+          <div className="mockup-code bg-base-300">
+            {response.split("\n").map((line) => (
+              <pre key={line}>
+                <code>{line}</code>
+              </pre>
+            ))}
+          </div>
         )
       ) : (
-        <JsonPreviewLoader />
+        <Skeleton
+          baseColor="hsl(var(--b3))"
+          highlightColor="hsl(var(--b2))"
+          borderRadius="8px"
+          height="380px"
+          duration={3}
+        />
       )}
-    </>
+    </div>
   );
 };
 
