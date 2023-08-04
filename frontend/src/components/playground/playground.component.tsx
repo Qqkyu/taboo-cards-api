@@ -13,7 +13,7 @@ export const Playground: FunctionComponent = () => {
     try {
       const response = await fetch(path);
       const json = await response.json();
-      setResponse(JSON.stringify(json, null, 4));
+      setResponse(JSON.stringify(json, null, 2));
     } catch (e) {
       setResponse("error");
     }
@@ -36,7 +36,7 @@ export const Playground: FunctionComponent = () => {
   };
 
   return (
-    <div className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[700px]">
+    <div className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[750px]">
       <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">

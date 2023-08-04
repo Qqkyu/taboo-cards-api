@@ -6,7 +6,7 @@ import { Section } from "./_components/section/section.component";
 
 export const Docs: FunctionComponent = () => {
   return (
-    <div className="flex max-w-full flex-col gap-14">
+    <div className="flex w-[300px] flex-col gap-14 sm:w-[500px] lg:w-[750px]">
       <Section id="card-model" header="Card model">
         <CardModel />
       </Section>
