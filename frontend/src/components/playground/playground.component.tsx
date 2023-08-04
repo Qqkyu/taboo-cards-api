@@ -59,9 +59,9 @@ export const Playground: FunctionComponent = () => {
                   <code>/api/cards/random</code> endpoint:
                 </h3>
                 <dl className="pl-2 sm:pl-4">
-                  <ExampleApiPath path="cards/random" description="Random card." />
-                  <ExampleApiPath path="cards/random?language=pl" description="Random card in Polish language." />
-                  <ExampleApiPath path="cards/random?difficulty=easy" description="Random card in easy difficulty." />
+                  <ExampleApiPath path="cards/random" description="A random card." />
+                  <ExampleApiPath path="cards/random?language=pl" description="A random card in Polish language." />
+                  <ExampleApiPath path="cards/random?difficulty=easy" description="A random card in easy difficulty." />
                 </dl>
               </li>
             </ul>

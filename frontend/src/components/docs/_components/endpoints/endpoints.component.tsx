@@ -32,7 +32,7 @@ export const Endpoints: FunctionComponent = () => {
             <code>language</code> query parameter
           </h4>
           <p className="prose prose-sm lg:prose-base max-w-full">
-            Attach <code>language</code> query parameter to get cards only in the provided language (either{" "}
+            Attach the <code>language</code> query parameter to get cards only in the provided language (either{" "}
             <code>en</code>
             or <code>pl</code>):
           </p>
@@ -45,7 +45,7 @@ export const Endpoints: FunctionComponent = () => {
             </pre>
           </div>
           <p className="prose prose-sm lg:prose-base max-w-full">
-            Not providing <code>language</code>
+            Not providing the <code>language</code>
             query parameter is equal to providing <code>language=en</code>, so the following endpoints are equal:
           </p>
           <div className="mockup-code">
@@ -65,7 +65,7 @@ export const Endpoints: FunctionComponent = () => {
             <code>difficulty </code> query parameter
           </h4>
           <p className="prose prose-sm lg:prose-base max-w-full">
-            Attach <code>difficulty </code> query parameter to get cards only with the provided difficulty (
+            Attach the <code>difficulty </code> query parameter to get cards only with the provided difficulty (
             <code>easy</code>, <code>medium</code>, or <code>hard</code>):
           </p>
           <div className="mockup-code">

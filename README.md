@@ -8,7 +8,7 @@ https://www.taboocardsapi.com/api/
 
 ## Rate limit
 
-There is a 10000 requests per day API limit to prevent any malicious action. If you were to make more requests than this, you will get error response with 429 status response (Too Many Requests).
+There is a 10000 requests per day API limit to prevent any malicious action. If you were to make more requests than this, you will get an error response with 429 status response (Too Many Requests).
 
 ## Models
 
@@ -44,13 +44,13 @@ Corresponding card in Polish:
 
 ## Endpoints
 
-There are currently two endpoints. First endpoint returns all of the cards stored in the database. The response is the array of card objects.
+There are currently two endpoints. The first endpoint returns all of the cards stored in the database. The response is the array of card objects.
 
 ```
 /api/cards
 ```
 
-Second one randomly chooses one card and returns it. The response is a single card object:
+The second endpoint randomly chooses one card and returns it. The response is a single card object:
 
 ```
 /api/cards/random
@@ -58,25 +58,25 @@ Second one randomly chooses one card and returns it. The response is a single ca
 
 ## Query parameters
 
-In both of the above endpoints, you can attach following `language` and `difficulty` query parameters.
+In both of the above endpoints, you can attach the following language and difficulty query parameters.
 
 ### Optional `language` query parameter
 
-Attach `language` query parameter to get cards only in the provided language (either `en` or `pl`):
+Attach the `language` query parameter to get cards only in the provided language (either `en` or `pl`):
 
 ```
 /api/cards?language=en
 /api/cards?language=pl
 ```
 
-Not providing `language` query parameter is equal to providing `language=en`, so following endpoints are equal:
+Not providing the `language` query parameter is equal to providing `language=en`, so following endpoints are equal:
 
 ```
 /api/cards                      --> Array of cards in English
 /api/cards?language=en          --> Array of cards in English
 ```
 
-Same applies to `/random` endpoint:
+Same applies to the `/random` endpoint:
 
 ```
 /api/cards/random               --> Random card in English
@@ -85,7 +85,7 @@ Same applies to `/random` endpoint:
 
 ### Optional `difficulty` query parameter
 
-Attach `difficulty` query parameter to get cards only with the provided difficulty (`easy`, `medium`, or `hard`):
+Attach the `difficulty` query parameter to get cards only with the provided difficulty (`easy`, `medium`, or `hard`):
 
 ```
 /api/cards?difficulty=easy
@@ -93,7 +93,7 @@ Attach `difficulty` query parameter to get cards only with the provided difficul
 /api/cards?difficulty=hard
 ```
 
-Not providing `difficulty` query parameter will result in:
+Not providing the `difficulty` query parameter will result in:
 
 ```
 /api/cards          --> Return all cards with mixed difficulties
