@@ -1,6 +1,6 @@
 import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } from "react";
 import { Icon } from "@/components/icon/icon.component";
-import { API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
+import { API_URL_PREFIX, CARDS_PATHS, WEB_API_URL_PREFIX } from "@/paths/api.paths";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -69,7 +69,7 @@ export const Playground: FunctionComponent = () => {
         </div>
         <div className="join w-full">
           <span className="bg-base-300 join-item flex h-12 items-center rounded-l-lg px-2 text-sm lg:px-4 lg:text-base">
-            https://taboocardsapi.com/api/
+            {WEB_API_URL_PREFIX}
           </span>
           <input
             type="text"

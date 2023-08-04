@@ -3,6 +3,7 @@ import { CardModel } from "./_components/card-model/card-model.component";
 import { Endpoints } from "./_components/endpoints/endpoints.component";
 import { RateLimit } from "./_components/rate-limit/rate-limit.component";
 import { Section } from "./_components/section/section.component";
+import { BaseUrl } from "./_components/base-url/base-url.component";
 
 export const Docs: FunctionComponent = () => {
   return (
@@ -12,6 +13,9 @@ export const Docs: FunctionComponent = () => {
       </Section>
       <Section id="endpoints" header="Endpoints">
         <Endpoints />
+      </Section>
+      <Section id="base-url" header="Base URL">
+        <BaseUrl />
       </Section>
       <Section id="rate-limit" header="Rate limit">
         <RateLimit />

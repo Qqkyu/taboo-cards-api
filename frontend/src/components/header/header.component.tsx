@@ -34,6 +34,11 @@ export const Header: FunctionComponent = () => {
                   </a>
                 </li>
                 <li>
+                  <a href="/docs/#base-url" className="prose">
+                    Base URL
+                  </a>
+                </li>
+                <li>
                   <a href="/docs/#rate-limit" className="prose">
                     Rate limit
                   </a>
@@ -77,6 +82,11 @@ export const Header: FunctionComponent = () => {
                 <li>
                   <a href="/docs/#endpoints" className="prose">
                     Endpoints
+                  </a>
+                </li>
+                <li>
+                  <a href="/docs/#base-url" className="prose">
+                    Base URL
                   </a>
                 </li>
                 <li>
