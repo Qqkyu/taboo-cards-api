@@ -103,8 +103,8 @@ export const Playground: FunctionComponent = () => {
           </div>
         ) : (
           <div className="mockup-code bg-base-300">
-            {response.split("\n").map((line) => (
-              <pre key={line}>
+            {response.split("\n").map((line, idx) => (
+              <pre key={idx}>
                 <code>{line}</code>
               </pre>
             ))}
