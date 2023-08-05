@@ -37,15 +37,17 @@ export const Playground: FunctionComponent = () => {
 
   return (
     <div className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[750px]">
-      <h2 className="prose prose-xl lg:prose-2xl font-semibold">Playground</h2>
+      <h2 className="prose prose-xl lg:prose-2xl text-base-content font-semibold">Playground</h2>
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">
           <input type="checkbox" />
-          <div className="collapse-title prose prose-lg lg:prose-xl max-w-full font-medium">Examples</div>
+          <div className="collapse-title prose prose-lg lg:prose-xl text-base-content max-w-full font-medium">
+            Examples
+          </div>
           <div className="collapse-content">
             <ul>
               <li className="mb-4">
-                <h3 className="mb-2">
+                <h3 className="text-base-content mb-2">
                   <code>/api/cards</code> endpoint:
                 </h3>
                 <dl className="pl-2 sm:pl-4">
@@ -55,7 +57,7 @@ export const Playground: FunctionComponent = () => {
                 </dl>
               </li>
               <li className="mb-4">
-                <h3 className="mb-2">
+                <h3 className="text-base-content mb-2">
                   <code>/api/cards/random</code> endpoint:
                 </h3>
                 <dl className="pl-2 sm:pl-4">
@@ -156,7 +158,7 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
           />
         </button>
       </dt>
-      <dd className="prose prose-sm lg:prose-base mb-1 pl-2 sm:pl-4">{description}</dd>
+      <dd className="prose prose-sm lg:prose-base text-base-content mb-1 pl-2 sm:pl-4">{description}</dd>
     </>
   );
 };

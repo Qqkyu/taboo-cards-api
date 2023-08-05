@@ -17,7 +17,7 @@ const BADGE_COLOR = {
 export const Cards: FunctionComponent = () => {
   return (
     <div className="flex flex-col items-center">
-      <h2 className="prose prose-xl sm:prose-2xl font-semibold">Recently added</h2>
+      <h2 className="prose prose-xl sm:prose-2xl text-base-content font-semibold">Recently added</h2>
       <div className="carousel w-64 sm:w-72 lg:w-80">
         {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
@@ -25,11 +25,11 @@ export const Cards: FunctionComponent = () => {
               <div className="card bg-primary w-80 shadow-xl">
                 <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
                   <h2 className="card-title">
-                    <p className="prose prose-xl lg:prose-2xl">{title}</p>
+                    <p className="prose prose-xl lg:prose-2xl text-primary-content">{title}</p>
                   </h2>
                   <div className="flex flex-col items-center gap-3">
                     {forbiddenWords.map((word) => (
-                      <p key={word} className="prose prose-base lg:prose-lg">
+                      <p key={word} className="prose prose-base lg:prose-lg text-primary-content">
                         {word}
                       </p>
                     ))}
@@ -49,7 +49,7 @@ export const Cards: FunctionComponent = () => {
           );
         })}
       </div>
-      <p className="prose prose-base sm:prose-lg">Cards: {cards.length}</p>
+      <p className="prose prose-base sm:prose-lg text-base-content">Cards: {cards.length}</p>
     </div>
   );
 };
