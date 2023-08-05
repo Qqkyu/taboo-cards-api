@@ -38,10 +38,16 @@ export const Cards: FunctionComponent = () => {
                 </div>
               </div>
               <div className="absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-between">
-                <a href={`#slide${i === 0 ? CARDS_IN_CAROUSEL - 1 : i - 1}`} className="btn btn-outline btn-circle">
+                <a
+                  href={`#slide${i === 0 ? CARDS_IN_CAROUSEL - 1 : i - 1}`}
+                  className="btn btn-primary btn-circle text-primary-content"
+                >
                   ❮
                 </a>
-                <a href={`#slide${i === CARDS_IN_CAROUSEL - 1 ? 0 : i + 1}`} className="btn btn-outline btn-circle">
+                <a
+                  href={`#slide${i === CARDS_IN_CAROUSEL - 1 ? 0 : i + 1}`}
+                  className="btn btn-primary btn-circle text-primary-content"
+                >
                   ❯
                 </a>
               </div>
