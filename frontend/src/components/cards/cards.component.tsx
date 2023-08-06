@@ -18,19 +18,21 @@ const BADGE_COLOR = {
 export const Cards: FunctionComponent = () => {
   return (
     <div className="flex flex-col items-center">
-      <Font.H2 color="text-base-content">Recently added</Font.H2>
+      <Font.P2 color="text-base-content">Recently added</Font.P2>
       <div className="carousel w-64 sm:w-72 lg:w-80">
         {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
             <div key={title} id={`slide${i}`} className="carousel-item relative m-3 w-64 sm:w-72 lg:m-5 lg:w-80">
               <div className="card bg-primary w-80 shadow-xl">
                 <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
-                  <h3 className="card-title prose prose-xl lg:prose-2xl text-primary-content">{title}</h3>
+                  <div className="card-title">
+                    <Font.H2 color="text-primary-content">{title}</Font.H2>
+                  </div>
                   <div className="flex flex-col items-center gap-3">
                     {forbiddenWords.map((word) => (
-                      <p key={word} className="prose prose-base lg:prose-lg text-primary-content">
+                      <Font.P2 key={word} color="text-primary-content">
                         {word}
-                      </p>
+                      </Font.P2>
                     ))}
                   </div>
                   <div className={`badge h-5 ${BADGE_COLOR[difficulty]}`}>{difficulty}</div>
@@ -54,7 +56,7 @@ export const Cards: FunctionComponent = () => {
           );
         })}
       </div>
-      <p className="prose prose-base sm:prose-lg text-base-content">Cards: {cards.length}</p>
+      <Font.P2 color="text-base-content">Cards: {cards.length}</Font.P2>
     </div>
   );
 };

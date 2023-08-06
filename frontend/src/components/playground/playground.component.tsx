@@ -42,15 +42,17 @@ export const Playground: FunctionComponent = () => {
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">
           <input type="checkbox" />
-          <div className="collapse-title prose prose-lg lg:prose-xl text-base-content max-w-full font-medium">
-            Examples
+          <div className="collapse-title">
+            <Font.H3 color="text-base-content">Examples</Font.H3>
           </div>
           <div className="collapse-content">
             <ul>
               <li className="mb-4">
-                <h3 className="text-base-content mb-2">
-                  <code>/api/cards</code> endpoint:
-                </h3>
+                <div className="mb-2">
+                  <Font.H4 color="text-base-content">
+                    <code>/api/cards</code> endpoint:
+                  </Font.H4>
+                </div>
                 <dl className="pl-2 sm:pl-4">
                   <ExampleApiPath path="cards" description="All cards." />
                   <ExampleApiPath path="cards?language=pl" description="All cards in Polish language." />
@@ -58,9 +60,11 @@ export const Playground: FunctionComponent = () => {
                 </dl>
               </li>
               <li className="mb-4">
-                <h3 className="text-base-content mb-2">
-                  <code>/api/cards/random</code> endpoint:
-                </h3>
+                <div className="mb-2">
+                  <Font.H4 color="text-base-content">
+                    <code>/api/cards/random</code> endpoint:
+                  </Font.H4>
+                </div>
                 <dl className="pl-2 sm:pl-4">
                   <ExampleApiPath path="cards/random" description="A random card." />
                   <ExampleApiPath path="cards/random?language=pl" description="A random card in Polish language." />
@@ -102,7 +106,7 @@ export const Playground: FunctionComponent = () => {
         response === "error" ? (
           <div className="alert alert-error">
             <Icon type="error" className="h-6 w-6 shrink-0" color="hsl(var(--b3))" />
-            <span>Error! Invalid URL.</span>
+            <Font.P1 color="text-error-content">Error! Invalid URL.</Font.P1>
           </div>
         ) : (
           <div className="mockup-code bg-base-300">
@@ -143,7 +147,9 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
   return (
     <>
       <dt className="flex items-center">
-        <code className="text-sm sm:text-base">{path}</code>
+        <Font.P1 color="text-base-content">
+          <code>{path}</code>
+        </Font.P1>
         <button
           className={`btn btn-xs border-none !bg-transparent ${
             wasCopied ? "btn-disabled tooltip tooltip-top sm:tooltip-right tooltip-open" : ""
@@ -159,7 +165,9 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
           />
         </button>
       </dt>
-      <dd className="prose prose-sm lg:prose-base text-base-content mb-1 pl-2 sm:pl-4">{description}</dd>
+      <dd className="mb-1 pl-2 sm:pl-4">
+        <Font.P1 color="text-base-content">{description}</Font.P1>
+      </dd>
     </>
   );
 };
