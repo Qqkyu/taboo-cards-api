@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
-  color: "text-base-content" | "text-primary-content" | "text-secondary-content";
+  color: "text-base-content" | "text-primary-content" | "text-secondary-content" | "text-error-content";
 }>;
 
 const H1: FunctionComponent<Props> = ({ children, color }) => {
