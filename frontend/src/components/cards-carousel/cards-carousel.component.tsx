@@ -15,10 +15,10 @@ const BADGE_COLOR = {
   hard: "badge-error",
 } as const;
 
-export const Cards: FunctionComponent = () => {
+export const CardsCarousel: FunctionComponent = () => {
   return (
     <div className="flex flex-col items-center">
-      <Font.P2 color="text-base-content">Recently added</Font.P2>
+      <Font.H2 color="text-base-content">Recently added</Font.H2>
       <div className="carousel w-64 sm:w-72 lg:w-80">
         {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
@@ -56,7 +56,7 @@ export const Cards: FunctionComponent = () => {
           );
         })}
       </div>
-      <Font.P2 color="text-base-content">Cards: {cards.length}</Font.P2>
+      <Font.P2 color="text-base-content">Cards in total: {cards.length}</Font.P2>
     </div>
   );
 };
