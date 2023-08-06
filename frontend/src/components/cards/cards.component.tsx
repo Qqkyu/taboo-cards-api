@@ -1,6 +1,7 @@
 import { CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
 import { Card } from "@/types/card.types";
 import { FunctionComponent } from "react";
+import { Font } from "@/design-system/font/font.component";
 
 const CARDS_IN_CAROUSEL = 10;
 
@@ -17,16 +18,14 @@ const BADGE_COLOR = {
 export const Cards: FunctionComponent = () => {
   return (
     <div className="flex flex-col items-center">
-      <h2 className="prose prose-xl sm:prose-2xl text-base-content font-semibold">Recently added</h2>
+      <Font.H2 color="text-base-content">Recently added</Font.H2>
       <div className="carousel w-64 sm:w-72 lg:w-80">
         {cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
           return (
             <div key={title} id={`slide${i}`} className="carousel-item relative m-3 w-64 sm:w-72 lg:m-5 lg:w-80">
               <div className="card bg-primary w-80 shadow-xl">
                 <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
-                  <h2 className="card-title">
-                    <p className="prose prose-xl lg:prose-2xl text-primary-content">{title}</p>
-                  </h2>
+                  <h3 className="card-title prose prose-xl lg:prose-2xl text-primary-content">{title}</h3>
                   <div className="flex flex-col items-center gap-3">
                     {forbiddenWords.map((word) => (
                       <p key={word} className="prose prose-base lg:prose-lg text-primary-content">

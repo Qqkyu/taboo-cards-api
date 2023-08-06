@@ -15,7 +15,8 @@
       "@/pages/*": ["src/pages/*"],
       "@/contexts/*": ["src/contexts/*"],
       "@/types/*": ["src/types/*"],
-      "@/paths/*": ["src/paths/*"]
+      "@/paths/*": ["src/paths/*"],
+      "@/design-system/*": ["src/design-system/*"]
     },
     "baseUrl": "."
   },

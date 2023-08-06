@@ -1,3 +1,4 @@
+import { Font } from "@/design-system/font/font.component";
 import { FunctionComponent, PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
@@ -8,7 +9,7 @@ type Props = PropsWithChildren<{
 export const Section: FunctionComponent<Props> = ({ id, header, children }) => {
   return (
     <section id={id} className="flex flex-col gap-6">
-      <h2 className="prose prose-xl lg:prose-2xl text-base-content font-semibold">{header}</h2>
+      <Font.H2 color="text-base-content">{header}</Font.H2>
       {children}
     </section>
   );

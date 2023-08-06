@@ -1,3 +1,4 @@
+import { Font } from "@/design-system/font/font.component";
 import { FunctionComponent } from "react";
 
 export const CardModel: FunctionComponent = () => {
@@ -5,29 +6,49 @@ export const CardModel: FunctionComponent = () => {
     <table className="table-sm sm:table-md lg:table-lg table">
       <thead>
         <tr>
-          <th className="prose prose-base lg:prose-lg text-base-content">Attribute</th>
-          <th className="prose prose-base lg:prose-lg text-base-content text-center">Type</th>
-          <th className="prose prose-base lg:prose-lg text-base-content">Description</th>
+          <th>
+            <Font.P2 color="text-base-content">Attribute</Font.P2>
+          </th>
+          <th className="text-center">
+            <Font.P2 color="text-base-content">Type</Font.P2>
+          </th>
+          <th>
+            <Font.P2 color="text-base-content">Description</Font.P2>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td className="prose prose-sm lg:prose-base text-base-content">title</td>
-          <td className="prose prose-sm lg:prose-base text-base-content text-center">string</td>
-          <td className="prose prose-sm lg:prose-base text-base-content">Word to explain</td>
-        </tr>
-        <tr>
-          <td className="prose prose-sm lg:prose-base text-base-content">forbiddenWords</td>
-          <td className="prose prose-sm lg:prose-base text-base-content text-center">string[]</td>
-          <td className="prose prose-sm lg:prose-base text-base-content">
-            Five words that can&#39;t be used to explain title
+          <td>
+            <Font.P1 color="text-base-content">title</Font.P1>
+          </td>
+          <td className="text-center">
+            <Font.P1 color="text-base-content">string</Font.P1>
+          </td>
+          <td>
+            <Font.P1 color="text-base-content">Word to explain</Font.P1>
           </td>
         </tr>
         <tr>
-          <td className="prose prose-sm lg:prose-base text-base-content">difficulty</td>
-          <td className="prose prose-sm lg:prose-base text-base-content text-center">string</td>
-          <td className="prose prose-sm lg:prose-base text-base-content">
-            &quot;easy&quot;, &quot;medium&quot;, or &quot;hard&quot;
+          <td>
+            <Font.P1 color="text-base-content">forbiddenWords</Font.P1>
+          </td>
+          <td className="text-center">
+            <Font.P1 color="text-base-content">string[]</Font.P1>
+          </td>
+          <td>
+            <Font.P1 color="text-base-content">Five words that can&#39;t be used to explain the title</Font.P1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Font.P1 color="text-base-content">difficulty</Font.P1>
+          </td>
+          <td className="text-center">
+            <Font.P1 color="text-base-content">string</Font.P1>
+          </td>
+          <td>
+            <Font.P1 color="text-base-content">&quot;easy&quot;, &quot;medium&quot;, or &quot;hard&quot;</Font.P1>
           </td>
         </tr>
       </tbody>

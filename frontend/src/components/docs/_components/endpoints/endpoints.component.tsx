@@ -1,21 +1,22 @@
+import { Font } from "@/design-system/font/font.component";
 import { FunctionComponent } from "react";
 
 export const Endpoints: FunctionComponent = () => {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-6">
-        <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+        <Font.P1 color="text-base-content">
           There are currently two endpoints. The first endpoint returns all of the cards stored in the database. The
           response is the array of card objects.
-        </p>
+        </Font.P1>
         <div className="mockup-code">
           <pre>
             <code>/api/cards</code>
           </pre>
         </div>
-        <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+        <Font.P1 color="text-base-content">
           The second endpoint randomly chooses one card and returns it. The response is a single card object:
-        </p>
+        </Font.P1>
         <div className="mockup-code">
           <pre>
             <code>/api/cards/random</code>
@@ -23,19 +24,19 @@ export const Endpoints: FunctionComponent = () => {
         </div>
       </div>
       <div className="flex flex-col gap-6">
-        <h3 className="prose prose-lg lg:prose-xl text-base-content font-medium">Query parameters</h3>
-        <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+        <Font.H3 color="text-base-content">Query parameters</Font.H3>
+        <Font.P1 color="text-base-content">
           In both of the above endpoints, you can attach the following language and difficulty query parameters.
-        </p>
+        </Font.P1>
         <div className="flex flex-col gap-4">
-          <h4 className="prose prose-base lg:prose-lg text-base-content max-w-full">
+          <Font.H4 color="text-base-content">
             <code>language</code> query parameter
-          </h4>
-          <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+          </Font.H4>
+          <Font.P1 color="text-base-content">
             Attach the <code>language</code> query parameter to get cards only in the provided language (either{" "}
             <code>en</code>
             or <code>pl</code>):
-          </p>
+          </Font.P1>
           <div className="mockup-code">
             <pre>
               <code>/api/cards?language=en</code>
@@ -44,10 +45,10 @@ export const Endpoints: FunctionComponent = () => {
               <code>/api/cards?language=pl</code>
             </pre>
           </div>
-          <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+          <Font.P1 color="text-base-content">
             Not providing the <code>language</code>
             query parameter is equal to providing <code>language=en</code>, so the following endpoints are equal:
-          </p>
+          </Font.P1>
           <div className="mockup-code">
             <pre>
               <code>/api/cards</code>
@@ -56,18 +57,18 @@ export const Endpoints: FunctionComponent = () => {
               <code>/api/cards?language=en</code>
             </pre>
           </div>
-          <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+          <Font.P1 color="text-base-content">
             In both of the above cases, array of cards in English will be returned.
-          </p>
+          </Font.P1>
         </div>
         <div className="flex flex-col gap-4">
-          <h4 className="prose prose-base lg:prose-lg text-base-content">
+          <Font.H4 color="text-base-content">
             <code>difficulty </code> query parameter
-          </h4>
-          <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+          </Font.H4>
+          <Font.P1 color="text-base-content">
             Attach the <code>difficulty </code> query parameter to get cards only with the provided difficulty (
             <code>easy</code>, <code>medium</code>, or <code>hard</code>):
-          </p>
+          </Font.P1>
           <div className="mockup-code">
             <pre>
               <code>/api/cards?difficulty=easy</code>
@@ -79,21 +80,21 @@ export const Endpoints: FunctionComponent = () => {
               <code>/api/cards?difficulty=hard</code>
             </pre>
           </div>
-          <p className="prose prose-sm lg:prose-base text-base-content max-w-full">
+          <Font.P1 color="text-base-content">
             When the <code>difficulty</code> query parameter is not provided, the response will be:
-          </p>
+          </Font.P1>
           <dl>
             <dt>
               <code>/api/cards</code>
             </dt>
-            <dd className="prose prose-sm lg:prose-base text-base-content max-w-full pl-4">
-              All cards with mixed difficulties.
+            <dd className="pl-4">
+              <Font.P1 color="text-base-content">All cards with mixed difficulties.</Font.P1>
             </dd>
             <dt>
               <code>/api/cards/random</code>
             </dt>
-            <dd className="prose prose-sm lg:prose-base text-base-content max-w-full pl-4">
-              One card with any difficulty.
+            <dd className="pl-4">
+              <Font.P1 color="text-base-content">One card with any difficulty.</Font.P1>
             </dd>
           </dl>
         </div>

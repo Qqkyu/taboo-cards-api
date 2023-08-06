@@ -3,6 +3,7 @@ import { Icon } from "@/components/icon/icon.component";
 import { API_URL_PREFIX, CARDS_PATHS, WEB_API_URL_PREFIX } from "@/paths/api.paths";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Font } from "@/design-system/font/font.component";
 
 export const Playground: FunctionComponent = () => {
   const [value, setValue] = useState("cards/random");
@@ -37,7 +38,7 @@ export const Playground: FunctionComponent = () => {
 
   return (
     <div className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[750px]">
-      <h2 className="prose prose-xl lg:prose-2xl text-base-content font-semibold">Playground</h2>
+      <Font.H2 color="text-base-content">Playground</Font.H2>
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">
           <input type="checkbox" />
