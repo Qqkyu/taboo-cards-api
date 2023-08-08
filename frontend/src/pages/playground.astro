@@ -1,8 +1,13 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import { Playground } from "@/components/playground/playground.component";
+import { CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
+
+const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.random}`);
+const cardJson = await response.json();
+const randomCard = JSON.stringify(cardJson, null, 2);
 ---
 
 <Layout>
-  <Playground client:load />
+  <Playground initialData={randomCard} client:load />
 </Layout>

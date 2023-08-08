@@ -1,14 +1,16 @@
-import { FunctionComponent, KeyboardEvent, useCallback, useEffect, useState } from "react";
+import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import { Icon } from "@/components/icon/icon.component";
-import { API_URL_PREFIX, CARDS_PATHS, WEB_API_URL_PREFIX } from "@/paths/api.paths";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import { API_URL_PREFIX, WEB_API_URL_PREFIX } from "@/paths/api.paths";
 import { Font } from "@/design-system/font/font.component";
 
-export const Playground: FunctionComponent = () => {
+type Props = {
+  initialData: string;
+};
+
+export const Playground: FunctionComponent<Props> = ({ initialData }) => {
   const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<string>(undefined);
+  const [response, setResponse] = useState(initialData);
 
   const getResponse = useCallback(async (path: string) => {
     try {
@@ -19,10 +21,6 @@ export const Playground: FunctionComponent = () => {
       setResponse("error");
     }
   }, []);
-
-  useEffect(() => {
-    getResponse(`${API_URL_PREFIX}${CARDS_PATHS.random}`);
-  }, [getResponse]);
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
@@ -102,29 +100,19 @@ export const Playground: FunctionComponent = () => {
           Request
         </button>
       </div>
-      {response ? (
-        response === "error" ? (
-          <div className="alert alert-error">
-            <Icon type="error" className="h-6 w-6 shrink-0" color="hsl(var(--b3))" />
-            <Font.P1 color="text-error-content">Error! Invalid URL.</Font.P1>
-          </div>
-        ) : (
-          <div className="mockup-code bg-base-300">
-            {response.split("\n").map((line, idx) => (
-              <pre key={idx}>
-                <code>{line}</code>
-              </pre>
-            ))}
-          </div>
-        )
+      {response === "error" ? (
+        <div className="alert alert-error">
+          <Icon type="error" className="h-6 w-6 shrink-0" color="hsl(var(--b3))" />
+          <Font.P1 color="text-error-content">Error! Invalid URL.</Font.P1>
+        </div>
       ) : (
-        <Skeleton
-          baseColor="hsl(var(--b3))"
-          highlightColor="hsl(var(--b2))"
-          borderRadius="8px"
-          height="380px"
-          duration={3}
-        />
+        <div className="mockup-code bg-base-300">
+          {response.split("\n").map((line, idx) => (
+            <pre key={idx}>
+              <code>{line}</code>
+            </pre>
+          ))}
+        </div>
       )}
     </div>
   );
