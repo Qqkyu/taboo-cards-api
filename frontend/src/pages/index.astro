@@ -1,8 +1,14 @@
 ---
+import { LOCALHOST_API_URL_PREFIX, CARDS_PATHS } from "@/paths/api.paths";
+import { Card } from "@/types/card.types";
 import { CardsCarousel } from "@/components/cards-carousel/cards-carousel.component";
 import { Stats } from "@/components/stats/stats.component";
 import { Font } from "@/design-system/font/font.component";
 import Layout from "@/layouts/layout.astro";
+
+const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.cards}`);
+const data = await response.json();
+const cards: Array<Card> = data.data;
 ---
 
 <Layout>
@@ -10,7 +16,7 @@ import Layout from "@/layouts/layout.astro";
     <section>
       <Font.H1 color="text-base-content">First ever free taboo cards API</Font.H1>
     </section>
-    <CardsCarousel />
-    <Stats />
+    <CardsCarousel cards={cards} />
+    <Stats cardsNumber={cards.length} />
   </div>
 </Layout>

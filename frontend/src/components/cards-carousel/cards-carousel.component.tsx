@@ -1,13 +1,8 @@
-import { CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
 import { Card } from "@/types/card.types";
 import { FunctionComponent } from "react";
 import { Font } from "@/design-system/font/font.component";
 
 const CARDS_IN_CAROUSEL = 10;
-
-const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.cards}`);
-const data = await response.json();
-const cards: Array<Card> = data.data;
 
 const BADGE_COLOR = {
   easy: "badge-success",
@@ -15,7 +10,11 @@ const BADGE_COLOR = {
   hard: "badge-error",
 } as const;
 
-export const CardsCarousel: FunctionComponent = () => {
+type Props = {
+  cards: Array<Card>;
+};
+
+export const CardsCarousel: FunctionComponent<Props> = ({ cards }) => {
   return (
     <div className="flex flex-col items-center">
       <Font.H2 color="text-base-content">Recently added</Font.H2>
@@ -56,7 +55,6 @@ export const CardsCarousel: FunctionComponent = () => {
           );
         })}
       </div>
-      <Font.P2 color="text-base-content">Cards in total: {cards.length}</Font.P2>
     </div>
   );
 };

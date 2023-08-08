@@ -1,7 +1,11 @@
 import { FunctionComponent } from "react";
 import { Icon } from "@/components/icon/icon.component";
 
-export const Stats: FunctionComponent = () => {
+type Props = {
+  cardsNumber: number;
+};
+
+export const Stats: FunctionComponent<Props> = ({ cardsNumber }) => {
   return (
     <div className="stats stats-vertical xl:stats-horizontal shadow">
       <div className="stat gap-x-2 px-2 sm:gap-x-2 sm:px-6">
@@ -26,8 +30,8 @@ export const Stats: FunctionComponent = () => {
         <div className="stat-figure text-secondary">
           <Icon type="card" color="hsl(var(--p))" className="w-12 sm:w-16" />
         </div>
-        <div className="stat-value text-xl sm:text-4xl">2000</div>
-        <div className="stat-title text-sm sm:text-base">Cards nearly</div>
+        <div className="stat-value text-xl sm:text-4xl">{cardsNumber}</div>
+        <div className="stat-title text-sm sm:text-base">Cards</div>
         <div className="stat-desc text-secondary">And more incoming</div>
       </div>
     </div>
