@@ -94,7 +94,7 @@ export const Playground: FunctionComponent<Props> = ({ initialData }) => {
         </div>
         <button
           onClick={handleClick}
-          className="btn bg-base-300 join-item block border sm:hidden"
+          className="btn bg-base-300 join-item block rounded-lg border sm:hidden"
           style={{ borderColor: "hsl(var(--b3))" }}
         >
           Request
