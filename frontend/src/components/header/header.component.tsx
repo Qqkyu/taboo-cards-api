@@ -54,8 +54,8 @@ export const Header: FunctionComponent = () => {
           Taboo cards API
         </a>
       </div>
-      <div className="navbar-end flex gap-3 sm:gap-4 lg:gap-5">
-        <ul className="menu menu-horizontal hidden gap-3 lg:flex">
+      <div className="navbar-end flex gap-3 sm:gap-4 lg:gap-5 lg:pr-4">
+        <ul className="menu menu-horizontal hidden gap-2 lg:flex">
           <li>
             <details className="z-10">
               <summary>
