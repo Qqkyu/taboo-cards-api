@@ -14,6 +14,9 @@ export const Header: FunctionComponent = () => {
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
           <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li>
+              <a href="/about" className="prose text-base-content">
+                About
+              </a>
               <a href="/docs" className="prose text-base-content">
                 Docs
               </a>
@@ -56,6 +59,11 @@ export const Header: FunctionComponent = () => {
       </div>
       <div className="navbar-end flex gap-3 sm:gap-4 lg:gap-5 lg:pr-4">
         <ul className="menu menu-horizontal hidden gap-2 lg:flex">
+          <li>
+            <a href="/about" className="prose prose-xl text-base-content font-medium">
+              <span>About</span>
+            </a>
+          </li>
           <li>
             <details className="z-10">
               <summary>
