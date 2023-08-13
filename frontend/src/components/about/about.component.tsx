@@ -96,7 +96,7 @@ export const About: FunctionComponent = () => {
         <Font.H2 color="text-base-content">Contact</Font.H2>
         <Font.P1 color="text-base-content">
           Head over to my{" "}
-          <a href="https://github.com/Qqkyu/taboo-cards-api" target="_blank" className="link link-primary">
+          <a href="https://github.com/Qqkyu" target="_blank" className="link link-primary">
             GitHub profile
           </a>
           . I've got a couple of contact options set up there. Can't wait to hear from you!
