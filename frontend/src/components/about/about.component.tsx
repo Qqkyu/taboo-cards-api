@@ -19,7 +19,7 @@ export const About: FunctionComponent = () => {
       <section className="flex flex-col gap-6">
         <Font.H2 color="text-base-content">How are the cards created?</Font.H2>
         <div>
-          <Font.P1 color="text-base-content">I use a of couple tools to generate data.</Font.P1>
+          <Font.P1 color="text-base-content">I use a couple of tools to generate data.</Font.P1>
           <dl className="my-2 pl-1 sm:pl-2">
             <dt>
               <Font.P1 color="text-base-content">Words and phrases generators:</Font.P1>
