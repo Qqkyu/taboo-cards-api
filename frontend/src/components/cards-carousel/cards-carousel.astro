@@ -1,5 +1,6 @@
 ---
 import { Font } from "@/design-system/font/font.component";
+import { Card } from "@/types/card.types";
 
 const CARDS_IN_CAROUSEL = 10;
 
@@ -8,6 +9,10 @@ const BADGE_COLOR = {
   medium: "badge-warning",
   hard: "badge-error",
 } as const;
+
+interface Props {
+  cards: Array<Card>;
+}
 
 const { cards } = Astro.props;
 ---
