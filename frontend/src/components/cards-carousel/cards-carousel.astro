@@ -1,0 +1,54 @@
+---
+import { Font } from "@/design-system/font/font.component";
+
+const CARDS_IN_CAROUSEL = 10;
+
+const BADGE_COLOR = {
+  easy: "badge-success",
+  medium: "badge-warning",
+  hard: "badge-error",
+} as const;
+
+const { cards } = Astro.props;
+---
+
+<div class="flex flex-col items-center">
+  <Font.H2 color="text-base-content">Recently added</Font.H2>
+  <div class="carousel w-64 sm:w-72 lg:w-80">
+    {
+      cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
+        return (
+          <div id={`slide${i}`} class="carousel-item relative m-3 w-64 sm:w-72 lg:m-5 lg:w-80">
+            <div class="card bg-primary w-80 shadow-xl">
+              <div class="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
+                <div class="card-title">
+                  <Font.H2 color="text-primary-content">{title}</Font.H2>
+                </div>
+                <div class="flex flex-col items-center gap-3">
+                  {forbiddenWords.map((word) => (
+                    <Font.P2 color="text-primary-content">{word}</Font.P2>
+                  ))}
+                </div>
+                <div class={`badge h-5 ${BADGE_COLOR[difficulty]}`}>{difficulty}</div>
+              </div>
+            </div>
+            <div class="absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-between">
+              <a
+                href={`#slide${i === 0 ? CARDS_IN_CAROUSEL - 1 : i - 1}`}
+                class="btn btn-primary btn-circle text-primary-content"
+              >
+                ❮
+              </a>
+              <a
+                href={`#slide${i === CARDS_IN_CAROUSEL - 1 ? 0 : i + 1}`}
+                class="btn btn-primary btn-circle text-primary-content"
+              >
+                ❯
+              </a>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
