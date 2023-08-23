@@ -41,7 +41,7 @@ export const ThemeToggle: FunctionComponent = () => {
     </label>
   ) : (
     <div className="h-6 w-6 leading-none sm:h-7 sm:w-7 lg:h-8 lg:w-8">
-      <Skeleton circle height="100%" />
+      <Skeleton circle height="100%" baseColor="hsl(var(--b3))" />
     </div>
   );
 };
