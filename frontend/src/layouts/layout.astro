@@ -13,6 +13,15 @@ import { ViewTransitions } from "astro:transitions";
     <ViewTransitions />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Taboo cards API</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "pastel";
+      })();
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
   </head>
   <body>
     <Header transition:persist />
@@ -20,19 +29,5 @@ import { ViewTransitions } from "astro:transitions";
       <slot />
     </div>
     <ScrollToTopButton client:idle />
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "pastel";
-      })();
-
-      document.documentElement.setAttribute("data-theme", theme);
-      window.localStorage.setItem("theme", theme);
-    </script>
   </body>
 </html>
