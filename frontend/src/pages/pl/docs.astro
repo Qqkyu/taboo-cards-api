@@ -1,0 +1,167 @@
+---
+import Layout from "@/layouts/layout.astro";
+import Section from "@/components/section/section.astro";
+import { Font } from "@/design-system/font/font.component";
+import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
+---
+
+<Layout>
+  <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
+    <Section id="card-model" header="Model karty">
+      <table class="table-sm sm:table-md lg:table-lg table">
+        <thead>
+          <tr>
+            <th>
+              <Font.P2 color="text-base-content">Atrybut</Font.P2>
+            </th>
+            <th class="text-center">
+              <Font.P2 color="text-base-content">Typ</Font.P2>
+            </th>
+            <th>
+              <Font.P2 color="text-base-content">Opis</Font.P2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <Font.P1 color="text-base-content">title</Font.P1>
+            </td>
+            <td class="text-center">
+              <Font.P1 color="text-base-content">string</Font.P1>
+            </td>
+            <td>
+              <Font.P1 color="text-base-content">Słowo do wyjaśnienia</Font.P1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Font.P1 color="text-base-content">forbiddenWords</Font.P1>
+            </td>
+            <td class="text-center">
+              <Font.P1 color="text-base-content">string[]</Font.P1>
+            </td>
+            <td>
+              <Font.P1 color="text-base-content">Pięć słów, które nie mogą być użyte do wyjaśnienia tytułu</Font.P1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Font.P1 color="text-base-content">difficulty</Font.P1>
+            </td>
+            <td class="text-center">
+              <Font.P1 color="text-base-content">string</Font.P1>
+            </td>
+            <td>
+              <Font.P1 color="text-base-content">&quot;easy&quot;, &quot;medium&quot; lub &quot;hard&quot;</Font.P1>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </Section>
+    <div class="divider"></div>
+    <Section id="endpoints" header="Endpointy">
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-6">
+          <Font.P1 color="text-base-content">
+            Obecnie istnieją dwa endpointy. Pierwszy zwraca wszystkie karty przechowywane w bazie danych. Odpowiedź to
+            tablica obiektów kart.
+          </Font.P1>
+          <div class="mockup-code">
+            <pre><code>/api/cards</code></pre>
+          </div>
+          <Font.P1 color="text-base-content">
+            Drugi endpoint zwraca losowo wybraną kartę. Odpowiedź to pojedynczy obiekt - karta:
+          </Font.P1>
+          <div class="mockup-code">
+            <pre><code>/api/cards/random</code></pre>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6">
+          <Font.H3 color="text-base-content">Parametry zapytania</Font.H3>
+          <Font.P1 color="text-base-content">
+            W obu wyżej wymienionych endpointach można dołączyć następujące parametry zapytania dotyczące języka i
+            trudności.
+          </Font.P1>
+          <div class="flex flex-col gap-4">
+            <Font.H4 color="text-base-content">
+              Parametr <code>language</code>
+            </Font.H4>
+            <Font.P1 color="text-base-content">
+              Dołącz parametr <code>language</code>, aby otrzymać karty tylko w danym języku (<code>en</code> lub <code
+                >pl</code
+              >):
+            </Font.P1>
+            <div class="mockup-code">
+              <pre><code>/api/cards?language=en</code></pre>
+              <pre><code>/api/cards?language=pl</code></pre>
+            </div>
+            <Font.P1 color="text-base-content">
+              Nie podanie parametru <code>language</code> jest równoważne z podaniem <code>language=en</code>, więc
+              następujące endpointy są równoważne:
+            </Font.P1>
+            <div class="mockup-code">
+              <pre><code>/api/cards</code></pre>
+              <pre><code>/api/cards?language=en</code></pre>
+            </div>
+            <Font.P1 color="text-base-content">
+              W obu powyższych przypadkach zostanie zwrócona tablica kart w języku angielskim.
+            </Font.P1>
+          </div>
+          <div class="flex flex-col gap-4">
+            <Font.H4 color="text-base-content">
+              Parametr <code>difficulty</code>
+            </Font.H4>
+            <Font.P1 color="text-base-content">
+              Dołącz parametr <code>difficulty</code>, aby otrzymać karty tylko o określonej trudności (<code>easy</code
+              >, <code>medium</code>, or <code>hard</code>):
+            </Font.P1>
+            <div class="mockup-code">
+              <pre><code>/api/cards?difficulty=easy</code></pre>
+              <pre><code>/api/cards?difficulty=medium</code></pre>
+              <pre><code>/api/cards?difficulty=hard</code></pre>
+            </div>
+            <Font.P1 color="text-base-content">
+              Jeśli parametr <code>difficulty</code> nie zostanie podany, to zostanie zwrócona następująca odpowiedź:
+            </Font.P1>
+            <dl>
+              <dt>
+                <code>/api/cards</code>
+              </dt>
+              <dd class="pl-4">
+                <Font.P1 color="text-base-content">Wszystkie karty o różnych trudnościach.</Font.P1>
+              </dd>
+              <dt>
+                <code>/api/cards/random</code>
+              </dt>
+              <dd class="pl-4">
+                <Font.P1 color="text-base-content">Jedna karta o dowolnej trudności.</Font.P1>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </Section>
+    <div class="divider"></div>
+    <Section id="base-url" header="Bazowy URL">
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-6">
+          <Font.P1 color="text-base-content">Bazowy URL jest prefiksem dla API:</Font.P1>
+          <div class="mockup-code">
+            <pre><code>{WEB_API_URL_PREFIX}</code></pre>
+          </div>
+          <Font.P1 color="text-base-content">
+            Prefiks ten jest pominięty w całej dokumentacji. Powinien być zawsze dołączany podczas komunikacji z API.
+          </Font.P1>
+        </div>
+      </div>
+    </Section>
+    <div class="divider"></div>
+    <Section id="rate-limit" header="Limit zapytań">
+      <Font.P1 color="text-base-content">
+        Aby zapobiec złośliwym działaniom, istnieje limit 10000 zapytań do API dziennie. Wykonanie większej liczby
+        zapytań spowoduje otrzymanie odpowiedzi z błędem o statusie 429 (Too Many Requests).
+      </Font.P1>
+    </Section>
+  </div>
+</Layout>
