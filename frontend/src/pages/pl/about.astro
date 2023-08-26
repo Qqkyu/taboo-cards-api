@@ -1,21 +1,20 @@
 ---
+import Section from "@/components/section/section.astro";
 import { Font } from "@/design-system/font/font.component";
 import Layout from "@/layouts/layout.astro";
 ---
 
 <Layout>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Kim jesteś?</Font.H2>
+    <Section header="Kim jesteś?">
       <Font.P1 color="text-base-content">
         Cześć, jestem <a href="https://github.com/Qqkyu" target="_blank" class="link">Michał Kuliński</a> i jestem
         programistą z Polski. Ponieważ lubię zarówno JavaScript, jak i tabu, postanowiłem stworzyć to API i wykorzystać
         je, aby napisać moją własną grę tabu.
       </Font.P1>
-    </section>
+    </Section>
     <div class="divider"></div>
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Jak są tworzone karty?</Font.H2>
+    <Section header="Jak są tworzone karty?">
       <div>
         <Font.P1 color="text-base-content">Do generowania danych używam kilku narzędzi.</Font.P1>
         <dl class="my-2 pl-1 sm:pl-2">
@@ -68,10 +67,9 @@ import Layout from "@/layouts/layout.astro";
           kartę do bazy danych!
         </Font.P1>
       </div>
-    </section>
+    </Section>
     <div class="divider"></div>
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Problemy</Font.H2>
+    <Section header="Problemy">
       <Font.P1 color="text-base-content">
         Jeśli napotkasz jakikolwiek problem z danymi lub tą stroną internetową, stwórz zgłoszenie w <a
           href="https://github.com/Qqkyu/taboo-cards-api"
@@ -79,14 +77,13 @@ import Layout from "@/layouts/layout.astro";
           class="link">repozytorium na GitHub</a
         >.
       </Font.P1>
-    </section>
+    </Section>
     <div class="divider"></div>
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Kontakt</Font.H2>
+    <Section header="Kontakt">
       <Font.P1 color="text-base-content">
         Odwiedź mój <a href="https://github.com/Qqkyu" target="_blank" class="link">profil na GitHubie</a>. Udostępniłem
         tam kilka opcji kontaktu. Nie mogę się doczekać, aby usłyszeć od Ciebie!
       </Font.P1>
-    </section>
+    </Section>
   </div>
 </Layout>

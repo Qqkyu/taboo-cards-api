@@ -1,21 +1,20 @@
 ---
 import { Font } from "@/design-system/font/font.component";
 import Layout from "@/layouts/layout.astro";
+import Section from "@/components/section/section.astro";
 ---
 
 <Layout>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Who are you?</Font.H2>
+    <Section header="Who are you?">
       <Font.P1 color="text-base-content">
         Hi, I'm <a href="https://github.com/Qqkyu" target="_blank" class="link">Michał Kuliński</a>, and I'm a developer
         from Poland. Since I enjoy both JavaScript and taboo, I've decided to create this API and use it to write my own
         taboo game.
       </Font.P1>
-    </section>
+    </Section>
     <div class="divider"></div>
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">How are the cards created?</Font.H2>
+    <Section header="How are the cards created?">
       <div>
         <Font.P1 color="text-base-content">I use a couple of tools to generate data.</Font.P1>
         <dl class="my-2 pl-1 sm:pl-2">
@@ -67,10 +66,9 @@ import Layout from "@/layouts/layout.astro";
           Finally, I subjectively choose difficulty and add the card to the database!
         </Font.P1>
       </div>
-    </section>
+    </Section>
     <div class="divider"></div>
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Issues</Font.H2>
+    <Section header="Issues">
       <Font.P1 color="text-base-content">
         If you encounter any issue with the data or this website, please file an issue in the <a
           href="https://github.com/Qqkyu/taboo-cards-api"
@@ -78,14 +76,13 @@ import Layout from "@/layouts/layout.astro";
           class="link">GitHub repository</a
         >.
       </Font.P1>
-    </section>
+    </Section>
     <div class="divider"></div>
-    <section class="flex flex-col gap-6">
-      <Font.H2 color="text-base-content">Contact</Font.H2>
+    <Section header="Contact">
       <Font.P1 color="text-base-content">
         Head over to my <a href="https://github.com/Qqkyu" target="_blank" class="link">GitHub profile</a>. I've got a
         couple of contact options set up there. Can't wait to hear from you!
       </Font.P1>
-    </section>
+    </Section>
   </div>
 </Layout>
