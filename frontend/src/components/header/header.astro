@@ -1,6 +1,10 @@
 ---
 import { ThemeToggle } from "./_components/theme-toggle/theme-toggle.component";
 import { Icon } from "@/components/icon/icon.component";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
 <div class="navbar bg-base-300 h-16 p-3 sm:h-20 sm:p-4">
@@ -11,30 +15,30 @@ import { Icon } from "@/components/icon/icon.component";
       </div>
       <ul tabIndex={0} class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li>
-          <a href="/about" class="prose text-base-content">About</a>
-          <a href="/docs" class="prose text-base-content">Docs</a>
+          <a href={`/${lang}/about`} class="prose text-base-content">{t("header.about")}</a>
+          <a href={`/${lang}/docs`} class="prose text-base-content">{t("header.docs")}</a>
           <ul class="p-2">
             <li>
-              <a href="/docs/#card-model" class="prose text-base-content">Card model</a>
+              <a href={`/${lang}/docs/#card-model`} class="prose text-base-content">Card model</a>
             </li>
             <li>
-              <a href="/docs/#endpoints" class="prose text-base-content">Endpoints</a>
+              <a href={`/${lang}/docs/#endpoints`} class="prose text-base-content">Endpoints</a>
             </li>
             <li>
-              <a href="/docs/#base-url" class="prose text-base-content">Base URL</a>
+              <a href={`/${lang}/docs/#base-url`} class="prose text-base-content">Base URL</a>
             </li>
             <li>
-              <a href="/docs/#rate-limit" class="prose text-base-content">Rate limit</a>
+              <a href={`/${lang}/docs/#rate-limit`} class="prose text-base-content">Rate limit</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="/playground" class="prose text-base-content">Playground</a>
+          <a href={`/${lang}/playground`} class="prose text-base-content">{t("header.playground")}</a>
         </li>
       </ul>
     </div>
     <a
-      href="/"
+      href={`/${lang}/`}
       class="btn-ghost btn btn-xs sm:btn-sm lg:btn-md text-primary-content text-sm normal-case sm:text-lg lg:text-xl"
     >
       Taboo cards API
@@ -43,34 +47,34 @@ import { Icon } from "@/components/icon/icon.component";
   <div class="navbar-end flex gap-3 sm:gap-4 lg:gap-5 lg:pr-4">
     <ul class="menu menu-horizontal hidden gap-2 lg:flex">
       <li>
-        <a href="/about" class="prose prose-xl text-base-content font-medium">
-          <span>About</span>
+        <a href={`/${lang}/about`} class="prose prose-xl text-base-content font-medium">
+          <span>{t("header.about")}</span>
         </a>
       </li>
       <li>
         <details class="z-10">
           <summary>
-            <a href="/docs" class="prose prose-xl text-base-content font-medium">Docs</a>
+            <a href={`/${lang}/docs`} class="prose prose-xl text-base-content font-medium">{t("header.docs")}</a>
           </summary>
           <ul class="p-2">
             <li>
-              <a href="/docs/#card-model" class="prose text-base-content">Card model</a>
+              <a href={`/${lang}/docs/#card-model`} class="prose text-base-content">Card model</a>
             </li>
             <li>
-              <a href="/docs/#endpoints" class="prose text-base-content">Endpoints</a>
+              <a href={`/${lang}/docs/#endpoints`} class="prose text-base-content">Endpoints</a>
             </li>
             <li>
-              <a href="/docs/#base-url" class="prose text-base-content">Base URL</a>
+              <a href={`/${lang}/docs/#base-url`} class="prose text-base-content">Base URL</a>
             </li>
             <li>
-              <a href="/docs/#rate-limit" class="prose text-base-content">Rate limit</a>
+              <a href={`/${lang}/docs/#rate-limit`} class="prose text-base-content">Rate limit</a>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <a href="/playground" class="prose prose-xl text-base-content font-medium">
-          <span>Playground</span>
+        <a href={`/${lang}/playground`} class="prose prose-xl text-base-content font-medium">
+          <span>{t("header.playground")}</span>
         </a>
       </li>
     </ul>

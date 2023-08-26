@@ -1,11 +1,14 @@
 ---
 import Header from "@/components/header/header.astro";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
+import { getLangFromUrl } from "@/i18n/utils";
 import { ViewTransitions } from "astro:transitions";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

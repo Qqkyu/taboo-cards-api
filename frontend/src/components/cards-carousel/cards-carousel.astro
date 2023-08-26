@@ -1,5 +1,6 @@
 ---
 import { Font } from "@/design-system/font/font.component";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { Card } from "@/types/card.types";
 
 const CARDS_IN_CAROUSEL = 10;
@@ -15,10 +16,13 @@ interface Props {
 }
 
 const { cards } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
 <div class="flex flex-col items-center">
-  <Font.H2 color="text-base-content">Recently added</Font.H2>
+  <Font.H2 color="text-base-content">{t("carousel.recently_added")}</Font.H2>
   <div class="carousel w-64 sm:w-72 lg:w-80">
     {
       cards.slice(-CARDS_IN_CAROUSEL).map(({ title, forbiddenWords, difficulty }, i) => {
