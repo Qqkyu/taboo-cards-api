@@ -11,6 +11,8 @@ import { CheckmarkIcon } from "./icons/checkmark.icon";
 import { LanguageIcon } from "./icons/language.icon";
 import { StairsIcon } from "./icons/stairs.icon";
 import { CardIcon } from "./icons/card.icon";
+import { GreatBritainFlagIcon } from "./icons/gb-flag.icon";
+import { PolandFlagIcon } from "./icons/pl-flag.icon";
 
 export type IconType =
   | "copy"
@@ -23,7 +25,9 @@ export type IconType =
   | "stairs"
   | "language"
   | "arrow-up"
-  | "burger-menu";
+  | "burger-menu"
+  | "gb-flag"
+  | "pl-flag";
 
 type IconProps = IconComponentProps & {
   type: IconType;
@@ -41,6 +45,8 @@ const Icons: Record<IconType, FunctionComponent<IconComponentProps>> = {
   language: LanguageIcon,
   "arrow-up": ArrowUpIcon,
   "burger-menu": BurgerMenuIcon,
+  "gb-flag": GreatBritainFlagIcon,
+  "pl-flag": PolandFlagIcon,
 };
 
 export const Icon: FunctionComponent<IconProps> = ({ type, ...rest }) => {
