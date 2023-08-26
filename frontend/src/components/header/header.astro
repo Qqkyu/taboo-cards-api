@@ -79,8 +79,6 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
         </a>
       </li>
     </ul>
-    <LanguageSelect lang={lang} client:idle />
-    <ThemeToggle client:idle />
     <a
       href="https://github.com/Qqkyu/taboo-cards-api"
       aria-label="API GitHub repository"
@@ -89,5 +87,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
     >
       <Icon type="github" color="hsl(var(--pc))" className="w-6 sm:w-7 lg:w-8" />
     </a>
+    <ThemeToggle client:idle />
+    <LanguageSelect lang={lang} client:idle />
   </div>
 </div>
