@@ -1,0 +1,92 @@
+---
+import { Font } from "@/design-system/font/font.component";
+import Layout from "@/layouts/layout.astro";
+---
+
+<Layout>
+  <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
+    <section class="flex flex-col gap-6">
+      <Font.H2 color="text-base-content">Kim jesteś?</Font.H2>
+      <Font.P1 color="text-base-content">
+        Cześć, jestem <a href="https://github.com/Qqkyu" target="_blank" class="link">Michał Kuliński</a> i jestem
+        programistą z Polski. Ponieważ lubię zarówno JavaScript, jak i tabu, postanowiłem stworzyć to API i wykorzystać
+        je, aby napisać moją własną grę tabu.
+      </Font.P1>
+    </section>
+    <div class="divider"></div>
+    <section class="flex flex-col gap-6">
+      <Font.H2 color="text-base-content">Jak są tworzone karty?</Font.H2>
+      <div>
+        <Font.P1 color="text-base-content">Do generowania danych używam kilku narzędzi.</Font.P1>
+        <dl class="my-2 pl-1 sm:pl-2">
+          <dt>
+            <Font.P1 color="text-base-content">Generatory słów i fraz:</Font.P1>
+          </dt>
+          <dd class="pl-2 sm:pl-4">
+            <Font.P1 color="text-base-content">
+              <a href="https://randomwordgenerator.com/" target="_blank" class="link">Random word generator</a>
+            </Font.P1>
+          </dd>
+          <dd class="mb-1 pl-2 sm:pl-4">
+            <Font.P1 color="text-base-content">
+              <a href="https://randomwordgenerator.com/phrase.php" target="_blank" class="link">
+                Random phrase generator
+              </a>
+            </Font.P1>
+          </dd>
+          <dt>
+            <Font.P1 color="text-base-content">Narzędzia AI:</Font.P1>
+          </dt>
+          <dd class="pl-2 sm:pl-4">
+            <Font.P1 color="text-base-content">
+              <a href="https://chat.openai.com/" target="_blank" class="link">ChatGPT</a>
+            </Font.P1>
+          </dd>
+          <dd class="mb-1 pl-2 sm:pl-4">
+            <Font.P1 color="text-base-content">
+              <a href="https://bard.google.com/" target="_blank" class="link">Bard</a>
+            </Font.P1>
+          </dd>
+          <dt>
+            <Font.P1 color="text-base-content">Tłumacze:</Font.P1>
+          </dt>
+          <dd class="pl-2 sm:pl-4">
+            <Font.P1 color="text-base-content">
+              <a href="https://www.deepl.com/translator" target="_blank" class="link">DeepL</a>
+            </Font.P1>
+          </dd>
+          <dd class="mb-1 pl-2 sm:pl-4">
+            <Font.P1 color="text-base-content">
+              <a href="https://www.diki.pl/" target="_blank" class="link">diki</a>
+            </Font.P1>
+          </dd>
+        </dl>
+        <Font.P1 color="text-base-content">
+          Zazwyczaj generuję słowa i frazy za pomocą wymienionych powyżej generatorów. Następnie narzędzia oparte na
+          sztucznej inteligencji tworzą słowa, które nie mogą być używane podczas wyjaśniania danego terminu. Po tym
+          tłumaczę każdą kartę i ręcznie sprawdzam zakazane słowa. Na końcu subiektywnie wybieram trudność i dodaję
+          kartę do bazy danych!
+        </Font.P1>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <section class="flex flex-col gap-6">
+      <Font.H2 color="text-base-content">Problemy</Font.H2>
+      <Font.P1 color="text-base-content">
+        Jeśli napotkasz jakikolwiek problem z danymi lub tą stroną internetową, stwórz zgłoszenie w <a
+          href="https://github.com/Qqkyu/taboo-cards-api"
+          target="_blank"
+          class="link">repozytorium na GitHub</a
+        >.
+      </Font.P1>
+    </section>
+    <div class="divider"></div>
+    <section class="flex flex-col gap-6">
+      <Font.H2 color="text-base-content">Kontakt</Font.H2>
+      <Font.P1 color="text-base-content">
+        Odwiedź mój <a href="https://github.com/Qqkyu" target="_blank" class="link">profil na GitHubie</a>. Udostępniłem
+        tam kilka opcji kontaktu. Nie mogę się doczekać, aby usłyszeć od Ciebie!
+      </Font.P1>
+    </section>
+  </div>
+</Layout>
