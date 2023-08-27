@@ -2,15 +2,18 @@ import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
 import { Icon } from "@/components/icon/icon.component";
 import { API_URL_PREFIX, WEB_API_URL_PREFIX } from "@/paths/api.paths";
 import { Font } from "@/design-system/font/font.component";
+import { useTranslations } from "@/i18n/utils";
 
 type Props = {
   initialData: string;
+  lang: "en" | "pl";
 };
 
-export const Playground: FunctionComponent<Props> = ({ initialData }) => {
+export const Playground: FunctionComponent<Props> = ({ lang, initialData }) => {
   const [value, setValue] = useState("cards/random");
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState(initialData);
+  const t = useTranslations(lang);
 
   const getResponse = useCallback(async (path: string) => {
     try {
@@ -36,12 +39,12 @@ export const Playground: FunctionComponent<Props> = ({ initialData }) => {
 
   return (
     <div className="flex w-[300px] flex-col gap-8 sm:w-[500px] lg:w-[750px]">
-      <Font.H2 color="text-base-content">Playground</Font.H2>
+      <Font.H2 color="text-base-content">{t("header.playground")}</Font.H2>
       <div className="flex flex-col items-center gap-4">
         <div className="bg-base-300 collapse-arrow collapse rounded-lg">
           <input type="checkbox" />
           <div className="collapse-title">
-            <Font.H3 color="text-base-content">Examples</Font.H3>
+            <Font.H3 color="text-base-content">{t("playground.examples")}</Font.H3>
           </div>
           <div className="collapse-content">
             <ul>
@@ -52,9 +55,17 @@ export const Playground: FunctionComponent<Props> = ({ initialData }) => {
                   </Font.H4>
                 </div>
                 <dl className="pl-2 sm:pl-4">
-                  <ExampleApiPath path="cards" description="All cards." />
-                  <ExampleApiPath path="cards?language=pl" description="All cards in Polish language." />
-                  <ExampleApiPath path="cards?difficulty=hard" description="All cards with hard difficulty." />
+                  <ExampleApiPath lang={lang} path="cards" description={t("playground.all_cards")} />
+                  <ExampleApiPath
+                    lang={lang}
+                    path="cards?language=pl"
+                    description={t("playground.all_cards_in_polish")}
+                  />
+                  <ExampleApiPath
+                    lang={lang}
+                    path="cards?difficulty=hard"
+                    description={t("playground.all_hard_cards")}
+                  />
                 </dl>
               </li>
               <li className="mb-4">
@@ -64,9 +75,17 @@ export const Playground: FunctionComponent<Props> = ({ initialData }) => {
                   </Font.H4>
                 </div>
                 <dl className="pl-2 sm:pl-4">
-                  <ExampleApiPath path="cards/random" description="A random card." />
-                  <ExampleApiPath path="cards/random?language=pl" description="A random card in Polish language." />
-                  <ExampleApiPath path="cards/random?difficulty=easy" description="A random card in easy difficulty." />
+                  <ExampleApiPath lang={lang} path="cards/random" description={t("playground.random_card")} />
+                  <ExampleApiPath
+                    lang={lang}
+                    path="cards/random?language=pl"
+                    description={t("playground.random_card_in_polish")}
+                  />
+                  <ExampleApiPath
+                    lang={lang}
+                    path="cards/random?difficulty=easy"
+                    description={t("playground.random_easy_card")}
+                  />
                 </dl>
               </li>
             </ul>
@@ -121,10 +140,12 @@ export const Playground: FunctionComponent<Props> = ({ initialData }) => {
 type ExampleApiPathProps = {
   path: string;
   description: string;
+  lang: "en" | "pl";
 };
 
-const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, description }) => {
+const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, description, lang }) => {
   const [wasCopied, setWasCopied] = useState(false);
+  const t = useTranslations(lang);
 
   const handleCopy = useCallback(async () => {
     setWasCopied(true);
@@ -144,7 +165,7 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
           }`}
           title="Copy to clipboard"
           onClick={handleCopy}
-          data-tip="Copied"
+          data-tip={t("playground.copied")}
         >
           <Icon
             type={wasCopied ? "checkmark" : "copy"}
