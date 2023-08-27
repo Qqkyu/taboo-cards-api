@@ -3,11 +3,15 @@ import Layout from "@/layouts/layout.astro";
 import Section from "@/components/section/section.astro";
 import { Font } from "@/design-system/font/font.component";
 import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
 <Layout>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
-    <Section id="card-model" header="Card model">
+    <Section id="card-model" header={t("docs.card_model")}>
       <table class="table-sm sm:table-md lg:table-lg table">
         <thead>
           <tr>
@@ -60,7 +64,7 @@ import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
       </table>
     </Section>
     <div class="divider"></div>
-    <Section id="endpoints" header="Endpoints">
+    <Section id="endpoints" header={t("docs.endpoints")}>
       <div class="flex flex-col gap-8">
         <div class="flex flex-col gap-6">
           <Font.P1 color="text-base-content">
@@ -142,7 +146,7 @@ import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
       </div>
     </Section>
     <div class="divider"></div>
-    <Section id="base-url" header="Base URL">
+    <Section id="base-url" header={t("docs.base_url")}>
       <div class="flex flex-col gap-8">
         <div class="flex flex-col gap-6">
           <Font.P1 color="text-base-content">The base URL is the prefix for the API:</Font.P1>
@@ -157,7 +161,7 @@ import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
       </div>
     </Section>
     <div class="divider"></div>
-    <Section id="rate-limit" header="Rate limit">
+    <Section id="rate-limit" header={t("docs.rate_limit")}>
       <Font.P1 color="text-base-content">
         There is a 10000 requests per day API limit to prevent any malicious action. If you were to make more requests
         than this, you will get an error response with 429 status response (Too Many Requests).
