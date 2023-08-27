@@ -23,6 +23,7 @@ export const ui = {
     "playground.random_card_in_polish": "A random card in Polish language.",
     "playground.random_easy_card": "A random card in easy difficulty.",
     "playground.copied": "Copied",
+    "playground.copy_to_clipboard": "Copy to clipboard",
   },
   pl: {
     "header.about": "O nas",
@@ -41,5 +42,6 @@ export const ui = {
     "playground.random_card_in_polish": "Losowa karta w języku polskim.",
     "playground.random_easy_card": "Losowa karta o łatwej trudności.",
     "playground.copied": "Skopiowane",
+    "playground.copy_to_clipboard": "Skopiuj do schowka",
   },
 } as const;

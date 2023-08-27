@@ -163,7 +163,7 @@ const ExampleApiPath: FunctionComponent<ExampleApiPathProps> = ({ path, descript
           className={`btn btn-xs border-none !bg-transparent ${
             wasCopied ? "btn-disabled tooltip tooltip-top sm:tooltip-right tooltip-open" : ""
           }`}
-          title="Copy to clipboard"
+          title={t("playground.copy_to_clipboard")}
           onClick={handleCopy}
           data-tip={t("playground.copied")}
         >
