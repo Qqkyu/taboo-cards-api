@@ -1,5 +1,6 @@
 ---
 import Header from "@/components/header/header.astro";
+import Footer from "@/components/footer/footer.astro";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
 import { getLangFromUrl } from "@/i18n/utils";
 import { ViewTransitions } from "astro:transitions";
@@ -29,10 +30,13 @@ const lang = getLangFromUrl(Astro.url);
     </script>
   </head>
   <body>
-    <Header transition:persist />
-    <div class="flex p-4 sm:p-10 lg:p-20 flex-col w-full items-center justify-center">
-      <slot />
+    <div class="min-h-screen flex flex-col">
+      <Header transition:persist />
+      <div class="flex flex-1 p-4 sm:p-10 lg:p-20 flex-col w-full items-center justify-center">
+        <slot />
+      </div>
+      <ScrollToTopButton client:idle />
+      <Footer transition:persist />
     </div>
-    <ScrollToTopButton client:idle />
   </body>
 </html>

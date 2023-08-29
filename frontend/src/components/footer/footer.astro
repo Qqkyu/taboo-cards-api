@@ -1,0 +1,25 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { Icon } from "@/components/icon/icon.component";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
+---
+
+<footer class="footer bg-base-300 items-center p-4 text-base-content">
+  <div class="items-center grid-flow-col">
+    <p>
+      Created by <a class="link" href="https://github.com/Qqkyu">Michał Kuliński</a>
+    </p>
+  </div>
+  <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    <a
+      href="https://github.com/Qqkyu/taboo-cards-api"
+      aria-label={t("header.github_repository")}
+      target="_blank"
+      class="normal-case"
+    >
+      <Icon type="github" color="hsl(var(--bc))" className="w-6" />
+    </a>
+  </div>
+</footer>
