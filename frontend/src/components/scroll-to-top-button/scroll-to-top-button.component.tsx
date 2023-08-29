@@ -33,7 +33,7 @@ export const ScrollToTopButton: FunctionComponent = () => {
   return (
     <button
       ref={ref}
-      className={`btn-secondary btn-sm btn-circle btn fixed bottom-8 right-8 z-10 ${
+      className={`btn-secondary btn-sm btn-circle btn fixed bottom-20 right-10 z-10 ${
         showButton ? "translate-y-0 opacity-100" : "translate-y-24 opacity-0"
       } transition-all duration-500 ease-linear`}
       aria-label="Scroll to the top of the page"
