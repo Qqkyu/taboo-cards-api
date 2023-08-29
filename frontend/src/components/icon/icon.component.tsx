@@ -13,6 +13,7 @@ import { StairsIcon } from "./icons/stairs.icon";
 import { CardIcon } from "./icons/card.icon";
 import { GreatBritainFlagIcon } from "./icons/gb-flag.icon";
 import { PolandFlagIcon } from "./icons/pl-flag.icon";
+import { TwitterIcon } from "./icons/twitter.icon";
 
 export type IconType =
   | "copy"
@@ -20,6 +21,7 @@ export type IconType =
   | "moon"
   | "sun"
   | "github"
+  | "twitter"
   | "error"
   | "card"
   | "stairs"
@@ -39,6 +41,7 @@ const Icons: Record<IconType, FunctionComponent<IconComponentProps>> = {
   moon: MoonIcon,
   sun: SunIcon,
   github: GithubIcon,
+  twitter: TwitterIcon,
   error: ErrorIcon,
   card: CardIcon,
   stairs: StairsIcon,
