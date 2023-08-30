@@ -2,7 +2,7 @@
 import CardsCarousel from "@/components/cards-carousel/cards-carousel.astro";
 import { Icon } from "@/components/icon/icon.component";
 import { Font } from "@/design-system/font/font.component";
-import Layout from "@/layouts/layout.astro";
+import Layout from "@/layouts/DocsLayout.astro";
 import { getCards } from "@/lib/api";
 
 const cards = await getCards({ lang: "pl" });
@@ -14,7 +14,7 @@ const cards = await getCards({ lang: "pl" });
       <Font.H1 color="text-base-content">Pierwsze darmowe API do kart taboo</Font.H1>
       <div class="indicator">
         <span class="indicator-item indicator-center badge badge-secondary">Wkrótce</span>
-        <a href="/en/play" class="btn btn-primary btn-disabled btn-wide btn-md sm:btn-lg">Graj</a>
+        <a href="/en/play" class="btn btn-primary btn-wide btn-md sm:btn-lg">Graj</a>
       </div>
     </section>
     <CardsCarousel cards={cards} />

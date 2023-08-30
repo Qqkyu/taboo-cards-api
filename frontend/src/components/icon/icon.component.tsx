@@ -14,12 +14,16 @@ import { CardIcon } from "./icons/card.icon";
 import { GreatBritainFlagIcon } from "./icons/gb-flag.icon";
 import { PolandFlagIcon } from "./icons/pl-flag.icon";
 import { TwitterIcon } from "./icons/twitter.icon";
+import { TeamIcon } from "./icons/team.icon";
+import { SingleIcon } from "./icons/single.icon";
 
 export type IconType =
   | "copy"
   | "checkmark"
   | "moon"
   | "sun"
+  | "single"
+  | "team"
   | "github"
   | "twitter"
   | "error"
@@ -40,6 +44,8 @@ const Icons: Record<IconType, FunctionComponent<IconComponentProps>> = {
   checkmark: CheckmarkIcon,
   moon: MoonIcon,
   sun: SunIcon,
+  single: SingleIcon,
+  team: TeamIcon,
   github: GithubIcon,
   twitter: TwitterIcon,
   error: ErrorIcon,

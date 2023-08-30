@@ -1,0 +1,42 @@
+---
+import { Icon } from "@/components/icon/icon.component";
+import { Font } from "@/design-system/font/font.component";
+import GameLayout from "@/layouts/GameLayout.astro";
+---
+
+<GameLayout>
+  <Font.H1 color="text-base-content">Want to relax? This mode guarantees no disagreements</Font.H1>
+  <a href="#" class="hero bg-base-200 transition-colors duration-200 hover:bg-base-300 mt-5">
+    <div class="hero-content flex-col lg:flex-row">
+      <Icon type="card" color="hsl(var(--s))" />
+      <div>
+        <h1 class="text-5xl font-bold">Just cards</h1>
+        <p class="py-6">No scores, no time, no pressure. Just sit back, relax, and enjoy the cards one by one.</p>
+      </div>
+    </div>
+  </a>
+  <div class="divider"></div>
+  <Font.H1 color="text-base-content">Feeling competitive? Try out these 2 modes</Font.H1>
+  <div class="flex min-w-full transition-colors duration-200 gap-10 mt-5">
+    <a href="#" class="hero bg-base-200 hover:bg-base-300">
+      <div class="hero-content flex-col lg:flex-row">
+        <Icon type="team" color="hsl(var(--s))" />
+        <Icon type="team" color="hsl(var(--s))" />
+        <div>
+          <h1 class="text-5xl font-bold">Teams</h1>
+          <p class="py-6">No scores, no time, no pressure. Just sit back, relax, and enjoy the cards one by one.</p>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="hero bg-base-200 transition-colors duration-200 hover:bg-base-300">
+      <div class="hero-content flex-col lg:flex-row">
+        <Icon type="team" color="hsl(var(--s))" />
+        <Icon type="single" color="hsl(var(--s))" />
+        <div>
+          <h1 class="text-5xl font-bold">One vs all</h1>
+          <p class="py-6">No scores, no time, no pressure. Just sit back, relax, and enjoy the cards one by one.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</GameLayout>
