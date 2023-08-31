@@ -40,7 +40,7 @@ export const ui = {
     "playground.examples": "Przykłady",
     "playground.all_cards": "Wszystkie karty.",
     "playground.all_cards_in_polish": "Wszystkie karty w języku polskim.",
-    "playground.all_hard_cards": "Wszystkie trudne karty",
+    "playground.all_hard_cards": "Wszystkie trudne karty.",
     "playground.random_card": "Losowa karta.",
     "playground.random_card_in_polish": "Losowa karta w języku polskim.",
     "playground.random_easy_card": "Losowa karta o łatwej trudności.",
