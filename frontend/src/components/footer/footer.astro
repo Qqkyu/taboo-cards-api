@@ -18,12 +18,17 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
       href="https://github.com/Qqkyu/taboo-cards-api"
       aria-label={t("footer.github_repository")}
       target="_blank"
-      class="normal-case"
+      class="normal-case text-base-content hover:text-accent-content transition-colors duration-200"
     >
-      <Icon type="github" color="hsl(var(--bc))" className="w-6" />
+      <Icon type="github" color="currentColor" className="w-6" />
     </a>
-    <a href="https://twitter.com/baobab_____" aria-label={t("footer.twitter")} target="_blank" class="normal-case">
-      <Icon type="twitter" color="hsl(var(--bc))" className="w-6" />
+    <a
+      href="https://twitter.com/baobab_____"
+      aria-label={t("footer.twitter")}
+      target="_blank"
+      class="normal-case text-base-content hover:text-accent-content transition-colors duration-200"
+    >
+      <Icon type="twitter" color="currentColor" className="w-6" />
     </a>
   </div>
 </footer>
