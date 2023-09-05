@@ -12,10 +12,7 @@ const cards = await getCards({ lang: "pl" });
   <div class="gap-5 sm:gap-10 lg:gap-20 flex flex-col items-center">
     <section class="text-center flex flex-col items-center gap-3 sm:gap-5 lg:gap-10">
       <Font.H1 color="text-base-content">Pierwsze darmowe API do kart taboo</Font.H1>
-      <div class="indicator">
-        <span class="indicator-item indicator-center badge badge-secondary">Wkrótce</span>
-        <a href="/en/play" class="btn btn-primary btn-wide btn-md sm:btn-lg">Graj</a>
-      </div>
+      <a href="/en/play" class="btn btn-primary btn-wide btn-md sm:btn-lg">Graj</a>
     </section>
     <CardsCarousel cards={cards} />
     <div class="stats stats-vertical xl:stats-horizontal shadow">

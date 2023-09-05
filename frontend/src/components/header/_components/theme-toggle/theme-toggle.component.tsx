@@ -20,7 +20,7 @@ export const ThemeToggle: FunctionComponent = () => {
   const initialTheme = useMemo(() => theme, []);
 
   const handleClick = () => {
-    theme === "pastel" ? setTheme("dark") : setTheme("pastel");
+    theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
   return isMounted ? (
@@ -28,15 +28,15 @@ export const ThemeToggle: FunctionComponent = () => {
       <input type="checkbox" onClick={handleClick} />
 
       <Icon
-        color="hsl(var(--pc))"
+        color="hsl(var(--bc))"
         type="sun"
-        className={`w-6 sm:w-7 lg:w-8 ${initialTheme === "pastel" ? "swap-on" : "swap-off"}`}
+        className={`w-6 sm:w-7 lg:w-8 ${initialTheme === "light" ? "swap-on" : "swap-off"}`}
       />
 
       <Icon
-        color="hsl(var(--pc))"
+        color="hsl(var(--bc))"
         type="moon"
-        className={`w-6 sm:w-7 lg:w-8 ${initialTheme === "pastel" ? "swap-off" : "swap-on"}`}
+        className={`w-6 sm:w-7 lg:w-8 ${initialTheme === "light" ? "swap-off" : "swap-on"}`}
       />
     </label>
   ) : (

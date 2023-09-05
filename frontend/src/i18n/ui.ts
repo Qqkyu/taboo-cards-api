@@ -7,6 +7,7 @@ export const defaultLang = "en";
 
 export const ui = {
   en: {
+    "header.play": "Play",
     "header.about": "About",
     "header.docs": "Docs",
     "header.playground": "Playground",
@@ -28,6 +29,7 @@ export const ui = {
     "playground.copy_to_clipboard": "Copy to clipboard",
   },
   pl: {
+    "header.play": "Graj",
     "header.about": "O nas",
     "header.docs": "Dokumentacja",
     "header.playground": "Plac zabaw",

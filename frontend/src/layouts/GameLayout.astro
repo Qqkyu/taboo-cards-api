@@ -22,7 +22,7 @@ const lang = getLangFromUrl(Astro.url);
         if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
           return localStorage.getItem("theme");
         }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "pastel";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       })();
 
       document.documentElement.setAttribute("data-theme", theme);

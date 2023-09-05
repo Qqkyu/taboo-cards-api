@@ -113,7 +113,7 @@ export const Playground: FunctionComponent<Props> = ({ lang, initialData }) => {
         </div>
         <button
           onClick={handleClick}
-          className="btn bg-base-300 join-item block rounded-lg border sm:hidden"
+          className="btn bg-base-300 join-item block border sm:hidden"
           style={{ borderColor: "hsl(var(--b3))" }}
         >
           Request
@@ -125,7 +125,7 @@ export const Playground: FunctionComponent<Props> = ({ lang, initialData }) => {
           <Font.P1 color="text-error-content">Error! Invalid URL.</Font.P1>
         </div>
       ) : (
-        <div className="mockup-code bg-base-300">
+        <div className="mockup-code">
           {response.split("\n").map((line, idx) => (
             <pre key={idx}>
               <code>{line}</code>

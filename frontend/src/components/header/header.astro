@@ -9,10 +9,10 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
 ---
 
 <div class="navbar bg-base-300 h-16 p-3 sm:h-20 sm:p-4">
-  <div class="navbar-start w-1/4 gap-2 sm:gap-3">
+  <div class="navbar-start w-7/12 sm:w-1/4 gap-2 sm:gap-3">
     <div class="dropdown">
       <div tabIndex={0} class="btn btn-xs sm:btn-sm btn-ghost lg:hidden">
-        <Icon color="hsl(var(--pc))" type="burger-menu" className="h-4 w-4 sm:h-5 sm:w-5" />
+        <Icon color="hsl(var(--bc))" type="burger-menu" className="h-4 w-4 sm:h-5 sm:w-5" />
       </div>
       <ul tabIndex={0} class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li>
@@ -40,12 +40,18 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
     </div>
     <a
       href={`/${lang}/`}
-      class="btn-ghost btn btn-xs sm:btn-sm lg:btn-md text-primary-content text-sm normal-case sm:text-lg lg:text-xl"
+      class="btn-ghost btn btn-primary btn-xs sm:btn-sm lg:btn-md text-sm normal-case sm:text-lg lg:text-xl"
     >
       Taboo cards API
     </a>
   </div>
-  <div class="navbar-end w-3/4 flex gap-3 sm:gap-4 lg:gap-5 lg:pr-4">
+  <div class="navbar-end w-5/12 sm:w-3/4 flex gap-3 sm:gap-4 lg:gap-5 lg:pr-4">
+    <a
+      href={`/${lang}/play`}
+      class="btn btn-outline btn-secondary btn-xs sm:btn-sm lg:btn-md text-sm normal-case sm:text-lg lg:text-xl"
+    >
+      {t("header.play")}
+    </a>
     <ul class="menu menu-horizontal hidden gap-2 lg:flex">
       <li>
         <a href={`/${lang}/about`} class="prose prose-xl text-base-content font-medium">
