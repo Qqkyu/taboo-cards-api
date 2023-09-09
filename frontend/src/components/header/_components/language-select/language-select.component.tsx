@@ -1,12 +1,19 @@
 import { Icon } from "@/components/icon/icon.component";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 
 type Props = {
   lang: string;
 };
 
 export const LanguageSelect: FunctionComponent<Props> = ({ lang }) => {
-  const href = `/${lang === "en" ? "pl" : "en"}/`;
+  const [href, setHref] = useState(undefined);
+
+  useEffect(() => {
+    const [, , ...rest] = window.location.pathname.split("/");
+    const slug = rest.join("/");
+    setHref(`/${lang === "en" ? "pl" : "en"}/${slug}`);
+  }, [lang]);
+
   return (
     <label className="swap">
       <input type="checkbox" />
