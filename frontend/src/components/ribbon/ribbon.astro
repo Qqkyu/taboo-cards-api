@@ -7,7 +7,7 @@ interface Props {
 const { label, placement } = Astro.props;
 ---
 
-<div class={`absolute ${placement + "-0"} top-0 h-16 w-16 z-10`}>
+<div class={`absolute ${placement === "left" ? "left-0" : "right-0"} top-0 h-16 w-16 z-10`}>
   <div
     class={`absolute ${
       placement === "left" ? "left-[-34px] -rotate-45" : "right-[-34px] rotate-45"
