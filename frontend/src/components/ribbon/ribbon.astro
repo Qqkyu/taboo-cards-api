@@ -9,9 +9,9 @@ const { label, placement } = Astro.props;
 
 <div class={`absolute ${placement + "-0"} top-0 h-16 w-16 z-10`}>
   <div
-    class={`absolute ${placement + "-[-34px]"} top-[32px] w-[170px] ${
-      placement === "left" ? "-rotate-45" : "rotate-45"
-    } bg-accent text-center text-accent-content font-semibold py-1`}
+    class={`absolute ${
+      placement === "left" ? "left-[-34px] -rotate-45" : "right-[-34px] rotate-45"
+    } top-[32px] w-[170px] bg-accent text-center text-accent-content font-semibold py-1`}
   >
     {label}
   </div>
