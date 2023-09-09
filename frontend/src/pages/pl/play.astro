@@ -1,0 +1,50 @@
+---
+import { Icon } from "@/components/icon/icon.component";
+import Ribbon from "@/components/ribbon/ribbon.astro";
+import { Font } from "@/design-system/font/font.component";
+import GameLayout from "@/layouts/GameLayout.astro";
+---
+
+<GameLayout>
+  <Font.H1 color="text-base-content">Szukasz spokojnej rozgrywki? Ten tryb gwarantuje brak kłótni</Font.H1>
+  <a href="#" class="hero bg-base-200 transition-colors duration-200 hover:bg-base-300 mt-5">
+    <div class="hero-content flex-col lg:flex-row">
+      <Icon type="card" color="hsl(var(--s))" />
+      <div>
+        <h1 class="text-5xl font-bold">Po prostu karty</h1>
+        <p class="py-6">
+          Brak punktów, brak czasu, brak presji. Po prostu usiądźcie wygodnie i cieszcie się kartami jedna po drugiej.
+        </p>
+      </div>
+    </div>
+  </a>
+  <div class="divider"></div>
+  <Font.H1 color="text-base-content">A może trochę konkurencji? Wypróbujcie te dwa tryby</Font.H1>
+  <div class="flex flex-col sm:flex-row min-w-full transition-colors duration-200 gap-10 mt-5">
+    <a href="#" class="relative hero bg-base-200 overflow-hidden cursor-default">
+      <Ribbon label="Już wkrótce" placement="left" />
+      <div class="hero-content flex-col lg:flex-row">
+        <Icon type="team" color="hsl(var(--s))" />
+        <Icon type="team" color="hsl(var(--s))" />
+        <div>
+          <h1 class="text-5xl font-bold">Drużyny</h1>
+          <p class="py-6">
+            Podzielcie się na dwie drużyny po 2-6 graczy w każdej. W każdej rundzie jedna osoba z drużyny próbuje opisać
+            hasła reszcie zespołu.
+          </p>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="relative hero bg-base-200 overflow-hidden transition-colors duration-200 cursor-default">
+      <Ribbon label="Już wkrótce" placement="right" />
+      <div class="hero-content flex-col lg:flex-row">
+        <Icon type="team" color="hsl(var(--s))" />
+        <Icon type="single" color="hsl(var(--s))" />
+        <div>
+          <h1 class="text-5xl font-bold">Jeden vs wszyscy</h1>
+          <p class="py-6">Każdy zdobywa punkty dla siebie i każdy gracz może zgadywać.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</GameLayout>
