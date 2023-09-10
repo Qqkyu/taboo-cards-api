@@ -1,16 +1,12 @@
 ---
 import Layout from "@/layouts/DocsLayout.astro";
 import { Playground } from "@/components/playground/playground.component";
-import { CARDS_PATHS, LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
-import { getLangFromUrl } from "@/i18n/utils";
+import { getRandomCard } from "@/lib/api";
 
-const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.random}`);
-const cardJson = await response.json();
+const cardJson = await getRandomCard({ lang: "en" });
 const randomCard = JSON.stringify(cardJson, null, 2);
-
-const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout>
-  <Playground initialData={randomCard} lang={lang} client:load />
+  <Playground initialData={randomCard} lang="en" client:load />
 </Layout>
