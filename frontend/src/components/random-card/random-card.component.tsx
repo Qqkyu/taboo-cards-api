@@ -117,7 +117,7 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
           <button className="btn btn-neutral" onClick={handlePausePlayClick}>
             {timerOn ? "Stop ⏸" : "Start ▶"}
           </button>
-          <button className="btn btn-neutral" onClick={handleResetTime}>
+          <button className={`btn btn-neutral ${timeLeft === timer ? "btn-disabled" : ""}`} onClick={handleResetTime}>
             Reset 🔄
           </button>
         </div>
