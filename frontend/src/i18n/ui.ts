@@ -28,6 +28,8 @@ export const ui = {
     "playground.random_easy_card": "A random card in easy difficulty.",
     "playground.copied": "Copied",
     "playground.copy_to_clipboard": "Copy to clipboard",
+    "play.previous": "Previous",
+    "play.next": "Next",
   },
   pl: {
     "header.play": "Graj",
@@ -50,5 +52,7 @@ export const ui = {
     "playground.random_easy_card": "Losowa karta o łatwej trudności.",
     "playground.copied": "Skopiowane",
     "playground.copy_to_clipboard": "Skopiuj do schowka",
+    "play.previous": "Poprzedni",
+    "play.next": "Następny",
   },
 } as const;

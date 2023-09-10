@@ -1,4 +1,5 @@
 import { Font } from "@/design-system/font/font.component";
+import { useTranslations } from "@/i18n/utils";
 import { getRandomCard } from "@/lib/api";
 import { Card } from "@/types/card.types";
 import { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
@@ -16,6 +17,7 @@ type Props = {
 export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
   const [card, setCard] = useState<Card | undefined>(undefined);
+  const t = useTranslations(lang);
 
   const setRandomCard = useCallback(async () => {
     const randomCard = await getRandomCard({ lang });
@@ -59,10 +61,10 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
             className={`btn btn-outline btn-secondary ${previousCards.current.length === 0 ? "btn-disabled" : ""}`}
             onClick={handlePrevCardClick}
           >
-            ❮ Previous
+            ❮ {t("play.previous")}
           </button>
           <button className="btn btn-secondary" onClick={handleNextCardClick}>
-            Next ❯
+            {t("play.next")} ❯
           </button>
         </div>
       </div>
