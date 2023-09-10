@@ -7,6 +7,9 @@ export const defaultLang = "en";
 
 export const ui = {
   en: {
+    "card.easy": "easy",
+    "card.medium": "medium",
+    "card.hard": "hard",
     "header.play": "Play",
     "header.about": "About",
     "header.docs": "Docs",
@@ -32,6 +35,9 @@ export const ui = {
     "play.next": "Next",
   },
   pl: {
+    "card.easy": "łatwy",
+    "card.medium": "średni",
+    "card.hard": "trudny",
     "header.play": "Graj",
     "header.about": "O nas",
     "header.docs": "Dokumentacja",
@@ -53,6 +59,5 @@ export const ui = {
     "playground.copied": "Skopiowane",
     "playground.copy_to_clipboard": "Skopiuj do schowka",
     "play.previous": "Poprzedni",
-    "play.next": "Następny",
   },
 } as const;

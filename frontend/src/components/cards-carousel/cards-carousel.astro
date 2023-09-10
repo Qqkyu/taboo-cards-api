@@ -38,7 +38,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
                     <Font.P2 color="text-primary-content">{word}</Font.P2>
                   ))}
                 </div>
-                <div class={`badge h-5 ${BADGE_COLOR[difficulty]}`}>{difficulty}</div>
+                <div class={`badge h-5 ${BADGE_COLOR[difficulty]}`}>{t(`card.${difficulty}`)}</div>
               </div>
             </div>
             <div class="absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-between">

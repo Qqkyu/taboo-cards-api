@@ -53,7 +53,7 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
                 </Font.P2>
               ))}
             </div>
-            <div className={`badge h-5 ${BADGE_COLOR[card.difficulty]}`}>{card.difficulty}</div>
+            <div className={`badge h-5 ${BADGE_COLOR[card.difficulty]}`}>{t(`card.${card.difficulty}`)}</div>
           </div>
         </div>
         <div className="flex justify-between">
