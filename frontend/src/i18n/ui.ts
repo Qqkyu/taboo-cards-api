@@ -33,6 +33,8 @@ export const ui = {
     "playground.copy_to_clipboard": "Copy to clipboard",
     "play.previous": "Previous",
     "play.next": "Next",
+    "play.timer": "Timer",
+    "play.sec": "sec",
   },
   pl: {
     "card.easy": "łatwy",
@@ -60,5 +62,7 @@ export const ui = {
     "playground.copy_to_clipboard": "Skopiuj do schowka",
     "play.previous": "Poprzedni",
     "play.next": "Następny",
+    "play.timer": "Czasomierz",
+    "play.sec": "sek",
   },
 } as const;

@@ -2,8 +2,13 @@ import { Font } from "@/design-system/font/font.component";
 import { useTranslations } from "@/i18n/utils";
 import { getRandomCard } from "@/lib/api";
 import { Card } from "@/types/card.types";
-import { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
+
+const DEFAULT_TIMER = 60;
+const MIN_TIMER = 30;
+const MAX_TIMER = 240;
+const TIMER_STEP = 15;
 
 const BADGE_COLOR = {
   easy: "badge-success",
@@ -18,6 +23,10 @@ type Props = {
 export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
   const [card, setCard] = useState<Card | undefined>(undefined);
+  const [timer, setTimer] = useState<number>(DEFAULT_TIMER); // Todo: store timer in local storage
+  const [timeLeft, setTimeLeft] = useState<number>(DEFAULT_TIMER);
+  const [timerOn, setTimerOn] = useState<boolean>(false);
+
   const t = useTranslations(lang);
 
   const setRandomCard = useCallback(async () => {
@@ -29,6 +38,17 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
     setRandomCard();
   }, [lang, setRandomCard]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!timerOn) {
+        return;
+      }
+      setTimeLeft((timeLeft) => Math.max(0, timeLeft - 1));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timerOn]);
+
   const handleNextCardClick = useCallback(() => {
     previousCards.current.push(card);
     setRandomCard();
@@ -39,9 +59,70 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
     previousCard && setCard(previousCard);
   }, []);
 
+  const handlePausePlayClick = () => {
+    if (timerOn) {
+      setTimerOn(false);
+    } else {
+      if (!timeLeft) {
+        setTimeLeft(timer);
+      }
+      setTimerOn(true);
+    }
+  };
+
+  const handleResetTime = () => {
+    setTimeLeft(timer);
+    setTimerOn(false);
+  };
+
+  const handleSetTimer = (timer: number) => {
+    setTimer(timer);
+    setTimeLeft(timer);
+    setTimerOn(false);
+  };
+
   return card ? (
-    <div className="flex flex-col gap-4">
-      <div className="card bg-primary w-80 shadow-xl">
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col items-center gap-2">
+        <Font.H1 color="text-base-content">{t("play.timer")}</Font.H1>
+        <input
+          type="range"
+          min={MIN_TIMER}
+          max={MAX_TIMER}
+          className="range range-secondary range-lg"
+          step={TIMER_STEP}
+          value={timer}
+          onChange={(e) => handleSetTimer(parseInt(e.target.value))}
+        />
+        <div className="flex w-full justify-between px-2 text-xs">
+          {Array.from({ length: (MAX_TIMER - MIN_TIMER) / TIMER_STEP + 1 }).map(() => (
+            <span>|</span>
+          ))}
+        </div>
+        <div className="flex gap-5">
+          <div>
+            <span className="countdown font-mono text-4xl">
+              <span style={{ "--value": Math.floor(timeLeft / 60) } as CSSProperties}></span>
+            </span>
+            min
+          </div>
+          <div>
+            <span className="countdown font-mono text-4xl">
+              <span style={{ "--value": timeLeft % 60 } as CSSProperties}></span>
+            </span>
+            {t("play.sec")}
+          </div>
+        </div>
+        <div className="flex w-full justify-between">
+          <button className="btn btn-neutral" onClick={handlePausePlayClick}>
+            {timerOn ? "Stop ⏸" : "Start ▶"}
+          </button>
+          <button className="btn btn-neutral" onClick={handleResetTime}>
+            Reset 🔄
+          </button>
+        </div>
+      </div>
+      <div className="card bg-primary w-80 shadow-xl sm:w-96">
         <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
           <div className="card-title text-center">
             <Font.H2 color="text-primary-content">{card.title}</Font.H2>
