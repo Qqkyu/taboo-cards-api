@@ -59,5 +59,6 @@ export const ui = {
     "playground.copied": "Skopiowane",
     "playground.copy_to_clipboard": "Skopiuj do schowka",
     "play.previous": "Poprzedni",
+    "play.next": "Następny",
   },
 } as const;

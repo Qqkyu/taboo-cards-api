@@ -3,6 +3,7 @@ import { useTranslations } from "@/i18n/utils";
 import { getRandomCard } from "@/lib/api";
 import { Card } from "@/types/card.types";
 import { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 const BADGE_COLOR = {
   easy: "badge-success",
@@ -38,36 +39,48 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
     previousCard && setCard(previousCard);
   }, []);
 
-  return (
-    card && (
-      <div className="flex flex-col gap-4">
-        <div className="card bg-primary w-80 shadow-xl">
-          <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
-            <div className="card-title text-center">
-              <Font.H2 color="text-primary-content">{card.title}</Font.H2>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              {card.forbiddenWords.map((word) => (
-                <Font.P2 key={word} color="text-primary-content">
-                  {word}
-                </Font.P2>
-              ))}
-            </div>
-            <div className={`badge h-5 ${BADGE_COLOR[card.difficulty]}`}>{t(`card.${card.difficulty}`)}</div>
+  return card ? (
+    <div className="flex flex-col gap-4">
+      <div className="card bg-primary w-80 shadow-xl">
+        <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
+          <div className="card-title text-center">
+            <Font.H2 color="text-primary-content">{card.title}</Font.H2>
           </div>
-        </div>
-        <div className="flex justify-between">
-          <button
-            className={`btn btn-outline btn-secondary ${previousCards.current.length === 0 ? "btn-disabled" : ""}`}
-            onClick={handlePrevCardClick}
-          >
-            ❮ {t("play.previous")}
-          </button>
-          <button className="btn btn-secondary" onClick={handleNextCardClick}>
-            {t("play.next")} ❯
-          </button>
+          <div className="flex flex-col items-center gap-3">
+            {card.forbiddenWords.map((word) => (
+              <Font.P2 key={word} color="text-primary-content">
+                {word}
+              </Font.P2>
+            ))}
+          </div>
+          <div className={`badge h-5 ${BADGE_COLOR[card.difficulty]}`}>{t(`card.${card.difficulty}`)}</div>
         </div>
       </div>
-    )
+      <div className="flex justify-between">
+        <button
+          className={`btn btn-outline btn-secondary ${previousCards.current.length === 0 ? "btn-disabled" : ""}`}
+          onClick={handlePrevCardClick}
+        >
+          ❮ {t("play.previous")}
+        </button>
+        <button className="btn btn-secondary" onClick={handleNextCardClick}>
+          {t("play.next")} ❯
+        </button>
+      </div>
+    </div>
+  ) : (
+    <div className="flex w-80 flex-col gap-4">
+      <div className="h-[396px] w-80">
+        <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--p))" height="100%" className="!rounded-2xl" />
+      </div>
+      <div className="flex h-[48px] w-full justify-between">
+        <div className={`h-full ${lang === "en" ? "w-[110px]" : "w-[121px]"}`}>
+          <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" className="!rounded-lg" />
+        </div>
+        <div className={`h-full ${lang === "en" ? "w-[80px]" : "w-[115px]"}`}>
+          <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" className="!rounded-lg" />
+        </div>
+      </div>
+    </div>
   );
 };
