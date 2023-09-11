@@ -27,12 +27,14 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
   const [timer, setTimer] = useState<number>(DEFAULT_TIMER); // Todo: store timer in local storage
   const [timeLeft, setTimeLeft] = useState<number>(DEFAULT_TIMER);
   const [timerOn, setTimerOn] = useState<boolean>(false);
+  const [cardLoading, setCardLoading] = useState<boolean>(false);
 
   const t = useTranslations(lang);
 
   const setRandomCard = useCallback(async () => {
     const randomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
     setCard(randomCard);
+    setCardLoading(false);
   }, [lang]);
 
   useEffect(() => {
@@ -51,6 +53,7 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
   }, [timerOn]);
 
   const handleNextCardClick = useCallback(() => {
+    setCardLoading(true);
     previousCards.current.push(card);
     setRandomCard();
   }, [card, setRandomCard]);
@@ -148,9 +151,9 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
               ❮ {t("play.previous")}
             </button>
             <button className="btn btn-secondary" onClick={handleNextCardClick}>
-              {t("play.next")} ❯
+              {cardLoading ? <span className="loading loading-spinner" /> : `${t("play.next")} ❯`}
             </button>
-          </div>{" "}
+          </div>
         </>
       ) : (
         <div className="flex w-80 flex-col gap-4 sm:w-96">
