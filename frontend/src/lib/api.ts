@@ -1,14 +1,26 @@
-import { LOCALHOST_API_URL_PREFIX, CARDS_PATHS, API_URL_PREFIX } from "@/paths/api.paths";
+import { CARDS_PATHS } from "@/paths/api.paths";
 import { Card } from "@/types/card.types";
 
-export async function getCards({ lang }: { lang: "en" | "pl" }): Promise<Array<Card>> {
-  const response = await fetch(`${LOCALHOST_API_URL_PREFIX}${CARDS_PATHS.cards}?language=${lang}`);
+export async function getCards({
+  lang,
+  apiUrlPrefix,
+}: {
+  lang: "en" | "pl";
+  apiUrlPrefix: string;
+}): Promise<Array<Card>> {
+  const response = await fetch(`${apiUrlPrefix}${CARDS_PATHS.cards}?language=${lang}`);
   const data = await response.json();
   return data.data;
 }
 
-export async function getRandomCard({ lang }: { lang: "en" | "pl" }): Promise<Card> {
-  const response = await fetch(`${API_URL_PREFIX}${CARDS_PATHS.random}?language=${lang}`);
+export async function getRandomCard({
+  lang,
+  apiUrlPrefix,
+}: {
+  lang: "en" | "pl";
+  apiUrlPrefix: string;
+}): Promise<Card> {
+  const response = await fetch(`${apiUrlPrefix}${CARDS_PATHS.random}?language=${lang}`);
   const data = await response.json();
   return data.data;
 }

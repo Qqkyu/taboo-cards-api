@@ -2,8 +2,9 @@
 import Layout from "@/layouts/DocsLayout.astro";
 import { Playground } from "@/components/playground/playground.component";
 import { getRandomCard } from "@/lib/api";
+import { LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
 
-const cardJson = await getRandomCard({ lang: "pl" });
+const cardJson = await getRandomCard({ lang: "pl", apiUrlPrefix: LOCALHOST_API_URL_PREFIX });
 const randomCard = JSON.stringify(cardJson, null, 2);
 ---
 

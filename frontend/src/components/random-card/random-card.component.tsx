@@ -1,6 +1,7 @@
 import { Font } from "@/design-system/font/font.component";
 import { useTranslations } from "@/i18n/utils";
 import { getRandomCard } from "@/lib/api";
+import { API_URL_PREFIX } from "@/paths/api.paths";
 import { Card } from "@/types/card.types";
 import { CSSProperties, FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
@@ -30,7 +31,7 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
   const t = useTranslations(lang);
 
   const setRandomCard = useCallback(async () => {
-    const randomCard = await getRandomCard({ lang });
+    const randomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
     setCard(randomCard);
   }, [lang]);
 

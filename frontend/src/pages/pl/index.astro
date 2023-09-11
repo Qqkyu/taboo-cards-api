@@ -4,8 +4,9 @@ import { Icon } from "@/components/icon/icon.component";
 import { Font } from "@/design-system/font/font.component";
 import Layout from "@/layouts/DocsLayout.astro";
 import { getCards } from "@/lib/api";
+import { LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
 
-const cards = await getCards({ lang: "pl" });
+const cards = await getCards({ lang: "pl", apiUrlPrefix: LOCALHOST_API_URL_PREFIX });
 ---
 
 <Layout>
