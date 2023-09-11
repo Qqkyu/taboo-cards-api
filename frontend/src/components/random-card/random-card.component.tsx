@@ -156,7 +156,7 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
           </div>
         </>
       ) : (
-        <div className="flex w-80 flex-col gap-4 sm:w-96">
+        <div className="flex w-80 flex-col gap-10 sm:w-96">
           <div className="h-[396px] w-80 sm:w-96">
             <Skeleton
               baseColor="hsl(var(--b2))"
