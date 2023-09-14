@@ -17,7 +17,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
     <meta name="description" content={t("description.game")} />
     <ViewTransitions />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>Taboo game</title>
+    <title>{t("title.game")}</title>
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {

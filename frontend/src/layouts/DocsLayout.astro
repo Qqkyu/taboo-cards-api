@@ -17,7 +17,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
     <meta name="description" content={t("description.docs")} />
     <ViewTransitions />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>Taboo cards API</title>
+    <title>{t("title.docs")}</title>
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
