@@ -2,10 +2,11 @@
 import Header from "@/components/header/header.astro";
 import Footer from "@/components/footer/footer.astro";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
-import { getLangFromUrl } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ViewTransitions } from "astro:transitions";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ const lang = getLangFromUrl(Astro.url);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Taboo cards API - 2000 cards in various difficulties and in two languages!" />
+    <meta name="description" content={t("description.docs")} />
     <ViewTransitions />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Taboo cards API</title>

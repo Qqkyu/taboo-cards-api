@@ -7,6 +7,8 @@ export const defaultLang = "en";
 
 export const ui = {
   en: {
+    "description.docs": "Taboo cards API - 2000 cards in various difficulties and in two languages!",
+    "description.game": "Taboo game - explore 2000 cards in 3 game modes!",
     "card.easy": "easy",
     "card.medium": "medium",
     "card.hard": "hard",
@@ -37,6 +39,8 @@ export const ui = {
     "play.sec": "sec",
   },
   pl: {
+    "description.docs": "Taboo cards API - 2000 kart o różnym stopniu trudności i dwóch językach!",
+    "description.game": "Gra taboo - odkrywajcie 2000 kart w 3 trybach gry!",
     "card.easy": "łatwy",
     "card.medium": "średni",
     "card.hard": "trudny",

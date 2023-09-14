@@ -24,7 +24,7 @@ type Props = {
 export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
   const [card, setCard] = useState<Card | undefined>(undefined);
-  const [timer, setTimer] = useState<number>(DEFAULT_TIMER); // Todo: store timer in local storage
+  const [timer, setTimer] = useState<number>(DEFAULT_TIMER);
   const [timeLeft, setTimeLeft] = useState<number>(DEFAULT_TIMER);
   const [timerOn, setTimerOn] = useState<boolean>(false);
   const [cardLoading, setCardLoading] = useState<boolean>(false);
