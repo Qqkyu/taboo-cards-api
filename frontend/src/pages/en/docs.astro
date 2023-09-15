@@ -1,5 +1,5 @@
 ---
-import Layout from "@/layouts/DocsLayout.astro";
+import DocsLayout from "@/layouts/DocsLayout.astro";
 import Section from "@/components/section/section.astro";
 import { Font } from "@/design-system/font/font.component";
 import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
@@ -9,7 +9,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<Layout>
+<DocsLayout title={t("header.docs")}>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
     <Section id="card-model" header={t("docs.card_model")}>
       <table class="table-sm sm:table-md lg:table-lg table">
@@ -168,4 +168,4 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
       </Font.P1>
     </Section>
   </div>
-</Layout>
+</DocsLayout>

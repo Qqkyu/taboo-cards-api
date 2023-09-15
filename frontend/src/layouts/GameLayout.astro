@@ -5,6 +5,16 @@ import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-t
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ViewTransitions } from "astro:transitions";
 
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+
+function formatTitle(title: string) {
+  return title ? `${title} | ${t("title.game")}` : t("title.game");
+}
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
@@ -17,7 +27,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
     <meta name="description" content={t("description.game")} />
     <ViewTransitions />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{t("title.game")}</title>
+    <title set:html={formatTitle(title)} />
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {

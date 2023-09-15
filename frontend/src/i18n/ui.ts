@@ -39,6 +39,7 @@ export const ui = {
     "play.next": "Next",
     "play.timer": "Timer",
     "play.sec": "sec",
+    "play.just_cards": "Just cards",
   },
   pl: {
     "title.game": "Gra taboo",
@@ -71,5 +72,6 @@ export const ui = {
     "play.next": "Następny",
     "play.timer": "Czasomierz",
     "play.sec": "sek",
+    "play.just_cards": "Po prostu karty",
   },
 } as const;

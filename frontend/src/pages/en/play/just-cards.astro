@@ -1,11 +1,12 @@
 ---
 import GameLayout from "@/layouts/GameLayout.astro";
 import { RandomCard } from "@/components/random-card/random-card.component";
-import { getLangFromUrl } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<GameLayout>
+<GameLayout title={t("play.just_cards")}>
   <RandomCard lang={lang} client:load />
 </GameLayout>

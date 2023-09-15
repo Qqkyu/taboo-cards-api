@@ -1,10 +1,14 @@
 ---
 import Section from "@/components/section/section.astro";
 import { Font } from "@/design-system/font/font.component";
-import Layout from "@/layouts/DocsLayout.astro";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<Layout>
+<DocsLayout title={t("header.about")}>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
     <Section header="Kim jesteś?">
       <Font.P1 color="text-base-content">
@@ -88,4 +92,4 @@ import Layout from "@/layouts/DocsLayout.astro";
       </Font.P1>
     </Section>
   </div>
-</Layout>
+</DocsLayout>

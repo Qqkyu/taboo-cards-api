@@ -2,7 +2,11 @@
 import { Icon } from "@/components/icon/icon.component";
 import Ribbon from "@/components/ribbon/ribbon.astro";
 import { Font } from "@/design-system/font/font.component";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import GameLayout from "@/layouts/GameLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
 <GameLayout>
@@ -13,7 +17,7 @@ import GameLayout from "@/layouts/GameLayout.astro";
     <div class="hero-content flex-col lg:flex-row">
       <Icon type="card" color="hsl(var(--s))" className="w-40 lg:basis-80" />
       <div>
-        <h1 class="text-5xl font-bold">Just cards</h1>
+        <h1 class="text-5xl font-bold">{t("play.just_cards")}</h1>
         <p class="py-6">No scores, no time, no pressure. Just sit back, relax, and enjoy the cards one by one.</p>
       </div>
     </div>
