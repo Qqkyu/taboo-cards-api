@@ -1,23 +1,27 @@
 import Skeleton from "react-loading-skeleton";
-import { FunctionComponent, useEffect, useMemo, useState } from "react";
+import { type FunctionComponent, useEffect, useMemo, useState } from "react";
 import { Icon } from "@/components/icon/icon.component";
 import "react-loading-skeleton/dist/skeleton.css";
 
+type Theme = "light" | "dark";
+
 export const ThemeToggle: FunctionComponent = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark");
+  const [theme, setTheme] = useState<Theme>(undefined);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    }
   }, [theme]);
 
   useEffect(() => {
     setIsMounted(true);
+    setTheme(localStorage.getItem("theme") as Theme);
   }, []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const initialTheme = useMemo(() => theme, []);
+  const initialTheme = useMemo(() => (isMounted ? localStorage.getItem("theme") : undefined), [isMounted]);
 
   const handleClick = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");

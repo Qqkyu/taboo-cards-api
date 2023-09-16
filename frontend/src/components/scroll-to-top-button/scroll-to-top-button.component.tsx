@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
+import { type FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/icon/icon.component";
 
 export const ScrollToTopButton: FunctionComponent = () => {

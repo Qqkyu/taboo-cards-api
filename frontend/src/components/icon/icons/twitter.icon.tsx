@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
-import { IconComponentProps } from "./icon-props";
+import { type FunctionComponent } from "react";
+import { type IconComponentProps } from "./icon-props";
 
 export const TwitterIcon: FunctionComponent<IconComponentProps> = ({ color, className }) => {
   return (

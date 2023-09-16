@@ -2,8 +2,8 @@ import { Font } from "@/design-system/font/font.component";
 import { useTranslations } from "@/i18n/utils";
 import { getRandomCard } from "@/lib/api";
 import { API_URL_PREFIX } from "@/paths/api.paths";
-import { Card } from "@/types/card.types";
-import { CSSProperties, FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
+import { type Card } from "@/types/card.types";
+import { type CSSProperties, type FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 
 const DEFAULT_TIMER = 60;
@@ -99,8 +99,8 @@ export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
           onChange={(e) => handleSetTimer(parseInt(e.target.value))}
         />
         <div className="flex w-full justify-between px-2 text-xs">
-          {Array.from({ length: (MAX_TIMER - MIN_TIMER) / TIMER_STEP + 1 }).map(() => (
-            <span>|</span>
+          {Array.from({ length: (MAX_TIMER - MIN_TIMER) / TIMER_STEP + 1 }).map((_, i) => (
+            <span key={i}>|</span>
           ))}
         </div>
         <div className="flex gap-5">

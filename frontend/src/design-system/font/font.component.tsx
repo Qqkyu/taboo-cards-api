@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from "react";
+import { type FunctionComponent, type PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
   color: "text-base-content" | "text-primary-content" | "text-secondary-content" | "text-error-content";

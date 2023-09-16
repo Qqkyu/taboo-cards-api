@@ -11,12 +11,12 @@ interface Props {
 
 const { title } = Astro.props;
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
-
 function formatTitle(title: string) {
   return title ? `${title} | ${t("title.docs")}` : t("title.docs");
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
 <!DOCTYPE html>

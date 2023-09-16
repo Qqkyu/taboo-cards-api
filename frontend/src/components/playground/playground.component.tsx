@@ -1,4 +1,4 @@
-import { FunctionComponent, KeyboardEvent, useCallback, useState } from "react";
+import { type FunctionComponent, type KeyboardEvent, useCallback, useState } from "react";
 import { Icon } from "@/components/icon/icon.component";
 import { API_URL_PREFIX, WEB_API_URL_PREFIX } from "@/paths/api.paths";
 import { Font } from "@/design-system/font/font.component";

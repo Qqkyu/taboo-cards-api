@@ -1,5 +1,5 @@
 import { CARDS_PATHS } from "@/paths/api.paths";
-import { Card } from "@/types/card.types";
+import { type Card } from "@/types/card.types";
 
 export async function getCards({
   lang,

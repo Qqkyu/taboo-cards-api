@@ -1,7 +1,7 @@
-import { FunctionComponent } from "react";
-import { IconComponentProps } from "./icon-props";
+import { type FunctionComponent } from "react";
+import { type IconComponentProps } from "./icon-props";
 
-export const GithubIcon: FunctionComponent<IconComponentProps> = ({ color, className }) => {
+export const GithubIcon: FunctionComponent<IconComponentProps> = ({ className }) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" className={className}>
       <path

@@ -1,5 +1,5 @@
 import { Icon } from "@/components/icon/icon.component";
-import { FunctionComponent, useEffect, useState } from "react";
+import { type FunctionComponent, useEffect, useState } from "react";
 
 type Props = {
   lang: string;

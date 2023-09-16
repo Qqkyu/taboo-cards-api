@@ -1,6 +1,6 @@
-import { FunctionComponent } from "react";
+import { type FunctionComponent } from "react";
 import { MoonIcon } from "./icons/moon.icon";
-import { IconComponentProps } from "./icons/icon-props";
+import { type IconComponentProps } from "./icons/icon-props";
 import { SunIcon } from "./icons/sun.icon";
 import { GithubIcon } from "./icons/github.icon";
 import { ArrowUpIcon } from "./icons/arrow-up.icon";
