@@ -6,7 +6,7 @@ import { LOCALHOST_API_URL_PREFIX } from "@/paths/api.paths";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const cardJson = await getRandomCard({ lang: "pl", apiUrlPrefix: LOCALHOST_API_URL_PREFIX });
-const randomCard = JSON.stringify(cardJson, null, 2);
+const randomCard = JSON.stringify({ data: cardJson }, null, 2);
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
