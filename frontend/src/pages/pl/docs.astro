@@ -11,7 +11,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
 
 <DocsLayout title={t("header.docs")}>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
-    <Section id="card-model" header={t("docs.card_model")}>
+    <Section id="card-model" header={t("docs.card_model")} href="#card-model">
       <table class="table-sm sm:table-md lg:table-lg table">
         <thead>
           <tr>
@@ -64,7 +64,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
       </table>
     </Section>
     <div class="divider"></div>
-    <Section id="endpoints" header={t("docs.endpoints")}>
+    <Section id="endpoints" header={t("docs.endpoints")} href="#endpoints">
       <div class="flex flex-col gap-8">
         <div class="flex flex-col gap-6">
           <Font.P1 color="text-base-content">
@@ -147,7 +147,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
       </div>
     </Section>
     <div class="divider"></div>
-    <Section id="base-url" header={t("docs.base_url")}>
+    <Section id="base-url" header={t("docs.base_url")} href="#base-url">
       <div class="flex flex-col gap-8">
         <div class="flex flex-col gap-6">
           <Font.P1 color="text-base-content">Bazowy URL jest prefiksem dla API:</Font.P1>
@@ -161,7 +161,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
       </div>
     </Section>
     <div class="divider"></div>
-    <Section id="rate-limit" header={t("docs.rate_limit")}>
+    <Section id="rate-limit" header={t("docs.rate_limit")} href="#rate-limit">
       <Font.P1 color="text-base-content">
         Aby zapobiec złośliwym działaniom, istnieje limit 10000 zapytań do API dziennie. Wykonanie większej liczby
         zapytań spowoduje otrzymanie odpowiedzi z błędem o statusie 429 (Too Many Requests).

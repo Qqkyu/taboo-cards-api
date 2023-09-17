@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import { type FunctionComponent, type PropsWithChildren } from "react";
+import { SubheadingAnchor } from "./subheading-anchor/subheading-anchor.component";
 
 type Props = PropsWithChildren<{
   color: "text-base-content" | "text-primary-content" | "text-secondary-content" | "text-error-content";
@@ -8,8 +10,13 @@ const H1: FunctionComponent<Props> = ({ children, color }) => {
   return <h1 className={`prose prose-xl sm:prose-2xl max-w-full font-bold ${color}`}>{children}</h1>;
 };
 
-const H2: FunctionComponent<Props> = ({ children, color }) => {
-  return <h2 className={`prose prose-xl sm:prose-2xl max-w-full font-semibold ${color}`}>{children}</h2>;
+const H2: FunctionComponent<Props & { href?: string }> = ({ href, children, color }) => {
+  return (
+    <h2 className={`prose prose-xl sm:prose-2xl group max-w-full font-semibold ${color}`}>
+      {children}
+      {href && <SubheadingAnchor href={href} />}
+    </h2>
+  );
 };
 
 const H3: FunctionComponent<Props> = ({ children, color }) => {
