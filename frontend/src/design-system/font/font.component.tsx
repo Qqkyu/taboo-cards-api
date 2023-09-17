@@ -6,11 +6,13 @@ type Props = PropsWithChildren<{
   color: "text-base-content" | "text-primary-content" | "text-secondary-content" | "text-error-content";
 }>;
 
+type SubheaderProps = Props & { href?: string };
+
 const H1: FunctionComponent<Props> = ({ children, color }) => {
   return <h1 className={`prose prose-xl sm:prose-2xl max-w-full font-bold ${color}`}>{children}</h1>;
 };
 
-const H2: FunctionComponent<Props & { href?: string }> = ({ href, children, color }) => {
+const H2: FunctionComponent<SubheaderProps> = ({ href, children, color }) => {
   return (
     <h2 className={`prose prose-xl sm:prose-2xl group max-w-full font-semibold ${color}`}>
       {children}
@@ -19,8 +21,13 @@ const H2: FunctionComponent<Props & { href?: string }> = ({ href, children, colo
   );
 };
 
-const H3: FunctionComponent<Props> = ({ children, color }) => {
-  return <h3 className={`prose prose-lg sm:prose-xl max-w-full font-medium ${color}`}>{children}</h3>;
+const H3: FunctionComponent<SubheaderProps> = ({ href, children, color }) => {
+  return (
+    <h3 className={`prose prose-lg sm:prose-xl group max-w-full font-medium ${color}`}>
+      {children}
+      {href && <SubheadingAnchor href={href} />}
+    </h3>
+  );
 };
 
 const H4: FunctionComponent<Props> = ({ children, color }) => {

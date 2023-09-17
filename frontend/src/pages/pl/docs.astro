@@ -1,6 +1,7 @@
 ---
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import Section from "@/components/section/section.astro";
+import Subsection from "@/components/sub-section/sub-section.astro";
 import { Font } from "@/design-system/font/font.component";
 import { WEB_API_URL_PREFIX } from "@/paths/api.paths";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
@@ -81,8 +82,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
             <pre><code>/api/cards/random</code></pre>
           </div>
         </div>
-        <div class="flex flex-col gap-6">
-          <Font.H3 color="text-base-content">Parametry zapytania</Font.H3>
+        <Subsection id="query-parameters" header="Parametry zapytania" href="#query-parameters">
           <Font.P1 color="text-base-content">
             W obu wyżej wymienionych endpointach można dołączyć następujące parametry zapytania dotyczące języka i
             trudności.
@@ -143,7 +143,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
               </dd>
             </dl>
           </div>
-        </div>
+        </Subsection>
       </div>
     </Section>
     <div class="divider"></div>

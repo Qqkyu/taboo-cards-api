@@ -1,0 +1,18 @@
+---
+import { Font } from "@/design-system/font/font.component";
+
+interface Props {
+  id?: string;
+  href?: string;
+  header: string;
+}
+
+const { header, href, ...rest } = Astro.props;
+---
+
+<section class="flex flex-col gap-6" {...rest}>
+  <Font.H3 href={href} color="text-base-content">
+    {header}
+  </Font.H3>
+  <slot />
+</section>
