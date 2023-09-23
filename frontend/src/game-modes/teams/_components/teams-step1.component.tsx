@@ -2,6 +2,7 @@ import { useContext, type FunctionComponent, type CSSProperties } from "react";
 import { DEFAULT_TEAM_NAMES, TeamsContext, type TeamNames } from "@/game-modes/teams/contexts/teams.context";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
+import { Font } from "@/design-system/font/font.component";
 
 const MIN_TIMER = 30;
 const MAX_TIMER = 240;
@@ -53,11 +54,12 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
         />
       </div>
       <div className="flex flex-col items-center gap-2">
+        <Font.H2 color="text-base-content">{t("play.round_time")}</Font.H2>
         <input
           type="range"
           min={MIN_TIMER}
           max={MAX_TIMER}
-          className="range range-accent range-lg"
+          className="range range-lg"
           step={TIMER_STEP}
           value={roundTime}
           onChange={(e) => setSettings({ roundTime: parseInt(e.target.value) })}

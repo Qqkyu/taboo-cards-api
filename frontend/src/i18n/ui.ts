@@ -40,6 +40,8 @@ export const ui = {
     "play.timer": "Timer",
     "play.sec": "sec",
     "play.just_cards": "Just cards",
+    "play.teams": "Teams",
+    "play.round_time": "Round time",
   },
   pl: {
     "title.game": "Gra taboo",
@@ -73,5 +75,7 @@ export const ui = {
     "play.timer": "Czasomierz",
     "play.sec": "sek",
     "play.just_cards": "Po prostu karty",
+    "play.teams": "Drużyny",
+    "play.round_time": "Czas tury",
   },
 } as const;
