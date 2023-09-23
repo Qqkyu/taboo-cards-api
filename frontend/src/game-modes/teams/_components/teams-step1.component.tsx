@@ -42,7 +42,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
           value={purpleTeam}
           onChange={(e) => handleTeamNameChange("purpleTeam", e.target.value)}
           onBlur={() => handleTeamNameInputBlur("purpleTeam")}
-          className="input input-bordered !input-primary !input-lg w-full max-w-xs"
+          className="input input-bordered !input-primary !input-md sm:!input-lg w-full max-w-xs"
         />
         <div className="divider sm:divider-horizontal divider-vertical">VS</div>
         <input
@@ -50,7 +50,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
           value={pinkTeam}
           onChange={(e) => handleTeamNameChange("pinkTeam", e.target.value)}
           onBlur={() => handleTeamNameInputBlur("pinkTeam")}
-          className="input input-bordered !input-secondary !input-lg w-full max-w-xs"
+          className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
         />
       </div>
       <div className="flex flex-col items-center gap-5">
@@ -60,7 +60,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
             type="range"
             min={MIN_TIMER}
             max={MAX_TIMER}
-            className="range range-lg"
+            className="range !range-md sm:!range-lg"
             step={TIMER_STEP}
             value={roundTime}
             onChange={(e) => setSettings({ roundTime: parseInt(e.target.value), rounds, skips })}
@@ -72,13 +72,13 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
           </div>
           <div className="flex gap-5">
             <div>
-              <span className="countdown font-mono text-4xl">
+              <span className="countdown font-mono text-3xl sm:text-4xl">
                 <span style={{ "--value": Math.floor(roundTime / 60) } as CSSProperties}></span>
               </span>
               min
             </div>
             <div>
-              <span className="countdown font-mono text-4xl">
+              <span className="countdown font-mono text-3xl sm:text-4xl">
                 <span style={{ "--value": roundTime % 60 } as CSSProperties}></span>
               </span>
               {t("play.sec")}
@@ -92,7 +92,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
               type="range"
               min={1}
               max={20}
-              className="range range-lg"
+              className="range !range-md sm:!range-lg"
               step={1}
               value={rounds}
               onChange={(e) => setSettings({ roundTime, rounds: parseInt(e.target.value), skips })}
@@ -105,7 +105,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
               type="range"
               min={0}
               max={10}
-              className="range range-lg"
+              className="range !range-md sm:!range-lg"
               step={1}
               value={skips}
               onChange={(e) => setSettings({ roundTime, rounds, skips: parseInt(e.target.value) })}
