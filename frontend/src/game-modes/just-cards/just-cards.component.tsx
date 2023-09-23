@@ -8,7 +8,7 @@ import Skeleton from "react-loading-skeleton";
 
 const DEFAULT_TIMER = 60;
 const MIN_TIMER = 30;
-const MAX_TIMER = 240;
+const MAX_TIMER = 180;
 const TIMER_STEP = 15;
 
 const BADGE_COLOR = {

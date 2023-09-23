@@ -5,7 +5,7 @@ import { useTranslations } from "@/i18n/utils";
 import { Font } from "@/design-system/font/font.component";
 
 const MIN_TIMER = 30;
-const MAX_TIMER = 240;
+const MAX_TIMER = 180;
 const TIMER_STEP = 15;
 
 type Props = {
