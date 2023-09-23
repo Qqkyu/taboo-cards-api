@@ -42,6 +42,8 @@ export const ui = {
     "play.just_cards": "Just cards",
     "play.teams": "Teams",
     "play.round_time": "Round time",
+    "play.rounds": "Rounds",
+    "play.skips": "Skips",
   },
   pl: {
     "title.game": "Gra taboo",
@@ -77,5 +79,7 @@ export const ui = {
     "play.just_cards": "Po prostu karty",
     "play.teams": "Drużyny",
     "play.round_time": "Czas tury",
+    "play.rounds": "Liczba rund",
+    "play.skips": "Pominięcia",
   },
 } as const;
