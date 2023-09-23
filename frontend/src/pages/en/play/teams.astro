@@ -1,0 +1,12 @@
+---
+import GameLayout from "@/layouts/GameLayout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { JustCardsGameMode } from "@/game-modes/just-cards/just-cards.component";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
+---
+
+<GameLayout title={t("play.just_cards")}>
+  <JustCardsGameMode lang="en" client:idle />
+</GameLayout>

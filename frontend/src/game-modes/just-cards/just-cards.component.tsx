@@ -21,7 +21,7 @@ type Props = {
   lang: "en" | "pl";
 };
 
-export const RandomCard: FunctionComponent<Props> = ({ lang }) => {
+export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
   const [card, setCard] = useState<Card | undefined>(undefined);
   const [timer, setTimer] = useState<number>(DEFAULT_TIMER);

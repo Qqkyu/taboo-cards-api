@@ -18,7 +18,8 @@
       "@/paths/*": ["src/paths/*"],
       "@/design-system/*": ["src/design-system/*"],
       "@/i18n/*": ["src/i18n/*"],
-      "@/lib/*": ["src/lib/*"]
+      "@/lib/*": ["src/lib/*"],
+      "@/game-modes/*": ["src/game-modes/*"]
     },
     "baseUrl": "."
   },

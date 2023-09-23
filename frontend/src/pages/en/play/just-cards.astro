@@ -1,6 +1,6 @@
 ---
 import GameLayout from "@/layouts/GameLayout.astro";
-import { RandomCard } from "@/components/random-card/random-card.component";
+import { JustCardsGameMode } from "@/game-modes/just-cards/just-cards.component";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -8,5 +8,5 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
 ---
 
 <GameLayout title={t("play.just_cards")}>
-  <RandomCard lang="en" client:idle />
+  <JustCardsGameMode lang="en" client:idle />
 </GameLayout>
