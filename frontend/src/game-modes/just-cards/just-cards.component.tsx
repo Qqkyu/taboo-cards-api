@@ -160,7 +160,7 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
         </>
       ) : (
         <div className="flex w-80 flex-col gap-10 sm:w-96">
-          <div className="h-[384px] w-80 sm:w-96">
+          <div className="h-[396px] w-80 sm:w-96">
             <Skeleton
               baseColor="hsl(var(--b2))"
               highlightColor="hsl(var(--p))"
