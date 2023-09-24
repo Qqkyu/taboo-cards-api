@@ -118,10 +118,13 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
           </div>
         </div>
         <div className="flex w-full justify-between">
-          <button className="btn btn-neutral" onClick={handlePausePlayClick}>
+          <button className="btn btn-neutral w-28" onClick={handlePausePlayClick}>
             {timerOn ? "Stop ⏸" : "Start ▶"}
           </button>
-          <button className={`btn btn-neutral ${timeLeft === timer ? "btn-disabled" : ""}`} onClick={handleResetTime}>
+          <button
+            className={`btn btn-neutral w-28 ${timeLeft === timer ? "btn-disabled" : ""}`}
+            onClick={handleResetTime}
+          >
             Reset 🔄
           </button>
         </div>
