@@ -16,8 +16,10 @@ import { PolandFlagIcon } from "./icons/pl-flag.icon";
 import { TwitterIcon } from "./icons/twitter.icon";
 import { TeamIcon } from "./icons/team.icon";
 import { SingleIcon } from "./icons/single.icon";
+import { HomeIcon } from "./icons/home.icon";
 
 export type IconType =
+  | "home"
   | "copy"
   | "checkmark"
   | "moon"
@@ -40,6 +42,7 @@ type IconProps = IconComponentProps & {
 };
 
 const Icons: Record<IconType, FunctionComponent<IconComponentProps>> = {
+  home: HomeIcon,
   copy: CopyIcon,
   checkmark: CheckmarkIcon,
   moon: MoonIcon,

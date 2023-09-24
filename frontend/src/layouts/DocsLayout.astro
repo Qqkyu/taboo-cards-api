@@ -46,7 +46,9 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
   <body>
     <div class="min-h-screen flex flex-col">
       <Header transition:persist />
-      <Breadcrumbs breadcrumbs={[{ label: t("breadcrumbs.home"), href: `/${lang}` }, ...(breadcrumbs ?? [])]} />
+      <Breadcrumbs
+        breadcrumbs={[{ label: t("breadcrumbs.home"), href: `/${lang}`, icon: "home" }, ...(breadcrumbs ?? [])]}
+      />
       <div class="flex flex-1 p-4 sm:p-10 lg:p-20 flex-col w-full items-center justify-center">
         <slot />
       </div>
