@@ -92,7 +92,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
             <input
               type="range"
               min={1}
-              max={20}
+              max={10}
               className="range !range-md sm:!range-lg"
               step={1}
               value={rounds}
