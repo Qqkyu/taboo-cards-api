@@ -1,15 +1,18 @@
 ---
 import Header from "@/components/header/header.astro";
 import Footer from "@/components/footer/footer.astro";
+import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs.component";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ViewTransitions } from "astro:transitions";
+import type { ComponentProps } from "react";
 
 interface Props {
   title?: string;
+  breadcrumbs?: ComponentProps<typeof Breadcrumbs>["breadcrumbs"];
 }
 
-const { title } = Astro.props;
+const { title, breadcrumbs } = Astro.props;
 
 function formatTitle(title: string) {
   return title ? `${title} | ${t("title.docs")}` : t("title.docs");
@@ -43,6 +46,7 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
   <body>
     <div class="min-h-screen flex flex-col">
       <Header transition:persist />
+      <Breadcrumbs breadcrumbs={[{ label: t("breadcrumbs.home"), href: `/${lang}` }, ...(breadcrumbs ?? [])]} />
       <div class="flex flex-1 p-4 sm:p-10 lg:p-20 flex-col w-full items-center justify-center">
         <slot />
       </div>

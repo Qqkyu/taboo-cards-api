@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<DocsLayout title={t("header.about")}>
+<DocsLayout title={t("header.about")} breadcrumbs={[{ label: t("header.about"), href: `/${lang}/about` }]}>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
     <Section header="Who are you?">
       <Font.P1 color="text-base-content">

@@ -7,6 +7,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<GameLayout title={t("play.just_cards")}>
+<GameLayout
+  title={t("play.just_cards")}
+  breadcrumbs={[{ label: t("play.just_cards"), href: `/${lang}/play/just-cards` }]}
+>
   <JustCardsGameMode lang="en" client:idle />
 </GameLayout>

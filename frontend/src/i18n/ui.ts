@@ -9,6 +9,7 @@ export const ui = {
   en: {
     "title.docs": "Taboo cards API",
     "title.game": "Taboo game",
+    "breadcrumbs.home": "Home",
     "description.docs": "Taboo cards API - 2000 cards in various difficulties and in two languages!",
     "description.game": "Taboo game - explore 2000 cards in 3 game modes!",
     "card.easy": "easy",

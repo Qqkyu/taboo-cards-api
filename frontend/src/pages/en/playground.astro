@@ -12,6 +12,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<DocsLayout title={t("header.playground")}>
+<DocsLayout
+  title={t("header.playground")}
+  breadcrumbs={[{ label: t("header.playground"), href: `/${lang}/playground` }]}
+>
   <Playground initialData={randomCard} lang="en" client:load />
 </DocsLayout>

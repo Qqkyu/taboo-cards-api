@@ -10,7 +10,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<DocsLayout title={t("header.docs")}>
+<DocsLayout title={t("header.docs")} breadcrumbs={[{ label: t("header.docs"), href: `/${lang}/docs` }]}>
   <div class="flex w-[300px] flex-col sm:w-[500px] lg:w-[750px]">
     <Section id="card-model" header={t("docs.card_model")} href="#card-model">
       <table class="table-sm sm:table-md lg:table-lg table">
