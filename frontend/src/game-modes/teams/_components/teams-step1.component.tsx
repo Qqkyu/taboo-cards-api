@@ -10,9 +10,10 @@ const TIMER_STEP = 15;
 
 type Props = {
   lang: "en" | "pl";
+  onStart: () => void;
 };
 
-export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
+export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) => {
   const [{ roundTime, rounds, skips }, setSettings] = useContext(SettingsContext);
   const [{ purpleTeam, pinkTeam }, setNames] = useContext(TeamsContext);
 
@@ -35,7 +36,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
   };
 
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col items-center gap-10 sm:gap-16">
       <div className="flex h-auto flex-col items-center justify-center sm:h-28 sm:flex-row">
         <input
           type="text"
@@ -53,7 +54,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
           className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
         />
       </div>
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex w-full flex-col items-center gap-5">
         <div className="flex w-full flex-col items-center gap-2">
           <Font.H2 color="text-base-content">{t("play.round_time")}</Font.H2>
           <input
@@ -114,6 +115,9 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang }) => {
           </div>
         </div>
       </div>
+      <button onClick={onStart} className="!btn-accent btn btn-wide btn-sm sm:!btn-md ">
+        Start
+      </button>
     </div>
   );
 };

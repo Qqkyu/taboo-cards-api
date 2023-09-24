@@ -8,13 +8,14 @@ type Props = {
 };
 
 export const TeamsGameMode: FunctionComponent<Props> = ({ lang }) => {
+  const [step, setStep] = useState<1 | 2 | 3>(1);
   const teamNamesState = useState<TeamNames>(DEFAULT_TEAM_NAMES);
   const settingsState = useState<Settings>(DEFAULT_SETTINGS_VALUES);
 
   return (
     <TeamsContext.Provider value={teamNamesState}>
       <SettingsContext.Provider value={settingsState}>
-        <TeamsGameModeStep1 lang={lang} />
+        {step === 1 && <TeamsGameModeStep1 onStart={() => setStep(2)} lang={lang} />}
       </SettingsContext.Provider>
     </TeamsContext.Provider>
   );
