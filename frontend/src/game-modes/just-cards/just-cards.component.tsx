@@ -24,22 +24,22 @@ type Props = {
 export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
   const [card, setCard] = useState<Card | undefined>(undefined);
+  const [nextCard, setNextCard] = useState<Card | undefined>(undefined);
   const [timer, setTimer] = useState<number>(DEFAULT_TIMER);
   const [timeLeft, setTimeLeft] = useState<number>(DEFAULT_TIMER);
   const [timerOn, setTimerOn] = useState<boolean>(false);
-  const [cardLoading, setCardLoading] = useState<boolean>(false);
 
   const t = useTranslations(lang);
 
-  const setRandomCard = useCallback(async () => {
-    const randomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
-    setCard(randomCard);
-    setCardLoading(false);
-  }, [lang]);
-
   useEffect(() => {
-    setRandomCard();
-  }, [lang, setRandomCard]);
+    const setRandomCards = async () => {
+      const randomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
+      setCard(randomCard);
+      const nextRandomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
+      setNextCard(nextRandomCard);
+    };
+    setRandomCards();
+  }, [lang]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,11 +52,12 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
     return () => clearInterval(interval);
   }, [timerOn]);
 
-  const handleNextCardClick = useCallback(() => {
-    setCardLoading(true);
+  const handleNextCardClick = useCallback(async () => {
     previousCards.current.push(card);
-    setRandomCard();
-  }, [card, setRandomCard]);
+    setCard(nextCard);
+    const nextRandomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
+    setNextCard(nextRandomCard);
+  }, [card, lang, nextCard]);
 
   const handlePrevCardClick = useCallback(() => {
     const previousCard = previousCards.current.pop();
@@ -154,7 +155,7 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
               ❮ {t("play.previous")}
             </button>
             <button className="btn btn-secondary" onClick={handleNextCardClick}>
-              {cardLoading ? <span className="loading loading-spinner" /> : `${t("play.next")} ❯`}
+              {t("play.next")} ❯
             </button>
           </div>
         </>
