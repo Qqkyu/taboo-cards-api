@@ -45,6 +45,8 @@ export const ui = {
     "play.round_time": "Round time",
     "play.rounds": "Rounds",
     "play.skips": "Skips",
+    "play.purple_team": "Purple team",
+    "play.pink_team": "Pink team",
   },
   pl: {
     "title.game": "Gra taboo",
@@ -82,5 +84,7 @@ export const ui = {
     "play.round_time": "Czas tury",
     "play.rounds": "Liczba rund",
     "play.skips": "Pominięcia",
+    "play.purple_team": "Drużyna fioletowa",
+    "play.pink_team": "Drużyna różowa",
   },
 } as const;

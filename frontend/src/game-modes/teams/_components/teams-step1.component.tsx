@@ -1,5 +1,5 @@
 import { useContext, type FunctionComponent, type CSSProperties } from "react";
-import { DEFAULT_TEAM_NAMES, TeamsContext, type TeamNames } from "@/game-modes/teams/contexts/teams.context";
+import { TeamsContext, type TeamNames } from "@/game-modes/teams/contexts/teams.context";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
 import { Font } from "@/design-system/font/font.component";
@@ -29,9 +29,9 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
 
   const handleTeamNameInputBlur = (team: keyof TeamNames) => {
     if (team === "purpleTeam" && purpleTeam === "") {
-      setNames({ purpleTeam: DEFAULT_TEAM_NAMES.purpleTeam, pinkTeam });
+      setNames({ purpleTeam: t("play.purple_team"), pinkTeam });
     } else if (team === "pinkTeam" && pinkTeam === "") {
-      setNames({ purpleTeam, pinkTeam: DEFAULT_TEAM_NAMES.pinkTeam });
+      setNames({ purpleTeam, pinkTeam: t("play.pink_team") });
     }
   };
 
