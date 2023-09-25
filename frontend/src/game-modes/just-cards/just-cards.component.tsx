@@ -5,6 +5,7 @@ import { API_URL_PREFIX } from "@/paths/api.paths";
 import { type Card } from "@/types/card.types";
 import { type CSSProperties, type FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import { useLocalStorage } from "src/hooks/use-local-storage/use-local-storage.hook";
 
 const DEFAULT_TIMER = 60;
 const MIN_TIMER = 30;
@@ -23,13 +24,20 @@ type Props = {
 
 export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
+
   const [card, setCard] = useState<Card | undefined>(undefined);
   const [nextCard, setNextCard] = useState<Card | undefined>(undefined);
-  const [timer, setTimer] = useState<number>(DEFAULT_TIMER);
-  const [timeLeft, setTimeLeft] = useState<number>(DEFAULT_TIMER);
+
+  const roundTimeState = useLocalStorage("just-cards-timer", DEFAULT_TIMER.toString());
+  const [timer, setTimer] = [parseInt(roundTimeState[0]), (timer: number) => roundTimeState[1](timer.toString())];
+  const [timeLeft, setTimeLeft] = useState<number | undefined>(undefined);
   const [timerOn, setTimerOn] = useState<boolean>(false);
 
   const t = useTranslations(lang);
+
+  useEffect(() => {
+    setTimeLeft(timer);
+  }, [timer]);
 
   useEffect(() => {
     const setRandomCards = async () => {
@@ -88,50 +96,50 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-col items-center gap-2">
-        <Font.H1 color="text-base-content">{t("play.timer")}</Font.H1>
-        <input
-          type="range"
-          min={MIN_TIMER}
-          max={MAX_TIMER}
-          className="range range-secondary range-lg"
-          step={TIMER_STEP}
-          value={timer}
-          onChange={(e) => handleSetTimer(parseInt(e.target.value))}
-        />
-        <div className="flex w-full justify-between px-2 text-xs">
-          {Array.from({ length: (MAX_TIMER - MIN_TIMER) / TIMER_STEP + 1 }).map((_, i) => (
-            <span key={i}>|</span>
-          ))}
-        </div>
-        <div className="flex gap-5">
-          <div>
-            <span className="countdown font-mono text-4xl">
-              <span style={{ "--value": Math.floor(timeLeft / 60) } as CSSProperties}></span>
-            </span>
-            min
-          </div>
-          <div>
-            <span className="countdown font-mono text-4xl">
-              <span style={{ "--value": timeLeft % 60 } as CSSProperties}></span>
-            </span>
-            {t("play.sec")}
-          </div>
-        </div>
-        <div className="flex w-full justify-between">
-          <button className="btn btn-neutral w-28" onClick={handlePausePlayClick}>
-            {timerOn ? "Stop ⏸" : "Start ▶"}
-          </button>
-          <button
-            className={`btn btn-neutral w-28 ${timeLeft === timer ? "btn-disabled" : ""}`}
-            onClick={handleResetTime}
-          >
-            Reset 🔄
-          </button>
-        </div>
-      </div>
       {card ? (
         <>
+          <div className="flex flex-col items-center gap-2">
+            <Font.H1 color="text-base-content">{t("play.timer")}</Font.H1>
+            <input
+              type="range"
+              min={MIN_TIMER}
+              max={MAX_TIMER}
+              className="range range-secondary range-lg"
+              step={TIMER_STEP}
+              value={timer}
+              onChange={(e) => handleSetTimer(parseInt(e.target.value))}
+            />
+            <div className="flex w-full justify-between px-2 text-xs">
+              {Array.from({ length: (MAX_TIMER - MIN_TIMER) / TIMER_STEP + 1 }).map((_, i) => (
+                <span key={i}>|</span>
+              ))}
+            </div>
+            <div className="flex gap-5">
+              <div>
+                <span className="countdown font-mono text-4xl">
+                  <span style={{ "--value": Math.floor(timeLeft / 60) } as CSSProperties}></span>
+                </span>
+                min
+              </div>
+              <div>
+                <span className="countdown font-mono text-4xl">
+                  <span style={{ "--value": timeLeft % 60 } as CSSProperties}></span>
+                </span>
+                {t("play.sec")}
+              </div>
+            </div>
+            <div className="flex w-full justify-between">
+              <button className="btn btn-neutral w-28" onClick={handlePausePlayClick}>
+                {timerOn ? "Stop ⏸" : "Start ▶"}
+              </button>
+              <button
+                className={`btn btn-neutral w-28 ${timeLeft === timer ? "btn-disabled" : ""}`}
+                onClick={handleResetTime}
+              >
+                Reset 🔄
+              </button>
+            </div>
+          </div>
           <div className="card bg-primary w-80 shadow-xl sm:w-96">
             <div className="card-body flex flex-col items-center gap-3 sm:gap-6 lg:gap-8">
               <div className="card-title text-center">
@@ -161,7 +169,37 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
         </>
       ) : (
         <div className="flex w-80 flex-col gap-10 sm:w-96">
-          <div className="h-[396px] w-80 sm:w-96">
+          <div className="flex flex-col items-center gap-2">
+            <Font.H1 color="text-base-content">{t("play.timer")}</Font.H1>
+            <div className="h-8 w-full">
+              <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
+            </div>
+            <div className="h-4 w-full">
+              <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
+            </div>
+            <div className="h-9 w-[149px]">
+              <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--n))" height="100%" />
+            </div>
+            <div className="flex h-[48px] w-full justify-between">
+              <div className="h-full w-28">
+                <Skeleton
+                  baseColor="hsl(var(--b2))"
+                  highlightColor="hsl(var(--n))"
+                  height="100%"
+                  className="!rounded-lg"
+                />
+              </div>
+              <div className="h-full w-28">
+                <Skeleton
+                  baseColor="hsl(var(--b2))"
+                  highlightColor="hsl(var(--n))"
+                  height="100%"
+                  className="!rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="h-[332px] w-80 sm:h-[396px] sm:w-96">
             <Skeleton
               baseColor="hsl(var(--b2))"
               highlightColor="hsl(var(--p))"
