@@ -37,26 +37,30 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
 
   return (
     <div className="flex flex-col items-center gap-10 sm:gap-16">
-      <div className="flex h-auto flex-col items-center justify-center sm:h-28 sm:flex-row">
-        <input
-          type="text"
-          value={purpleTeam}
-          onChange={(e) => handleTeamNameChange("purpleTeam", e.target.value)}
-          onBlur={() => handleTeamNameInputBlur("purpleTeam")}
-          className="input input-bordered !input-primary !input-md sm:!input-lg w-full max-w-xs"
-        />
-        <div className="divider sm:divider-horizontal divider-vertical">VS</div>
-        <input
-          type="text"
-          value={pinkTeam}
-          onChange={(e) => handleTeamNameChange("pinkTeam", e.target.value)}
-          onBlur={() => handleTeamNameInputBlur("pinkTeam")}
-          className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
-        />
+      <div className="flex flex-col items-center gap-2">
+        <Font.H2 color="text-accent">{t("play.teams")}</Font.H2>
+        <div className="flex h-auto flex-col items-center justify-center sm:h-28 sm:flex-row">
+          <input
+            type="text"
+            value={purpleTeam}
+            onChange={(e) => handleTeamNameChange("purpleTeam", e.target.value)}
+            onBlur={() => handleTeamNameInputBlur("purpleTeam")}
+            className="input input-bordered !input-primary !input-md sm:!input-lg w-full max-w-xs"
+          />
+          <div className="divider sm:divider-horizontal divider-vertical">VS</div>
+          <input
+            type="text"
+            value={pinkTeam}
+            onChange={(e) => handleTeamNameChange("pinkTeam", e.target.value)}
+            onBlur={() => handleTeamNameInputBlur("pinkTeam")}
+            className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
+          />
+        </div>
       </div>
       <div className="flex w-full flex-col items-center gap-5">
         <div className="flex w-full flex-col items-center gap-2">
-          <Font.H2 color="text-base-content">{t("play.round_time")}</Font.H2>
+          <Font.H2 color="text-accent">{t("play.gameplay_settings")}</Font.H2>
+          <Font.H3 color="text-base-content">{t("play.round_time")}</Font.H3>
           <input
             type="range"
             min={MIN_TIMER}
@@ -88,7 +92,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
         </div>
         <div className="flex w-full flex-row items-center justify-between gap-5">
           <div className="flex basis-1/2 flex-col items-center gap-2">
-            <Font.H2 color="text-base-content">{t("play.rounds")}</Font.H2>
+            <Font.H3 color="text-base-content">{t("play.rounds")}</Font.H3>
             <input
               type="range"
               min={1}
@@ -101,7 +105,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
             <Font.P2 color="text-base-content">{rounds}</Font.P2>
           </div>
           <div className="flex basis-1/2 flex-col items-center gap-2">
-            <Font.H2 color="text-base-content">{t("play.skips")}</Font.H2>
+            <Font.H3 color="text-base-content">{t("play.skips")}</Font.H3>
             <input
               type="range"
               min={0}

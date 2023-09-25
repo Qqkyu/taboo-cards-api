@@ -3,7 +3,7 @@ import { type FunctionComponent, type PropsWithChildren } from "react";
 import { SubheadingAnchor } from "./subheading-anchor/subheading-anchor.component";
 
 type Props = PropsWithChildren<{
-  color: "text-base-content" | "text-primary-content" | "text-secondary-content" | "text-error-content";
+  color: "text-base-content" | "text-primary-content" | "text-secondary-content" | "text-error-content" | "text-accent";
 }>;
 
 type SubheaderProps = Props & { href?: string };
