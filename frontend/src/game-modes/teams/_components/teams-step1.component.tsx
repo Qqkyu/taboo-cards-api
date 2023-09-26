@@ -1,5 +1,5 @@
 import { useContext, type FunctionComponent, type CSSProperties } from "react";
-import { TeamsContext, type TeamNames } from "@/game-modes/teams/contexts/teams.context";
+import { TeamNamesContext } from "@/game-modes/teams/contexts/teams.context";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
 import { Font } from "@/design-system/font/font.component";
@@ -15,25 +15,9 @@ type Props = {
 
 export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) => {
   const [{ roundTime, rounds, skips }, setSettings] = useContext(SettingsContext);
-  const [{ purpleTeam, pinkTeam }, setNames] = useContext(TeamsContext);
+  const [{ purpleTeamName, pinkTeamName }, { setPurpleTeamName, setPinkTeamName }] = useContext(TeamNamesContext);
 
   const t = useTranslations(lang);
-
-  const handleTeamNameChange = (team: keyof TeamNames, value: string) => {
-    if (team === "purpleTeam") {
-      setNames({ purpleTeam: value, pinkTeam });
-    } else {
-      setNames({ purpleTeam, pinkTeam: value });
-    }
-  };
-
-  const handleTeamNameInputBlur = (team: keyof TeamNames) => {
-    if (team === "purpleTeam" && purpleTeam === "") {
-      setNames({ purpleTeam: t("play.purple_team"), pinkTeam });
-    } else if (team === "pinkTeam" && pinkTeam === "") {
-      setNames({ purpleTeam, pinkTeam: t("play.pink_team") });
-    }
-  };
 
   return (
     <div className="flex flex-col items-center gap-10 sm:gap-16">
@@ -42,17 +26,17 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
         <div className="flex h-auto flex-col items-center justify-center sm:h-28 sm:flex-row">
           <input
             type="text"
-            value={purpleTeam}
-            onChange={(e) => handleTeamNameChange("purpleTeam", e.target.value)}
-            onBlur={() => handleTeamNameInputBlur("purpleTeam")}
+            value={purpleTeamName}
+            onChange={(e) => setPurpleTeamName(e.target.value)}
+            onBlur={() => purpleTeamName === "" && setPurpleTeamName(t("play.purple_team"))}
             className="input input-bordered !input-primary !input-md sm:!input-lg w-full max-w-xs"
           />
           <div className="divider sm:divider-horizontal divider-vertical">VS</div>
           <input
             type="text"
-            value={pinkTeam}
-            onChange={(e) => handleTeamNameChange("pinkTeam", e.target.value)}
-            onBlur={() => handleTeamNameInputBlur("pinkTeam")}
+            value={pinkTeamName}
+            onChange={(e) => setPinkTeamName(e.target.value)}
+            onBlur={() => pinkTeamName === "" && setPinkTeamName(t("play.pink_team"))}
             className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
           />
         </div>

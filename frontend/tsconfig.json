@@ -19,7 +19,8 @@
       "@/design-system/*": ["src/design-system/*"],
       "@/i18n/*": ["src/i18n/*"],
       "@/lib/*": ["src/lib/*"],
-      "@/game-modes/*": ["src/game-modes/*"]
+      "@/game-modes/*": ["src/game-modes/*"],
+      "@/utils/*": ["src/utils/*"]
     },
     "baseUrl": "."
   },

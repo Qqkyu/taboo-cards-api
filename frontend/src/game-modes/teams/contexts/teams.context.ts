@@ -1,12 +1,18 @@
 import { createContext } from "react";
+import { noop } from "@/utils/noop";
 
 export type TeamNames = {
-  purpleTeam: string;
-  pinkTeam: string;
+  purpleTeamName: string;
+  pinkTeamName: string;
 };
 
-// eslint-disable-next-line no-unused-vars
-export const TeamsContext = createContext<[TeamNames, (teamNames: TeamNames) => void]>([
-  { purpleTeam: "", pinkTeam: "" },
-  () => {},
+export const TeamNamesContext = createContext<
+  readonly [
+    TeamNames,
+    // eslint-disable-next-line no-unused-vars
+    { setPurpleTeamName: (purpleTeamName: string) => void; setPinkTeamName: (pinkTeamName: string) => void },
+  ]
+>([
+  { purpleTeamName: "", pinkTeamName: "" },
+  { setPurpleTeamName: noop, setPinkTeamName: noop },
 ]);
