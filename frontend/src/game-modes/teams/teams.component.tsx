@@ -1,7 +1,7 @@
 import { useState, type FunctionComponent } from "react";
 import { TeamsGameModeStep1 } from "./_components/teams-step1.component";
-import { TeamNamesContext } from "./contexts/teams.context";
-import { DEFAULT_SETTINGS_VALUES, type Settings, SettingsContext } from "./contexts/settings.context";
+import { TeamNamesContext } from "./contexts/team-names.context";
+import { DEFAULT_SETTINGS_VALUES, SettingsContext } from "./contexts/settings.context";
 import { TeamsGameModeStep2 } from "./_components/teams-step2.component";
 import { DEFAULT_GAME_VALUES, type Game, GameContext } from "./contexts/game.context";
 import { useTranslations } from "@/i18n/utils";
@@ -18,7 +18,10 @@ export const TeamsGameMode: FunctionComponent<Props> = ({ lang }) => {
   const [purpleTeamName, setPurpleTeamName] = useLocalStorage("teams-purple-team-name", t("play.purple_team"));
   const [pinkTeamName, setPinkTeamName] = useLocalStorage("teams-pink-team-name", t("play.pink_team"));
 
-  const settingsState = useState<Settings>(DEFAULT_SETTINGS_VALUES);
+  const [roundTime, setRoundTime] = useLocalStorage("teams-round-time", DEFAULT_SETTINGS_VALUES.roundTime.toString());
+  const [rounds, setRounds] = useLocalStorage("teams-rounds", DEFAULT_SETTINGS_VALUES.rounds.toString());
+  const [skips, setSkips] = useLocalStorage("teams-skips", DEFAULT_SETTINGS_VALUES.skips.toString());
+
   const gameState = useState<Game>(DEFAULT_GAME_VALUES);
 
   return (
@@ -28,7 +31,12 @@ export const TeamsGameMode: FunctionComponent<Props> = ({ lang }) => {
         { setPurpleTeamName, setPinkTeamName },
       ]}
     >
-      <SettingsContext.Provider value={settingsState}>
+      <SettingsContext.Provider
+        value={[
+          { roundTime: parseInt(roundTime), rounds: parseInt(rounds), skips: parseInt(skips) },
+          { setRoundTime, setRounds, setSkips },
+        ]}
+      >
         <GameContext.Provider value={gameState}>
           {step === 1 && <TeamsGameModeStep1 onStart={() => setStep(2)} lang={lang} />}
           {step === 2 && <TeamsGameModeStep2 />}

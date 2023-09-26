@@ -1,5 +1,5 @@
 import { useContext, type FunctionComponent, type CSSProperties } from "react";
-import { TeamNamesContext } from "@/game-modes/teams/contexts/teams.context";
+import { TeamNamesContext } from "@/game-modes/teams/contexts/team-names.context";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
 import { Font } from "@/design-system/font/font.component";
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) => {
-  const [{ roundTime, rounds, skips }, setSettings] = useContext(SettingsContext);
+  const [{ roundTime, rounds, skips }, { setRoundTime, setRounds, setSkips }] = useContext(SettingsContext);
   const [{ purpleTeamName, pinkTeamName }, { setPurpleTeamName, setPinkTeamName }] = useContext(TeamNamesContext);
 
   const t = useTranslations(lang);
@@ -52,7 +52,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
             className="range !range-md sm:!range-lg"
             step={TIMER_STEP}
             value={roundTime}
-            onChange={(e) => setSettings({ roundTime: parseInt(e.target.value), rounds, skips })}
+            onChange={(e) => setRoundTime(e.target.value)}
           />
           <div className="flex w-full justify-between px-2 text-xs">
             {Array.from({ length: (MAX_TIMER - MIN_TIMER) / TIMER_STEP + 1 }).map((_, i) => (
@@ -84,7 +84,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
               className="range !range-md sm:!range-lg"
               step={1}
               value={rounds}
-              onChange={(e) => setSettings({ roundTime, rounds: parseInt(e.target.value), skips })}
+              onChange={(e) => setRounds(e.target.value)}
             />
             <Font.P2 color="text-base-content">{rounds}</Font.P2>
           </div>
@@ -97,7 +97,7 @@ export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) 
               className="range !range-md sm:!range-lg"
               step={1}
               value={skips}
-              onChange={(e) => setSettings({ roundTime, rounds, skips: parseInt(e.target.value) })}
+              onChange={(e) => setSkips(e.target.value)}
             />
             <Font.P2 color="text-base-content">{skips}</Font.P2>
           </div>

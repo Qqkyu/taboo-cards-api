@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import { noop } from "@/utils/noop";
 import { createContext } from "react";
 
 export type Settings = {
@@ -12,8 +14,13 @@ export const DEFAULT_SETTINGS_VALUES: Settings = {
   skips: 2,
 };
 
-// eslint-disable-next-line no-unused-vars
-export const SettingsContext = createContext<[Settings, (settings: Settings) => void]>([
-  DEFAULT_SETTINGS_VALUES,
-  () => {},
-]);
+export const SettingsContext = createContext<
+  [
+    Settings,
+    {
+      setRoundTime: (roundTime: string) => void;
+      setRounds: (rounds: string) => void;
+      setSkips: (skips: string) => void;
+    },
+  ]
+>([DEFAULT_SETTINGS_VALUES, { setRoundTime: noop, setRounds: noop, setSkips: noop }]);
