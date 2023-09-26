@@ -170,7 +170,9 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
       ) : (
         <div className="flex w-80 flex-col gap-10 sm:w-96">
           <div className="flex flex-col items-center gap-2">
-            <Font.H1 color="text-base-content">{t("play.timer")}</Font.H1>
+            <div className={`h-10 ${lang === "en" ? "w-[65px]" : "w-[128px]"}`}>
+              <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--n))" height="100%" />
+            </div>
             <div className="h-8 w-full">
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
             </div>
