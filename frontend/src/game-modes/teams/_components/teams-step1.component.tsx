@@ -1,8 +1,9 @@
-import { useContext, type FunctionComponent, type CSSProperties } from "react";
+import { useContext, type FunctionComponent, type CSSProperties, useState, useEffect } from "react";
 import { TeamNamesContext } from "@/game-modes/teams/contexts/team-names.context";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
 import { Font } from "@/design-system/font/font.component";
+import Skeleton from "react-loading-skeleton";
 
 const MIN_TIMER = 30;
 const MAX_TIMER = 180;
@@ -14,31 +15,59 @@ type Props = {
 };
 
 export const TeamsGameModeStep1: FunctionComponent<Props> = ({ lang, onStart }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
   const [{ roundTime, rounds, skips }, { setRoundTime, setRounds, setSkips }] = useContext(SettingsContext);
   const [{ purpleTeamName, pinkTeamName }, { setPurpleTeamName, setPinkTeamName }] = useContext(TeamNamesContext);
 
   const t = useTranslations(lang);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <div className="flex flex-col items-center gap-10 sm:gap-16">
       <div className="flex flex-col items-center gap-2">
         <Font.H2 color="text-accent">{t("play.teams")}</Font.H2>
         <div className="flex h-auto flex-col items-center justify-center sm:h-28 sm:flex-row">
-          <input
-            type="text"
-            value={purpleTeamName}
-            onChange={(e) => setPurpleTeamName(e.target.value)}
-            onBlur={() => purpleTeamName === "" && setPurpleTeamName(t("play.purple_team"))}
-            className="input input-bordered !input-primary !input-md sm:!input-lg w-full max-w-xs"
-          />
+          {isMounted ? (
+            <input
+              type="text"
+              value={purpleTeamName}
+              onChange={(e) => setPurpleTeamName(e.target.value)}
+              onBlur={() => purpleTeamName === "" && setPurpleTeamName(t("play.purple_team"))}
+              className="input input-bordered !input-primary !input-md sm:!input-lg w-full max-w-xs"
+            />
+          ) : (
+            <div className="h-12 w-[193px] sm:h-16 sm:w-[253px]">
+              <Skeleton
+                baseColor="hsl(var(--b2))"
+                highlightColor="hsl(var(--p))"
+                height="100%"
+                className="!rounded-lg"
+              />
+            </div>
+          )}
           <div className="divider sm:divider-horizontal divider-vertical">VS</div>
-          <input
-            type="text"
-            value={pinkTeamName}
-            onChange={(e) => setPinkTeamName(e.target.value)}
-            onBlur={() => pinkTeamName === "" && setPinkTeamName(t("play.pink_team"))}
-            className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
-          />
+          {isMounted ? (
+            <input
+              type="text"
+              value={pinkTeamName}
+              onChange={(e) => setPinkTeamName(e.target.value)}
+              onBlur={() => pinkTeamName === "" && setPinkTeamName(t("play.pink_team"))}
+              className="input input-bordered !input-secondary !input-md sm:!input-lg w-full max-w-xs"
+            />
+          ) : (
+            <div className="h-12 w-[193px] sm:h-16 sm:w-[253px]">
+              <Skeleton
+                baseColor="hsl(var(--b2))"
+                highlightColor="hsl(var(--s))"
+                height="100%"
+                className="!rounded-lg"
+              />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex w-full flex-col items-center gap-5">
