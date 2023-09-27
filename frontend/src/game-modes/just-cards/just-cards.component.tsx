@@ -95,7 +95,7 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
   };
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-6 sm:gap-10">
       {card ? (
         <>
           <div className="flex flex-col items-center gap-2">
@@ -104,7 +104,7 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
               type="range"
               min={MIN_TIMER}
               max={MAX_TIMER}
-              className="range range-secondary range-lg"
+              className="range range-secondary range-md sm:range-lg"
               step={TIMER_STEP}
               value={timer}
               onChange={(e) => handleSetTimer(parseInt(e.target.value))}
@@ -116,24 +116,24 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
             </div>
             <div className="flex gap-5">
               <div>
-                <span className="countdown font-mono text-4xl">
+                <span className="countdown font-mono text-3xl sm:text-4xl">
                   <span style={{ "--value": Math.floor(timeLeft / 60) } as CSSProperties}></span>
                 </span>
                 min
               </div>
               <div>
-                <span className="countdown font-mono text-4xl">
+                <span className="countdown font-mono text-3xl sm:text-4xl">
                   <span style={{ "--value": timeLeft % 60 } as CSSProperties}></span>
                 </span>
                 {t("play.sec")}
               </div>
             </div>
             <div className="flex w-full justify-between">
-              <button className="btn btn-neutral w-28" onClick={handlePausePlayClick}>
+              <button className="btn btn-sm sm:btn-md btn-neutral w-28" onClick={handlePausePlayClick}>
                 {timerOn ? "Stop ⏸" : "Start ▶"}
               </button>
               <button
-                className={`btn btn-neutral w-28 ${timeLeft === timer ? "btn-disabled" : ""}`}
+                className={`btn btn-sm sm:btn-md btn-neutral w-28 ${timeLeft === timer ? "btn-disabled" : ""}`}
                 onClick={handleResetTime}
               >
                 Reset 🔄
@@ -157,32 +157,34 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
           </div>
           <div className="flex justify-between">
             <button
-              className={`btn btn-outline btn-secondary ${previousCards.current.length === 0 ? "btn-disabled" : ""}`}
+              className={`btn btn-sm sm:btn-md btn-outline btn-secondary ${
+                previousCards.current.length === 0 ? "btn-disabled" : ""
+              }`}
               onClick={handlePrevCardClick}
             >
               ❮ {t("play.previous")}
             </button>
-            <button className="btn btn-secondary" onClick={handleNextCardClick}>
+            <button className="btn btn-sm sm:btn-md btn-secondary" onClick={handleNextCardClick}>
               {t("play.next")} ❯
             </button>
           </div>
         </>
       ) : (
-        <div className="flex w-80 flex-col gap-10 sm:w-96">
+        <div className="flex w-80 flex-col gap-6 sm:w-96 sm:gap-10">
           <div className="flex flex-col items-center gap-2">
-            <div className={`h-10 ${lang === "en" ? "w-[65px]" : "w-[128px]"}`}>
+            <div className={`h-9 sm:h-10 ${lang === "en" ? "w-[55px] sm:w-[65px]" : "w-[107px] sm:w-[128px]"}`}>
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--n))" height="100%" />
             </div>
-            <div className="h-8 w-full">
+            <div className="h-6 w-full sm:h-8">
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
             </div>
             <div className="h-4 w-full">
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
             </div>
-            <div className="h-9 w-[149px]">
+            <div className="h-[31px] w-[135px] sm:h-9 sm:w-[149px]">
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--n))" height="100%" />
             </div>
-            <div className="flex h-[48px] w-full justify-between">
+            <div className="flex h-[32px] w-full justify-between sm:h-[48px]">
               <div className="h-full w-28">
                 <Skeleton
                   baseColor="hsl(var(--b2))"
@@ -209,8 +211,8 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
               className="!rounded-2xl"
             />
           </div>
-          <div className="flex h-[48px] w-full justify-between">
-            <div className={`h-full ${lang === "en" ? "w-[110px]" : "w-[121px]"}`}>
+          <div className="flex h-[32px] w-full justify-between sm:h-[48px]">
+            <div className={`h-full ${lang === "en" ? "w-[102px] sm:w-[110px]" : "w-[113px] sm:w-[121px]"}`}>
               <Skeleton
                 baseColor="hsl(var(--b2))"
                 highlightColor="hsl(var(--s))"
@@ -218,7 +220,7 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
                 className="!rounded-lg"
               />
             </div>
-            <div className={`h-full ${lang === "en" ? "w-[80px]" : "w-[115px]"}`}>
+            <div className={`h-full ${lang === "en" ? "w-[72px] sm:w-[80px]" : "w-[107px] sm:w-[115px]"}`}>
               <Skeleton
                 baseColor="hsl(var(--b2))"
                 highlightColor="hsl(var(--s))"
