@@ -175,10 +175,7 @@ export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
             <div className={`h-9 sm:h-10 ${lang === "en" ? "w-[55px] sm:w-[65px]" : "w-[107px] sm:w-[128px]"}`}>
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--n))" height="100%" />
             </div>
-            <div className="h-6 w-full sm:h-8">
-              <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
-            </div>
-            <div className="h-4 w-full">
+            <div className="h-12 w-full sm:h-14">
               <Skeleton baseColor="hsl(var(--b2))" highlightColor="hsl(var(--s))" height="100%" />
             </div>
             <div className="h-[31px] w-[135px] sm:h-9 sm:w-[149px]">
