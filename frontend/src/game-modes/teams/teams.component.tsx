@@ -1,8 +1,8 @@
 import { useState, type FunctionComponent } from "react";
-import { TeamsGameModeStep1 } from "./_components/teams-step1.component";
+import { TeamsGameModeStep1 } from "./_components/teams-step1/teams-step1.component";
 import { TeamNamesContext } from "./contexts/team-names.context";
 import { DEFAULT_SETTINGS_VALUES, SettingsContext } from "./contexts/settings.context";
-import { TeamsGameModeStep2 } from "./_components/teams-step2.component";
+import { TeamsGameModeStep2 } from "./_components/teams-step2/teams-step2.component";
 import { DEFAULT_GAME_VALUES, type Game, GameContext } from "./contexts/game.context";
 import { useTranslations } from "@/i18n/utils";
 import { useLocalStorage } from "src/hooks/use-local-storage/use-local-storage.hook";
