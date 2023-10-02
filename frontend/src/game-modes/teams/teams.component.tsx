@@ -39,7 +39,7 @@ export const TeamsGameMode: FunctionComponent<Props> = ({ lang }) => {
       >
         <GameContext.Provider value={gameState}>
           {step === 1 && <TeamsGameModeStep1 onStart={() => setStep(2)} lang={lang} />}
-          {step === 2 && <TeamsGameModeStep2 />}
+          {step === 2 && <TeamsGameModeStep2 lang={lang} />}
         </GameContext.Provider>
       </SettingsContext.Provider>
     </TeamNamesContext.Provider>

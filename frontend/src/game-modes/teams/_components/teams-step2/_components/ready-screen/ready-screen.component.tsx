@@ -3,10 +3,11 @@ import { TeamNamesContext } from "@/game-modes/teams/contexts/team-names.context
 import { useContext, type FunctionComponent } from "react";
 
 type Props = {
+  onReady: () => void;
   team: "pink" | "purple";
 };
 
-export const ReadyScreen: FunctionComponent<Props> = ({ team }) => {
+export const ReadyScreen: FunctionComponent<Props> = ({ onReady, team }) => {
   const [{ pinkTeamName, purpleTeamName }] = useContext(TeamNamesContext);
 
   return (
@@ -19,7 +20,9 @@ export const ReadyScreen: FunctionComponent<Props> = ({ team }) => {
         <h2 className="card-title">{team === "purple" ? purpleTeamName : pinkTeamName}</h2>
         <Icon type="team" color={`hsl(var(--${team === "purple" ? "pc" : "sc"}))`} className="w-16" />
         <div className="card-actions justify-end">
-          <button className="btn btn-ghost">Start</button>
+          <button className="btn btn-ghost" onClick={onReady}>
+            Start
+          </button>
         </div>
       </div>
     </div>
