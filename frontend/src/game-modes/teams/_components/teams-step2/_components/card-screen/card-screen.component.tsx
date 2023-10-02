@@ -1,3 +1,4 @@
+import { Icon } from "@/components/icon/icon.component";
 import { Font } from "@/design-system/font/font.component";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
@@ -118,7 +119,11 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
         </div>
       </div>
       <div className="flex justify-between">
-        <button className="btn btn-sm sm:btn-md btn-secondary" onClick={handleNextCardClick}>
+        <button className="btn btn-sm btn-warning sm:btn-md w-32">{t("play.skip")}</button>
+        <button className="btn btn-error btn-sm sm:btn-md btn-circle">
+          <Icon type="taboo" color="hsl(var(--erc))" />
+        </button>
+        <button className="btn btn-sm btn-success sm:btn-md w-32" onClick={handleNextCardClick}>
           {t("play.next")} ❯
         </button>
       </div>
