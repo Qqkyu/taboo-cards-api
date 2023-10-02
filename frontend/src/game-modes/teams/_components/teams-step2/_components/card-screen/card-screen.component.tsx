@@ -119,11 +119,16 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
         </div>
       </div>
       <div className="flex justify-between">
-        <button className="btn btn-sm btn-warning sm:btn-md w-32">{t("play.skip")}</button>
-        <button className="btn btn-error btn-sm sm:btn-md btn-circle">
+        <button className={`btn btn-sm btn-warning sm:btn-md w-32 ${!isReady && "btn-disabled"}`}>
+          {t("play.skip")}
+        </button>
+        <button className={`btn btn-error btn-sm sm:btn-md btn-circle ${!isReady && "btn-disabled"}`}>
           <Icon type="taboo" color="hsl(var(--erc))" />
         </button>
-        <button className="btn btn-sm btn-success sm:btn-md w-32" onClick={handleNextCardClick}>
+        <button
+          className={`btn btn-sm btn-success sm:btn-md w-32 ${!isReady && "btn-disabled"}`}
+          onClick={handleNextCardClick}
+        >
           {t("play.next")} ❯
         </button>
       </div>
