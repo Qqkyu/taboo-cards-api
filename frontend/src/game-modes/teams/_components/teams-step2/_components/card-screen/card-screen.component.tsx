@@ -33,8 +33,12 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
   const [card, setCard] = useState<Card | undefined>(undefined);
   const [nextCard, setNextCard] = useState<Card | undefined>(undefined);
 
-  const [{ roundTime }] = useContext(SettingsContext);
+  const [{ roundTime, skips }] = useContext(SettingsContext);
   const [timer, setTimer] = useState(roundTime);
+
+  const [skipsLeft, setSkipsLeft] = useState(skips);
+  const [displaySkipsTooltip, setDisplaySkipsTooltip] = useState(false);
+  const displaySkipsTimeoutRef = useRef<number>(null);
 
   const t = useTranslations(lang);
 
@@ -57,6 +61,14 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
 
     return () => clearInterval(interval);
   }, [isReady]);
+
+  const handleSkipCardClick = useCallback(() => {
+    clearTimeout(displaySkipsTimeoutRef.current);
+    setDisplaySkipsTooltip(true);
+    setSkipsLeft((prev) => prev - 1);
+    const timeout = window.setTimeout(() => setDisplaySkipsTooltip(false), 5000);
+    displaySkipsTimeoutRef.current = timeout;
+  }, []);
 
   const handleNextCardClick = useCallback(async () => {
     previousCards.current.push(card);
@@ -119,9 +131,17 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
         </div>
       </div>
       <div className="flex justify-between">
-        <button className={`btn btn-sm btn-warning sm:btn-md w-32 ${!isReady && "btn-disabled"}`}>
-          {t("play.skip")}
-        </button>
+        <div
+          className={`tooltip tooltip-bottom tooltip-warning ${displaySkipsTooltip && "tooltip-open"}`}
+          data-tip={t("play.skips_info")(skipsLeft)}
+        >
+          <button
+            className={`btn btn-sm btn-warning sm:btn-md w-32 ${!isReady || (skipsLeft === 0 && "btn-disabled")}`}
+            onClick={handleSkipCardClick}
+          >
+            {t("play.skip")}
+          </button>
+        </div>
         <button className={`btn btn-error btn-sm sm:btn-md btn-circle ${!isReady && "btn-disabled"}`}>
           <Icon type="taboo" color="hsl(var(--erc))" />
         </button>
