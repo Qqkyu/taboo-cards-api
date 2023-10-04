@@ -37,7 +37,7 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
   const [timer, setTimer] = useState(roundTime);
 
   const [skipsLeft, setSkipsLeft] = useState(skips);
-  const [displaySkipsTooltip, setDisplaySkipsTooltip] = useState(false);
+  const [displaySkipsInfo, setDisplaySkipsInfo] = useState(false);
   const displaySkipsTimeoutRef = useRef<number>(null);
 
   const t = useTranslations(lang);
@@ -64,9 +64,9 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
 
   const handleSkipCardClick = useCallback(() => {
     clearTimeout(displaySkipsTimeoutRef.current);
-    setDisplaySkipsTooltip(true);
+    setDisplaySkipsInfo(true);
     setSkipsLeft((prev) => prev - 1);
-    const timeout = window.setTimeout(() => setDisplaySkipsTooltip(false), 5000);
+    const timeout = window.setTimeout(() => setDisplaySkipsInfo(false), 2000);
     displaySkipsTimeoutRef.current = timeout;
   }, []);
 
@@ -132,14 +132,14 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
       </div>
       <div className="flex justify-between">
         <div
-          className={`tooltip tooltip-bottom tooltip-warning ${displaySkipsTooltip && "tooltip-open"}`}
+          className={`tooltip tooltip-bottom tooltip-warning ${displaySkipsInfo && "tooltip-open"}`}
           data-tip={t("play.skips_info")(skipsLeft)}
         >
           <button
-            className={`btn btn-sm btn-warning sm:btn-md w-32 ${!isReady || (skipsLeft === 0 && "btn-disabled")}`}
+            className={`btn btn-sm btn-warning sm:btn-md w-32 ${(!isReady || skipsLeft === 0) && "btn-disabled"}`}
             onClick={handleSkipCardClick}
           >
-            {t("play.skip")}
+            {displaySkipsInfo ? "-1" : t("play.skip")}
           </button>
         </div>
         <button className={`btn btn-error btn-sm sm:btn-md btn-circle ${!isReady && "btn-disabled"}`}>
