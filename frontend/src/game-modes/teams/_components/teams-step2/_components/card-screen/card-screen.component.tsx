@@ -25,11 +25,12 @@ const BADGE_COLOR = {
 
 type Props = {
   isReady: boolean;
+  onTimeEnd: () => void;
   team: "pink" | "purple";
   lang: "en" | "pl";
 };
 
-export const CardScreen: FunctionComponent<Props> = ({ isReady, team, lang }) => {
+export const CardScreen: FunctionComponent<Props> = ({ isReady, onTimeEnd, team, lang }) => {
   const previousCards = useRef<Array<Card>>([]);
 
   const [card, setCard] = useState<Card | undefined>(undefined);
@@ -85,10 +86,11 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, team, lang }) =>
       isReady &&
       setInterval(() => {
         setTimer((timeLeft) => Math.max(0, timeLeft - 1));
+        timer === 0 && onTimeEnd();
       }, 1000);
 
     return () => clearInterval(interval);
-  }, [isReady]);
+  }, [isReady, onTimeEnd, timer]);
 
   const fetchCards = useCallback(async () => {
     previousCards.current.push(card);
