@@ -25,7 +25,7 @@ export const TeamsGameModeStep2: FunctionComponent<Props> = ({ lang }) => {
         ))}
       </ul>
       <ReadyScreen team="purple" onReady={() => setIsReady(true)} />
-      <CardScreen lang={lang} isReady={isReady} />
+      <CardScreen team="purple" lang={lang} isReady={isReady} />
     </div>
   );
 };

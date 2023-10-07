@@ -1,5 +1,6 @@
 import { Icon } from "@/components/icon/icon.component";
 import { Font } from "@/design-system/font/font.component";
+import { GameContext } from "@/game-modes/teams/contexts/game.context";
 import { SettingsContext } from "@/game-modes/teams/contexts/settings.context";
 import { useTranslations } from "@/i18n/utils";
 import { getRandomCard } from "@/lib/api";
@@ -24,14 +25,41 @@ const BADGE_COLOR = {
 
 type Props = {
   isReady: boolean;
+  team: "pink" | "purple";
   lang: "en" | "pl";
 };
 
-export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
+export const CardScreen: FunctionComponent<Props> = ({ isReady, team, lang }) => {
   const previousCards = useRef<Array<Card>>([]);
 
   const [card, setCard] = useState<Card | undefined>(undefined);
   const [nextCard, setNextCard] = useState<Card | undefined>(undefined);
+
+  const [{ points, round }, setGame] = useContext(GameContext);
+
+  const addPoints = useCallback(
+    (pointsToAdd = 1) =>
+      setGame({
+        round,
+        points: {
+          pinkTeam: points.pinkTeam + (team === "pink" ? pointsToAdd : 0),
+          purpleTeam: points.purpleTeam + (team === "purple" ? pointsToAdd : 0),
+        },
+      }),
+    [points.pinkTeam, points.purpleTeam, round, setGame, team],
+  );
+
+  const subtractPoint = useCallback(
+    () =>
+      setGame({
+        round,
+        points: {
+          pinkTeam: points.pinkTeam - +(team === "pink"),
+          purpleTeam: points.purpleTeam - +(team === "purple"),
+        },
+      }),
+    [points.pinkTeam, points.purpleTeam, round, setGame, team],
+  );
 
   const [{ roundTime, skips }] = useContext(SettingsContext);
   const [timer, setTimer] = useState(roundTime);
@@ -62,20 +90,31 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
     return () => clearInterval(interval);
   }, [isReady]);
 
-  const handleSkipCardClick = useCallback(() => {
-    clearTimeout(displaySkipsTimeoutRef.current);
-    setDisplaySkipsInfo(true);
-    setSkipsLeft((prev) => prev - 1);
-    const timeout = window.setTimeout(() => setDisplaySkipsInfo(false), 2000);
-    displaySkipsTimeoutRef.current = timeout;
-  }, []);
-
-  const handleNextCardClick = useCallback(async () => {
+  const fetchCards = useCallback(async () => {
     previousCards.current.push(card);
     setCard(nextCard);
     const nextRandomCard = await getRandomCard({ lang, apiUrlPrefix: API_URL_PREFIX });
     setNextCard(nextRandomCard);
   }, [card, lang, nextCard]);
+
+  const handleNextCardClick = useCallback(async () => {
+    addPoints(card.difficulty === "easy" ? 1 : card.difficulty === "medium" ? 2 : 3);
+    await fetchCards();
+  }, [addPoints, card, fetchCards]);
+
+  const handleSkipCardClick = useCallback(() => {
+    fetchCards();
+    clearTimeout(displaySkipsTimeoutRef.current);
+    setDisplaySkipsInfo(true);
+    setSkipsLeft((prev) => prev - 1);
+    const timeout = window.setTimeout(() => setDisplaySkipsInfo(false), 2000);
+    displaySkipsTimeoutRef.current = timeout;
+  }, [fetchCards]);
+
+  const handleTabooClick = useCallback(() => {
+    fetchCards();
+    subtractPoint();
+  }, [fetchCards, subtractPoint]);
 
   return (
     <div className="flex flex-col gap-6 sm:gap-10">
@@ -139,10 +178,13 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, lang }) => {
             className={`btn btn-sm btn-warning sm:btn-md w-32 ${(!isReady || skipsLeft === 0) && "btn-disabled"}`}
             onClick={handleSkipCardClick}
           >
-            {displaySkipsInfo ? "-1" : t("play.skip")}
+            {t("play.skip")}
           </button>
         </div>
-        <button className={`btn btn-error btn-sm sm:btn-md btn-circle ${!isReady && "btn-disabled"}`}>
+        <button
+          className={`btn btn-error btn-sm sm:btn-md btn-circle ${!isReady && "btn-disabled"}`}
+          onClick={handleTabooClick}
+        >
           <Icon type="taboo" color="hsl(var(--erc))" />
         </button>
         <button
