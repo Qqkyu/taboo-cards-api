@@ -62,7 +62,8 @@ export const CardScreen: FunctionComponent<Props> = ({ isReady, onTimeEnd, team,
     [points.pinkTeam, points.purpleTeam, round, setGame, team],
   );
 
-  const [{ roundTime, skips }] = useContext(SettingsContext);
+  const roundTime = 3;
+  const [{ /* roundTime */ skips }] = useContext(SettingsContext);
   const [timer, setTimer] = useState(roundTime);
 
   const [skipsLeft, setSkipsLeft] = useState(skips);

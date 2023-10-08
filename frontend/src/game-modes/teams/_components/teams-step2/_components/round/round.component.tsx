@@ -1,4 +1,4 @@
-import { useState, type FunctionComponent, useMemo } from "react";
+import { useState, type FunctionComponent, useMemo, useCallback } from "react";
 import { CardScreen } from "@/game-modes/teams/_components/teams-step2/_components/card-screen/card-screen.component";
 import { ReadyScreen } from "@/game-modes/teams/_components/teams-step2/_components/ready-screen/ready-screen.component";
 
@@ -14,15 +14,15 @@ export const Round: FunctionComponent<Props> = ({ lang }) => {
   }, []);
   const [currentTeam, setCurrentTeam] = useState(startingTeam);
 
+  const handleTimeEnd = useCallback(() => {
+    setCurrentTeam(startingTeam === "pink" ? "purple" : "pink");
+    setIsReady(false);
+  }, [startingTeam]);
+
   return (
     <>
       <ReadyScreen team={currentTeam} onReady={() => setIsReady(true)} />
-      <CardScreen
-        team={currentTeam}
-        lang={lang}
-        isReady={isReady}
-        onTimeEnd={() => setCurrentTeam(startingTeam === "pink" ? "purple" : "pink")}
-      />
+      <CardScreen key={currentTeam} team={currentTeam} lang={lang} isReady={isReady} onTimeEnd={handleTimeEnd} />
     </>
   );
 };
