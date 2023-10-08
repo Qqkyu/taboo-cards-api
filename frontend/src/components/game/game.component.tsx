@@ -22,7 +22,7 @@ type Props = {
   lang: "en" | "pl";
 };
 
-export const JustCardsGameMode: FunctionComponent<Props> = ({ lang }) => {
+export const Game: FunctionComponent<Props> = ({ lang }) => {
   const previousCards = useRef<Array<Card>>([]);
 
   const [card, setCard] = useState<Card | undefined>(undefined);

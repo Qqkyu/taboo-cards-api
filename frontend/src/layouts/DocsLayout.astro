@@ -15,7 +15,7 @@ interface Props {
 const { title, breadcrumbs } = Astro.props;
 
 function formatTitle(title: string) {
-  return title ? `${title} | ${t("title.docs")}` : t("title.docs");
+  return title ? `${title} | ${t("meta.title")}` : t("meta.title");
 }
 
 const lang = getLangFromUrl(Astro.url);

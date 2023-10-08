@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 
-type LocalStorageKey =
-  | "just-cards-timer"
-  | "teams-purple-team-name"
-  | "teams-pink-team-name"
-  | "teams-round-time"
-  | "teams-rounds"
-  | "teams-skips";
+type LocalStorageKey = "just-cards-timer";
 
 export const useLocalStorage = <T extends string>(key: LocalStorageKey, fallbackValue: T) => {
   const localStorageValue = typeof window !== "undefined" ? (localStorage.getItem(key) as T) : undefined;

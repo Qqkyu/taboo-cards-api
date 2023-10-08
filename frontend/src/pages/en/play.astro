@@ -1,12 +1,12 @@
 ---
 import GameLayout from "@/layouts/GameLayout.astro";
+import { Game } from "@/components/game/game.component";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { TeamsGameMode } from "@/game-modes/teams/teams.component";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hooks
 ---
 
-<GameLayout title={t("play.teams")} breadcrumbs={[{ label: t("play.teams"), href: `/${lang}/play/teams` }]}>
-  <TeamsGameMode lang="en" client:idle />
+<GameLayout title={t("header.play")}>
+  <Game lang="en" client:idle />
 </GameLayout>

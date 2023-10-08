@@ -5,17 +5,15 @@ import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs.component";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button/scroll-to-top-button.component";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { ViewTransitions } from "astro:transitions";
-import type { ComponentProps } from "react";
 
 interface Props {
   title?: string;
-  breadcrumbs?: ComponentProps<typeof Breadcrumbs>["breadcrumbs"];
 }
 
-const { title, breadcrumbs } = Astro.props;
+const { title } = Astro.props;
 
 function formatTitle(title: string) {
-  return title ? `${title} | ${t("title.game")}` : t("title.game");
+  return title ? `${title} | ${t("meta.title")}` : t("meta.title");
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -50,7 +48,6 @@ const t = useTranslations(lang); // eslint-disable-line react-hooks/rules-of-hoo
         breadcrumbs={[
           { label: t("breadcrumbs.home"), href: `/${lang}`, icon: "home" },
           { label: t("header.play"), href: `/${lang}/play` },
-          ...(breadcrumbs ?? []),
         ]}
       />
       <div class="flex flex-1 p-4 sm:p-10 lg:p-20 flex-col w-full items-center justify-center">

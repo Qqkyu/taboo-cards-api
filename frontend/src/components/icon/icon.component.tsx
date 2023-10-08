@@ -14,10 +14,7 @@ import { CardIcon } from "./icons/card.icon";
 import { GreatBritainFlagIcon } from "./icons/gb-flag.icon";
 import { PolandFlagIcon } from "./icons/pl-flag.icon";
 import { TwitterIcon } from "./icons/twitter.icon";
-import { TeamIcon } from "./icons/team.icon";
-import { SingleIcon } from "./icons/single.icon";
 import { HomeIcon } from "./icons/home.icon";
-import { TabooIcon } from "./icons/taboo.icon";
 
 export type IconType =
   | "home"
@@ -25,15 +22,12 @@ export type IconType =
   | "checkmark"
   | "moon"
   | "sun"
-  | "single"
-  | "team"
   | "github"
   | "twitter"
   | "error"
   | "card"
   | "stairs"
   | "language"
-  | "taboo"
   | "arrow-up"
   | "burger-menu"
   | "gb-flag"
@@ -49,15 +43,12 @@ const Icons: Record<IconType, FunctionComponent<IconComponentProps>> = {
   checkmark: CheckmarkIcon,
   moon: MoonIcon,
   sun: SunIcon,
-  single: SingleIcon,
-  team: TeamIcon,
   github: GithubIcon,
   twitter: TwitterIcon,
   error: ErrorIcon,
   card: CardIcon,
   stairs: StairsIcon,
   language: LanguageIcon,
-  taboo: TabooIcon,
   "arrow-up": ArrowUpIcon,
   "burger-menu": BurgerMenuIcon,
   "gb-flag": GreatBritainFlagIcon,
