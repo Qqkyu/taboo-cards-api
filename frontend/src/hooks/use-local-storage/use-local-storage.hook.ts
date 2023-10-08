@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type LocalStorageKey = "just-cards-timer";
+type LocalStorageKey = "timer";
 
 export const useLocalStorage = <T extends string>(key: LocalStorageKey, fallbackValue: T) => {
   const localStorageValue = typeof window !== "undefined" ? (localStorage.getItem(key) as T) : undefined;

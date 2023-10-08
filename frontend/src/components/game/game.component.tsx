@@ -28,7 +28,7 @@ export const Game: FunctionComponent<Props> = ({ lang }) => {
   const [card, setCard] = useState<Card | undefined>(undefined);
   const [nextCard, setNextCard] = useState<Card | undefined>(undefined);
 
-  const roundTimeState = useLocalStorage("just-cards-timer", DEFAULT_TIMER.toString());
+  const roundTimeState = useLocalStorage("timer", DEFAULT_TIMER.toString());
   const [timer, setTimer] = [parseInt(roundTimeState[0]), (timer: number) => roundTimeState[1](timer.toString())];
   const [timeLeft, setTimeLeft] = useState<number | undefined>(undefined);
   const [timerOn, setTimerOn] = useState<boolean>(false);
